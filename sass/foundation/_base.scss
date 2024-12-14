@@ -1,0 +1,70 @@
+@use "./function" as *;
+
+/* カスタム変数
+--------------------------- */
+:root {
+  --layout-width-min: ;
+  --layout-width-max: ;
+  --fluid-ratio-min: calc(1 / var(--layout-width-min) * 100dvi);
+  --fluid-ratio-max: calc(1 / var(--layout-width-max) * 100dvi);
+  --leading-trim: calc((1em - 1lh) / 2);
+
+  --font-size-base: ;
+  --font-size-sm: ;
+  --font-size-md: ;
+  --font-size-lg: ;
+  --rem: calc(1rem / var(--font-size-base));
+
+  --font-weight-base: ;
+  --font-weight-sm: ;
+  --font-weight-md: ;
+  --font-weight-lg: ;
+
+  --line-height-base: ;
+  --line-height-sm: ;
+  --line-height-md: ;
+  --line-height-lg: ;
+
+  --letter-spacing-base: em;
+  --letter-spacing-sm: em;
+  --letter-spacing-md: em;
+  --letter-spacing-lg: em;
+
+  --font-fml-base: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  --font-fml-main: ;
+  
+  --color-base: ;
+  --color-background: ;
+  --color-black: ;
+  --color-white: ;
+  
+  --z-index-negative-layer: -1;
+  --z-index-header: ;
+  --z-index-top-layer: 10;
+}
+
+@supports not (top: 1lh) {
+  :root {
+    --leading-trim: 0px;
+  }
+}
+
+:where(dialog, [popover]) {
+  margin: unset;
+  max-width: unset;
+  max-height: unset;
+  width: unset;
+  height: unset;
+}
+
+/* base
+--------------------------- */
+html {
+  font-size: calc(16 * var(--rem));
+  line-height: ;
+}
+
+body {
+  font-family: ;
+  color: ;
+}
