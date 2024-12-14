@@ -9,44 +9,50 @@
   --fluid-ratio-max: calc(1 / var(--layout-width-max) * 100dvi);
   --leading-trim: calc((1em - 1lh) / 2);
 
-  --font-size-base: ;
-  --font-size-sm: ;
-  --font-size-md: ;
-  --font-size-lg: ;
-  --rem: calc(1rem / var(--font-size-base));
+  --fz-base-pc: 16;
+  --fz-base-sp: 16;
+  --fz-sm-1: 10;
+  --fz-sm-2: 12;
+  --fz-sm-3: 14;
+  --fz-md: 18;
+  --fz-lg-1: 20;
+  --fz-lg-2: 24;
+  --fz-xl-1: 32;
+  --fz-xl-2: 36;
+  --fz-xxl-1: 40;
+  --fz-xxl-2: 48;
+  --fz-xxl-3: 52;
+  --rem: calc(1rem / var(--fz-base-pc));
 
-  --font-weight-base: ;
-  --font-weight-sm: ;
-  --font-weight-md: ;
-  --font-weight-lg: ;
+  --fz-wt-base: 400;
+  --fz-wt-sm: ;
+  --fz-wt-md: ;
+  --fz-wt-lg: 700;
 
-  --line-height-base: ;
-  --line-height-sm: ;
-  --line-height-md: ;
-  --line-height-lg: ;
+  --line-ht-base: 1.5;
+  --line-ht-sm: 1.2;
+  --line-ht-md: 1.8;
+  --line-ht-lg: 2.5;
 
-  --letter-spacing-base: em;
-  --letter-spacing-sm: em;
-  --letter-spacing-md: em;
-  --letter-spacing-lg: em;
+  --letter-sg-base: em;
+  --letter-sg-sm: em;
+  --letter-sg-md: em;
+  --letter-sg-lg: em;
 
-  --font-fml-base: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  --font-fml-main: ;
+  --fz-fml-base: "Noto Sans JP", serif;
+  --fz-fml-1: "Inter", sans-serif;
+  --fz-fml-2: "Viga", serif;
+  --fz-fml-3: "Poppins", serif;
   
-  --color-base: ;
-  --color-background: ;
-  --color-black: ;
-  --color-white: ;
+  --color-base: #988C2C;
+  --color-hover: #AFA 86F;
+  --color-background: #fff;
+  --color-black: #222;
+  --color-white: #FAF7F1;   
   
   --z-index-negative-layer: -1;
   --z-index-header: ;
   --z-index-top-layer: 10;
-}
-
-@supports not (top: 1lh) {
-  :root {
-    --leading-trim: 0px;
-  }
 }
 
 :where(dialog, [popover]) {
@@ -61,10 +67,10 @@
 --------------------------- */
 html {
   font-size: calc(16 * var(--rem));
-  line-height: ;
+  line-height: var(--line-ht-base);
 }
 
 body {
-  font-family: ;
-  color: ;
+  font-family: var(--fz-fml-base);
+  color: var(--color-black);
 }
