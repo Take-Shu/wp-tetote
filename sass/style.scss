@@ -7,6 +7,7 @@
  /*--------------------------------*
  * layout
  *--------------------------------*/
+ @use "./layout/body";
  @use "./layout/header";
  @use "./layout/main";
  @use "./layout/footer";
@@ -14,12 +15,12 @@
 /*--------------------------------*
  * component
  *--------------------------------*/
- @use "./object/component/hoge";
+//  @use "./object/component/hoge";
 
  /*--------------------------------*
  * project
  *--------------------------------*/
- @use "./object/project/fuga";
+//  @use "./object/project/fuga";
  
  /*--------------------------------*
  * utility

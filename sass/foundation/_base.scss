@@ -3,14 +3,16 @@
 /* カスタム変数
 --------------------------- */
 :root {
-  --layout-width-min: ;
-  --layout-width-max: ;
+  --layout-width-min: 375;
+  --layout-width-max: 1440;
   --fluid-ratio-min: calc(1 / var(--layout-width-min) * 100dvi);
   --fluid-ratio-max: calc(1 / var(--layout-width-max) * 100dvi);
+  --fluid-ratio-min-container: calc(1 / var(--layout-width-min) * 100cqi);
+  --fluid-ratio-max-container: calc(1 / var(--layout-width-max) * 100cqi);
+  --spacing-gutter: calc(12 * var(--fluid-ratio-min));
   --leading-trim: calc((1em - 1lh) / 2);
 
-  --fz-base-pc: 16;
-  --fz-base-sp: 16;
+  --fz-base: 16;
   --fz-sm-1: 10;
   --fz-sm-2: 12;
   --fz-sm-3: 14;
@@ -46,12 +48,12 @@
   
   --color-base: #988C2C;
   --color-hover: #AFA 86F;
-  --color-background: #fff;
   --color-black: #222;
-  --color-white: #FAF7F1;   
+  --color-white-1: #fff;
+  --color-white-2: #FAF7F1;   
   
   --z-index-negative-layer: -1;
-  --z-index-header: ;
+  --z-index-header: 2;
   --z-index-top-layer: 10;
 }
 
@@ -66,11 +68,15 @@
 /* base
 --------------------------- */
 html {
-  font-size: calc(16 * var(--rem));
+  font-size: calc(var(--fz-base) * var(--rem));
   line-height: var(--line-ht-base);
 }
 
 body {
   font-family: var(--fz-fml-base);
   color: var(--color-black);
+}
+
+img {
+  inline-size: 100%;
 }

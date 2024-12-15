@@ -3,5 +3,64 @@
 /* header
 --------------------------- */
 .l-header {
-  
+  --header-height: 56;
+  --logo-width: 151;
+  --logo-height: 40;
+  --menu-button-ht: 20;
+  --menu-button-wt: 32;
+  inline-size: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-header);
+  container-type: inline-size;
+  &__inner {
+    padding-inline: var(--spacing-gutter);
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    block-size: calc(var(--header-height) * var(--fluid-ratio-min-container));
+  }
+  &__logo {
+    inline-size: calc(var(--logo-width) * var(--fluid-ratio-min-container));
+    aspect-ratio: var(--logo-width) / var(--logo-height);
+  }
+  &__menu {
+    display: grid;
+    justify-items: center;
+    margin-inline-start: auto;
+  }
+  &__menu-button {
+    inline-size: calc(var(--menu-button-wt) * var(--fluid-ratio-min-container));
+    position: relative;
+    display: grid;
+    align-content: center;
+    aspect-ratio: var(--menu-button-wt) / var(--menu-button-ht);
+  }
+  &__menu-icon {
+    display: grid;
+    background-color: var(--color-white-1);
+    block-size: 2px;
+    &::before, &::after {
+      content: "";
+      display: inline-block;
+      block-size: 2px;
+      inline-size: stretch;
+      background-color: inherit;
+      position: absolute;
+    }
+    &::before {
+      inset-block-start: 0;
+    }
+    &::after {
+      inset-block-end: 0;
+    }
+  }
+  &__menu-name {
+    font-family: var(--fz-fml-2);
+    font-size: clamp(0.625rem, calc(0.5rem + 0.333vw), 0.75rem);
+    color: var(--color-white-1);
+  }
 }

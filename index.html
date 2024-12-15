@@ -29,6 +29,7 @@
   <link rel="manifest" href="/https://shu-web-test.sakura.ne.jp/wp/tetote/favicon/site.webmanifest"
     crossorigin="use-credentials">
 
+  <link rel="stylesheet" href="/assets/css/reset.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -42,16 +43,19 @@
 
 <body class="l-body">
   <header class="l-header">
-    <div class="l-header__logo">
-      <img src="/assets/img/top/logo_white_sp.svg" alt="採用特設サイト | 株式会社TETOTE" class="l-header__logo-img">
-    </div>
-    <div class="l-header__menu">
-      <button type="button" class="l-header__menu-button" aria-labelledby="menu-button">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span id="menu-button" lang="en" class="l-header__menu">MENU</span>
-      </button>
+    <div class="l-header__inner">
+      <div class="l-header__container">
+        <div class="l-header__logo">
+          <img src="/assets/img/top/logo_white_sp.svg" alt="採用特設サイト | 株式会社TETOTE" class="l-header__logo-img">
+        </div>
+        <div class="l-header__menu">
+          <button type="button" class="l-header__menu-button" aria-labelledby="menu-button">
+            <span id="menu-button" style="display: none">メニューを開く</span>
+            <span class="l-header__menu-icon"></span>
+          </button>
+          <span lang="en" class="l-header__menu-name">MENU</span>
+        </div>
+      </div>
     </div>
   </header>
 

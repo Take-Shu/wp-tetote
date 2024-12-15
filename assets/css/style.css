@@ -1,0 +1,167 @@
+@charset "UTF-8";
+/*--------------------------------*
+ * foundation
+ *--------------------------------*/
+/* カスタム変数
+--------------------------- */
+:root {
+  --layout-width-min: 375;
+  --layout-width-max: 1440;
+  --fluid-ratio-min: calc(1 / var(--layout-width-min) * 100dvi);
+  --fluid-ratio-max: calc(1 / var(--layout-width-max) * 100dvi);
+  --fluid-ratio-min-container: calc(1 / var(--layout-width-min) * 100cqi);
+  --fluid-ratio-max-container: calc(1 / var(--layout-width-max) * 100cqi);
+  --spacing-gutter: calc(12 * var(--fluid-ratio-min));
+  --leading-trim: calc((1em - 1lh) / 2);
+  --fz-base: 16;
+  --fz-sm-1: 10;
+  --fz-sm-2: 12;
+  --fz-sm-3: 14;
+  --fz-md: 18;
+  --fz-lg-1: 20;
+  --fz-lg-2: 24;
+  --fz-xl-1: 32;
+  --fz-xl-2: 36;
+  --fz-xxl-1: 40;
+  --fz-xxl-2: 48;
+  --fz-xxl-3: 52;
+  --rem: calc(1rem / var(--fz-base-pc));
+  --fz-wt-base: 400;
+  --fz-wt-sm: ;
+  --fz-wt-md: ;
+  --fz-wt-lg: 700;
+  --line-ht-base: 1.5;
+  --line-ht-sm: 1.2;
+  --line-ht-md: 1.8;
+  --line-ht-lg: 2.5;
+  --letter-sg-base: em;
+  --letter-sg-sm: em;
+  --letter-sg-md: em;
+  --letter-sg-lg: em;
+  --fz-fml-base: "Noto Sans JP", serif;
+  --fz-fml-1: "Inter", sans-serif;
+  --fz-fml-2: "Viga", serif;
+  --fz-fml-3: "Poppins", serif;
+  --color-base: #988C2C;
+  --color-hover: #AFA 86F;
+  --color-black: #222;
+  --color-white-1: #fff;
+  --color-white-2: #FAF7F1;
+  --z-index-negative-layer: -1;
+  --z-index-header: 2;
+  --z-index-top-layer: 10;
+}
+
+:where(dialog, [popover]) {
+  margin: unset;
+  max-width: unset;
+  max-height: unset;
+  width: unset;
+  height: unset;
+}
+
+/* base
+--------------------------- */
+html {
+  font-size: calc(var(--fz-base) * var(--rem));
+  line-height: var(--line-ht-base);
+}
+
+body {
+  font-family: var(--fz-fml-base);
+  color: var(--color-black);
+}
+
+img {
+  inline-size: 100%;
+}
+
+/*--------------------------------*
+* layout
+*--------------------------------*/
+/* body
+--------------------------- */
+/* header
+--------------------------- */
+.l-header {
+  --header-height: 56;
+  --logo-width: 151;
+  --logo-height: 40;
+  --menu-button-ht: 20;
+  --menu-button-wt: 32;
+  inline-size: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-header);
+  container-type: inline-size;
+}
+.l-header__inner {
+  padding-inline: var(--spacing-gutter);
+}
+.l-header__container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  block-size: calc(var(--header-height) * var(--fluid-ratio-min-container));
+}
+.l-header__logo {
+  inline-size: calc(var(--logo-width) * var(--fluid-ratio-min-container));
+  aspect-ratio: var(--logo-width)/var(--logo-height);
+}
+.l-header__menu {
+  display: grid;
+  justify-items: center;
+  -webkit-margin-start: auto;
+          margin-inline-start: auto;
+}
+.l-header__menu-button {
+  inline-size: calc(var(--menu-button-wt) * var(--fluid-ratio-min-container));
+  position: relative;
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  aspect-ratio: var(--menu-button-wt)/var(--menu-button-ht);
+}
+.l-header__menu-icon {
+  display: grid;
+  background-color: var(--color-white-1);
+  block-size: 2px;
+}
+.l-header__menu-icon::before, .l-header__menu-icon::after {
+  content: "";
+  display: inline-block;
+  block-size: 2px;
+  inline-size: -webkit-fill-available;
+  inline-size: -moz-available;
+  inline-size: stretch;
+  background-color: inherit;
+  position: absolute;
+}
+.l-header__menu-icon::before {
+  inset-block-start: 0;
+}
+.l-header__menu-icon::after {
+  inset-block-end: 0;
+}
+.l-header__menu-name {
+  font-family: var(--fz-fml-2);
+  font-size: clamp(0.625rem, 0.5rem + 0.333vw, 0.75rem);
+  color: var(--color-white-1);
+}
+
+/* main
+--------------------------- */
+/* footer
+--------------------------- */
+/*--------------------------------*
+ * component
+ *--------------------------------*/
+/*--------------------------------*
+* project
+*--------------------------------*/
+/*--------------------------------*
+* utility
+*--------------------------------*//*# sourceMappingURL=style.css.map */
