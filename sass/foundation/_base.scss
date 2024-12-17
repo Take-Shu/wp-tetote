@@ -24,7 +24,7 @@
   --fz-xxl-1: 40;
   --fz-xxl-2: 48;
   --fz-xxl-3: 52;
-  --rem: calc(1rem / var(--fz-base-pc));
+  --rem: calc(1rem / var(--fz-base));
 
   --fz-wt-base: 400;
   --fz-wt-sm: ;
@@ -41,10 +41,10 @@
   --letter-sg-md: em;
   --letter-sg-lg: em;
 
-  --fz-fml-base: "Noto Sans JP", serif;
-  --fz-fml-1: "Inter", sans-serif;
-  --fz-fml-2: "Viga", serif;
-  --fz-fml-3: "Poppins", serif;
+  --ft-fml-base: "Noto Sans JP", serif;
+  --ft-fml-1: "Inter", sans-serif;
+  --ft-fml-2: "Viga", serif;
+  --ft-fml-3: "Poppins", serif;
   
   --color-base: #988C2C;
   --color-hover: #AFA 86F;
@@ -53,7 +53,8 @@
   --color-white-2: #FAF7F1;   
   
   --z-index-negative-layer: -1;
-  --z-index-header: 2;
+  --z-index-base: 2;
+  --z-index-header: 9;
   --z-index-top-layer: 10;
 }
 
@@ -79,4 +80,5 @@ body {
 
 img {
   inline-size: 100%;
+  object-fit: cover;
 }

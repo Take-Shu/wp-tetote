@@ -1,0 +1,10 @@
+@use "./../../foundation/function" as *;
+
+/* position
+--------------------------- */
+.u-position {
+  object-position: 65% center;
+  @container fv-container (min-width: 768px) {
+    object-position: center;
+  }
+}
