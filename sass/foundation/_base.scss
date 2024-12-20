@@ -29,7 +29,7 @@
   --fz-wt-base: 400;
   --fz-wt-sm: ;
   --fz-wt-md: ;
-  --fz-wt-lg: 700;
+  --fz-wt-bold: 700;
 
   --line-ht-base: 1.5;
   --line-ht-sm: 1.2;
@@ -70,7 +70,7 @@
 --------------------------- */
 html {
   font-size: calc(var(--fz-base) * var(--rem));
-  line-height: var(--line-ht-base);
+  // line-height: var(--line-ht-base);
 }
 
 body {

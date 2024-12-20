@@ -1,0 +1,100 @@
+@use "./../../foundation/function" as *;
+
+/* career
+--------------------------- */
+.p-career {
+  --slide-item-height-sp: 210;
+  --slide-item-height-pc: 393;
+  padding-block-start: clamp(
+    calc(40 * var(--rem)),
+    calc(40 * var(--fluid-ratio-min)),
+    calc(100 * var(--rem))
+  );
+  container: career-container / inline-size;
+  position: relative;
+  & .swiper-wrapper {
+    transition-timing-function: linear;
+  }
+  &__slide-img {
+    block-size: min(
+      calc(var(--slide-item-height-sp) * var(--fluid-ratio-min-container)),
+      calc(var(--slide-item-height-pc) * var(--rem))
+    );
+    border-radius: 60px;
+    object-fit: cover;
+  }
+  &__title {
+    display: grid;
+    gap: calc(8 * var(--rem));
+    inline-size: fit-content;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 25%;
+    z-index: var(--z-index-base);
+    font-size: clamp(1.5rem, calc(1.148rem + 1.502vw), 2.5rem);
+    @container career-container (min-width: 425px) {
+      top: 25%;
+    }
+    @container career-container (min-width: 768px) {
+      top: 32%;
+    }
+    @container career-container (min-width: 1024px) {
+      top: 32%;
+    }
+    @container career-container (min-width: 1440px) {
+      top: 29%;
+    }
+  }
+  &__title-text {
+    inline-size: max-content;
+    margin-inline: auto;
+    background-color: var(--color-white-1);
+    &:nth-child(1) {
+      padding: calc(7 * var(--rem)) calc(11 * var(--rem));
+    }
+    &:nth-child(2) {
+      padding: calc(7 * var(--rem)) calc(11 * var(--rem));
+    }
+  }
+  &__objective {
+    font-size: clamp(1.125rem, calc(0.729rem + 1.69vw), 2.25rem);
+    font-weight: var(--fz-wt-bold);
+    line-height: var(--line-ht-lg);
+    text-align: center;
+    margin-block-start: clamp(
+      calc(80 * var(--rem)),
+      calc(80 * var(--fluid-ratio-min)),
+      calc(100 * var(--rem))
+    );
+    @container career-container (min-width: 768px) {
+      line-height: var(--line-ht-md);
+    }
+  }
+  &__map {
+    display: grid;
+    gap: clamp(
+      calc(40 * var(--rem)),
+      calc(40 * var(--fluid-ratio-min)),
+      calc(52 * var(--rem))
+    );
+    max-inline-size: calc(var(--layout-width-max) * 1px);
+    margin-inline: auto;
+    background: url(../img/top/map_01.png) no-repeat;
+    background-size: 85% auto;
+    background-position-x: center;
+    background-position-y: top;
+    padding-block-end: clamp(
+      calc(40 * var(--rem)),
+      calc(40 * var(--fluid-ratio-min)),
+      calc(52 * var(--rem))
+    );
+    @container career-container (min-width: 768px) {
+      background-size: 69% auto;
+    }
+  }
+  &__view-more {
+    text-align: center;
+  }
+}

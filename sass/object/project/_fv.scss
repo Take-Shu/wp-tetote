@@ -7,39 +7,8 @@
   --fv-height-pc: 823;
   container: fv-container / inline-size;
   position: relative;
-  &__slide-wrap {
-    position: relative;
-  }
   &__slide-item {
     inline-size: 100%;
-    position: absolute;
-    animation-duration: 12s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-name: fv-slide;
-    opacity: 0;
-  }
-
-  @keyframes fv-slide {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
-  &__slide-item:nth-child(1) {
-    animation-delay: -3s;
-    & .p-fv__slide-img {
-      object-position: 62% center;
-    }
-  }
-  &__slide-item:nth-child(2) {
-    animation-delay: 3s;
   }
   &__slide-img {
     inline-size: 100%;

@@ -1,0 +1,16 @@
+@use "./../../foundation/function" as *;
+
+/* utility
+--------------------------- */
+
+/* margin
+--------------------------- */
+.u-margin-top {
+  margin-block-start: clamp(calc(27 * var(--rem)), calc(27 * var(--fluid-ratio-min-container)), calc(36 * var(--rem)));
+}
+
+/* position
+--------------------------- */
+.u-position__left {
+  object-position: 62% center;
+}
