@@ -16,12 +16,15 @@
  * component
  *--------------------------------*/
  @use "./object/component/button";
+ @use "./object/component/inner";
+ @use "./object/component/section-title";
 
  /*--------------------------------*
  * project
  *--------------------------------*/
  @use "./object/project/fv";
  @use "./object/project/career";
+ @use "./object/project/employee";
  
  /*--------------------------------*
  * utility

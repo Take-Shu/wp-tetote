@@ -1,0 +1,159 @@
+@use "./../../foundation/function" as *;
+
+/* employee
+--------------------------- */
+.p-employee {
+  padding-block-start: clamp(
+    calc(70 * var(--rem)),
+    calc(70 * var(--fluid-ratio-min)),
+    calc(120 * var(--rem))
+  );
+  container: employee-container / inline-size;
+  position: relative;
+  &__title {
+    position: relative;
+  }
+  &__title-en {
+    padding-inline-start: clamp(
+      calc(17 * var(--rem)),
+      calc(17 * var(--fluid-ratio-min-container)),
+      calc(76 * var(--rem))
+    );
+  }
+  &__title-ja {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: transLateY(-50%);
+    padding-inline-start: clamp(
+      calc(17 * var(--rem)),
+      calc(17 * var(--fluid-ratio-min-container)),
+      calc(242 * var(--rem))
+    );
+    @container employee-container (min-width: 768px) {
+      padding-inline-start: min(
+        calc(242 * var(--rem)),
+        calc(242 * var(--fluid-ratio-max-container))
+      );
+    }
+  }
+  &__description {
+    padding-inline-start: max(
+      calc(17 * var(--rem)),
+      calc(17 * var(--fluid-ratio-min-container))
+    );
+    padding-inline-end: calc(17 * var(--rem));
+    @container employee-container (min-width: 768px) {
+      padding-inline-start: min(
+        calc(242 * var(--rem)),
+        calc(242 * var(--fluid-ratio-max-container))
+      );
+    }
+  }
+  &__article {
+    margin-block-start: calc(50 * var(--rem));
+    padding-inline-start: clamp(
+      calc(26 * var(--rem)),
+      calc(26 * var(--fluid-ratio-min)),
+      calc(242 * var(--rem))
+    );
+    @container employee-container (min-width: 768px) {
+      padding-inline-start: min(
+        calc(242 * var(--rem)),
+        calc(242 * var(--fluid-ratio-max-container))
+      );
+    }
+  }
+  & .swiper-wrapper.p-employee__slide-wrap {
+    transition-timing-function: linear;
+  }
+  &__slide_down {
+    margin-block-start: clamp(
+      calc(25 * var(--rem)),
+      calc(25 * var(--fluid-ratio-min)),
+      calc(36 * var(--rem))
+    );
+  }
+  &__slide-item {
+    display: grid;
+    position: relative;
+  }
+  &__name {
+    order: 4;
+    font-weight: var(--fz-wt-bold);
+    font-size: clamp(1.25rem, calc(1.162rem + 0.376vw), 1.5rem);
+    margin-block-start: clamp(
+      calc(14 * var(--rem)),
+      calc(14 * var(--fluid-ratio-min)),
+      calc(16 * var(--rem))
+    );
+  }
+  &__data {
+    order: 3;
+    font-weight: var(--fz-wt-bold);
+    font-size: clamp(0.75rem, calc(0.662rem + 0.376vw), 1rem);
+    margin-block-start: clamp(
+      calc(30 * var(--rem)),
+      calc(30 * var(--fluid-ratio-min)),
+      calc(34 * var(--rem))
+    );
+  }
+  &__message {
+    order: 2;
+    font-weight: var(--fz-wt-bold);
+    font-size: clamp(1rem, calc(0.912rem + 0.376vw), 1.25rem);
+    position: absolute;
+    bottom: 17%;
+    & > span {
+      background-color: var(--color-sub);
+      display: block;
+      padding: calc(4 * var(--rem));
+      inline-size: max-content;
+    }
+    & > span + span {
+      margin-block-start: calc(6 * var(--rem));
+    }
+  }
+  &__img {
+    order: 1;
+    border-radius: 30px;
+    aspect-ratio: 246 / 311;
+    @container employee-container (min-width: 768px) {
+      aspect-ratio: 300 / 379;
+    }
+  }
+  &__button-wrap {
+    display: block grid;
+    grid-template-columns: repeat(2, auto);
+    gap: min(calc(180 * var(--rem)), calc(180 * var(--fluid-ratio-max)));
+    align-items: center;
+    inline-size: fit-content;
+    margin-inline-start: calc(542 * var(--fluid-ratio-max));
+    margin-inline-end: auto;
+    padding-inline-end: clamp(12* var(--rem), var(--spacing-gutter), 30* var(--rem));;
+    margin-block-start: clamp(
+      calc(64 * var(--rem)),
+      calc(64 * var(--fluid-ratio-min)),
+      calc(80 * var(--rem))
+    );
+    @container employee-container (max-width: 767px) {
+      margin-inline: auto;
+      gap: 0;
+      padding: 0;
+    }
+    @container employee-container (max-width: 1024px) {
+      margin-inline-start: auto;
+    }
+  }
+  &__view-more {
+    justify-self: end;
+  }
+  &__slide-button-wrap {
+    display: inline grid;
+    grid-template-columns: repeat(2, auto);
+    gap: calc(20 * var(--rem));
+    @container employee-container (max-width: 767px) {
+      display: none;
+    }
+  }
+}

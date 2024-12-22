@@ -3,14 +3,16 @@
 /* utility
 --------------------------- */
 
-/* margin
---------------------------- */
-.u-margin-top {
-  margin-block-start: clamp(calc(27 * var(--rem)), calc(27 * var(--fluid-ratio-min-container)), calc(36 * var(--rem)));
-}
-
 /* position
 --------------------------- */
-.u-position__left {
+.u-position-left {
   object-position: 62% center;
+}
+
+/* border-bottom
+--------------------------- */
+.u-border-bottom {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
 }
