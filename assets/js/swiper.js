@@ -10,7 +10,7 @@ const swiperFv = new Swiper(".p-fv__slide", {
 
 const swiperCareer = new Swiper(".p-career__slide", {
   loop: true,
-  speed: 6000,
+  speed: 8000,
   slidesPerView: 1.4,
   spaceBetween: 16,
   autoplay: {
@@ -32,8 +32,8 @@ const swiperCareer = new Swiper(".p-career__slide", {
       speed: 15000,
       slidesPerView: 3.3,
       spaceBetween: 43,
-    }
-  }
+    },
+  },
 });
 
 const swiperEmployee = new Swiper(".p-employee__slide", {
@@ -53,14 +53,17 @@ const swiperEmployee = new Swiper(".p-employee__slide", {
     425: {
       slidesPerView: 1.5,
       spaceBetween: 23,
+      autoplay: true,
     },
     576: {
       slidesPerView: 1.8,
       spaceBetween: 23,
+      autoplay: true,
     },
     640: {
       slidesPerView: 2,
       spaceBetween: 23,
+      autoplay: true,
     },
     768: {
       speed: 1000,
@@ -85,6 +88,6 @@ const swiperEmployee = new Swiper(".p-employee__slide", {
       slidesPerView: 4.2,
       spaceBetween: 43,
       autoplay: false,
-    }
-  }
-})
+    },
+  },
+});

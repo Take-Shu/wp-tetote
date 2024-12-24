@@ -80,9 +80,31 @@
   }
 }
 
-.c-button__circle.c-button__circle-right {
+/* circle-right
+--------------------------- */
+.c-button__circle-right {
   transform: scale(-1, 1);
   &:hover {
     transform: scale(-1.2, 1.2);
   }
+}
+
+/* circle-right-black
+--------------------------- */
+.c-button__circle_black {
+  background-color: var(--color-black);
+  &::after {
+    background-color: var(--color-white-1);
+  }
+  &::before {
+    border-left: solid 2px var(--color-white-1);
+    border-bottom: solid 2px var(--color-white-1);
+  }
+}
+
+/* circle-sm
+--------------------------- */
+.c-button__circle_sm {
+  --circle-button-width: 42;
+  inline-size: calc(var(--circle-button-width) * var(--rem));
 }

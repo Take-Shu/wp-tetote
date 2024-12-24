@@ -74,7 +74,7 @@
       calc(36 * var(--rem))
     );
   }
-  &__slide-item {
+  &__slide-link {
     display: grid;
     position: relative;
   }
@@ -117,8 +117,10 @@
   &__img {
     order: 1;
     border-radius: 30px;
+    inline-size: max(calc(246 * var(--rem)), calc(246 * var(--fluid-ratio-min)));
     aspect-ratio: 246 / 311;
     @container employee-container (min-width: 768px) {
+      inline-size: min(calc(300 * var(--rem)), calc(300 * var(--fluid-ratio-min)));
       aspect-ratio: 300 / 379;
     }
   }
