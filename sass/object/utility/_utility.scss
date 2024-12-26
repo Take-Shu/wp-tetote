@@ -16,3 +16,12 @@
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
 }
+
+/* br
+--------------------------- */
+.u-blog__description_pc-only {
+  display: none;
+  @container blog-container (min-width: 1052px) {
+    display: block;
+  }
+}

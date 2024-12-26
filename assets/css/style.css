@@ -241,6 +241,7 @@ img {
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
+  background-color: var(--color-white-1);
 }
 .c-button__circle::before {
   content: "";
@@ -976,6 +977,173 @@ img {
   }
 }
 
+/* blog
+--------------------------- */
+.p-blog {
+  --article-width: calc(452 * var(--rem));
+  --column-gap: calc(52 * var(--rem));
+  background-color: var(--color-white-2);
+  -webkit-margin-before: clamp(78 * var(--rem), 78 * var(--fluid-ratio-min), 107 * var(--rem));
+          margin-block-start: clamp(78 * var(--rem), 78 * var(--fluid-ratio-min), 107 * var(--rem));
+  position: relative;
+  container: blog-container/inline-size;
+}
+.p-blog__title-wrap {
+  max-inline-size: calc(var(--article-width) * 2 + var(--column-gap));
+  margin-inline: auto;
+}
+@container blog-container (min-width: 1052px) {
+  .p-blog__title-wrap {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+.p-blog__title {
+  position: relative;
+}
+@container blog-container (min-width: 1052px) {
+  .p-blog__title-en {
+    -webkit-margin-start: min(-47 * var(--rem), -3.2638888889cqi);
+            margin-inline-start: min(-47 * var(--rem), -3.2638888889cqi);
+  }
+}
+.p-blog__title-ja {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: transLateY(-50%);
+          transform: transLateY(-50%);
+}
+.p-blog__view-more_pc {
+  display: none;
+}
+@container blog-container (min-width: 1052px) {
+  .p-blog__view-more_pc {
+    display: inline-block;
+    justify-self: end;
+    -webkit-margin-end: min(20 * var(--rem), 20 * var(--fluid-ratio-max));
+            margin-inline-end: min(20 * var(--rem), 20 * var(--fluid-ratio-max));
+  }
+}
+.p-blog__description {
+  max-inline-size: calc(var(--article-width) * 2 + var(--column-gap));
+  margin-inline: auto;
+}
+.p-blog__article {
+  max-inline-size: calc(var(--article-width) * 2 + var(--column-gap));
+  margin-inline: auto;
+  -webkit-margin-before: clamp(43 * var(--rem), 43 * var(--fluid-ratio-min), 60 * var(--rem));
+          margin-block-start: clamp(43 * var(--rem), 43 * var(--fluid-ratio-min), 60 * var(--rem));
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--article-width), 100%), 1fr));
+  row-gap: clamp(9 * var(--rem), 9 * var(--fluid-ratio-min), 23 * var(--rem));
+  -webkit-column-gap: var(--column-gap);
+     -moz-column-gap: var(--column-gap);
+          column-gap: var(--column-gap);
+}
+.p-blog__detail {
+  display: contents;
+}
+.p-blog__detail-link {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+.p-blog__detail-contents {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: auto 1fr auto;
+  grid-row: span 3;
+  -webkit-padding-before: clamp(9 * var(--rem), 2.4cqi, 20 * var(--rem));
+          padding-block-start: clamp(9 * var(--rem), 2.4cqi, 20 * var(--rem));
+  -webkit-padding-end: clamp(7 * var(--rem), 1.8666666667cqi, 23 * var(--rem));
+          padding-inline-end: clamp(7 * var(--rem), 1.8666666667cqi, 23 * var(--rem));
+  -webkit-padding-after: clamp(5 * var(--rem), 1.3333333333cqi, 20 * var(--rem));
+          padding-block-end: clamp(5 * var(--rem), 1.3333333333cqi, 20 * var(--rem));
+  -webkit-padding-start: clamp(18 * var(--rem), 4.8cqi, 23 * var(--rem));
+          padding-inline-start: clamp(18 * var(--rem), 4.8cqi, 23 * var(--rem));
+  background-color: var(--color-white-1);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.p-blog__detail-contents > dl {
+  display: contents;
+}
+.p-blog__detail-title {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  font-size: clamp(0.875rem, 0.787rem + 0.376vw, 1.125rem);
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.p-blog__detail-category {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  font-size: clamp(0.75rem, 0.706rem + 0.188vw, 0.875rem);
+  font-weight: var(--fz-wt-bold);
+}
+.p-blog__detail-category > dd {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: calc(4 * var(--rem));
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.p-blog__detail-category > dd::before {
+  content: "";
+  display: inline-block;
+  background: url(../img/top/icon_category.png) center no-repeat;
+  background-size: contain;
+  inline-size: calc(12 * var(--rem));
+  aspect-ratio: 12/14;
+}
+.p-blog__detail-date {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+}
+.p-blog__detail-date > dd > time {
+  font-size: calc(var(--fz-sm-2) * var(--rem));
+}
+.p-blog__detail-img {
+  inline-size: clamp(121 * var(--rem), 32.2666666667cqi, 156 * var(--rem));
+  block-size: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  grid-row: 1/4;
+}
+.p-blog__view-more_sp {
+  -webkit-margin-before: max(52 * var(--rem), 66 * var(--rem));
+          margin-block-start: max(52 * var(--rem), 66 * var(--rem));
+}
+@container blog-container (min-width: 1052px) {
+  .p-blog__view-more_sp {
+    display: none;
+  }
+}
+.p-blog__view-more-link {
+  display: inline grid;
+  grid-template-columns: auto auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: calc(13 * var(--rem));
+}
+.p-blog__view-more-text {
+  font-family: var(--ft-fml-2);
+}
+
 /*--------------------------------*
 * utility
 *--------------------------------*/
@@ -994,4 +1162,15 @@ img {
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
+}
+
+/* br
+--------------------------- */
+.u-blog__description_pc-only {
+  display: none;
+}
+@container blog-container (min-width: 1052px) {
+  .u-blog__description_pc-only {
+    display: block;
+  }
 }/*# sourceMappingURL=style.css.map */
