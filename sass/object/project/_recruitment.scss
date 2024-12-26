@@ -9,6 +9,11 @@
     calc(66* var(--fluid-ratio-min)),
     calc(125 * var(--rem))
   );
+  padding-block-end: clamp(
+    calc(88 * var(--rem)),
+    calc(88* var(--fluid-ratio-min)),
+    calc(139 * var(--rem))
+  );
   container: recruitment-container / inline-size;
   &__title {
     position: relative;
