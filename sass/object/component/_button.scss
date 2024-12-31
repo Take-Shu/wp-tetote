@@ -165,3 +165,35 @@
     }
   }
 }
+
+/* 募集事項　・　ENTRY
+--------------------------- */
+.c-cta__button {
+  font-size: calc(var(--fz-sm-3) * var(--rem));
+  color: var(--color-white-1);
+  display: inline-block;
+  padding: calc(9 * var(--rem));
+  text-align: center;
+  border: solid 1px transparent;
+}
+
+.c-cta__button_recruiting {
+  background-color: var(--color-black);
+  transition: background-color 0.3s,
+  color 0.3s,
+  border 0.3s;
+  &:hover {
+    color: var(--color-black);
+    background-color: var(--color-white-1);
+    border: solid 1px var(--color-black);
+  }
+}
+
+.c-cta__button_entry {
+  font-family: var(--ft-fml-2);
+  background-color: var(--color-sub);
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: var(--color-main);
+  }
+}

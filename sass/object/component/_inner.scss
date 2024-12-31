@@ -4,8 +4,6 @@
 /* inner
 --------------------------- */
 .c-inner {
-  --spacing-gutter: calc(17 * var(--fluid-ratio-min-container));
-  padding-inline: var(--spacing-gutter);
   max-inline-size: calc(var(--layout-width-max) * var(--rem));
   margin-inline: auto;
 }

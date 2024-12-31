@@ -3,8 +3,11 @@
 /* footer
 --------------------------- */
 .l-footer {
+ 
   container: footer-container / inline-size;
-  @media (min-width: 1052px) {
+  @media (min-width: 1157px) {
+    --spacing-gutter: calc(17 * var(--fluid-ratio-min-container));
+    padding-inline: var(--spacing-gutter);
     padding-block-end: calc(64 * var(--rem));
   }
   &__bgc {
@@ -93,7 +96,6 @@
       row-gap: 0;
     }
   }
-
   &__logo-img {
     display: inline-block;
     inline-size: calc(251 * var(--rem));

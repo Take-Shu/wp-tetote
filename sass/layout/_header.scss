@@ -8,53 +8,96 @@
   --logo-width: 151;
   --logo-width-pc: 251;
   --logo-height: 40;
-  --menu-button-ht: 20;
+  --menu-icon-ht: 18;
+  --menu-icon-ht-pc: 30;
   --menu-button-wt: 32;
-  --menu-button-wt-pc: 52; 
+  --menu-button-ht: 35;
+  --menu-button-wt-pc: 52;
   inline-size: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
+  margin-block-end: clamp(
+    calc((var(--header-height-pc) * var(--rem)) * -1),
+    calc(((var(--header-height) / var(--layout-width-min)) * 100%) * -1),
+    calc((var(--header-height) * var(--rem)) * -1)
+  );
   z-index: var(--z-index-header);
-  container-type: inline-size;
+  container: header-container / inline-size;
   &__inner {
-    // padding-inline: min(), var(--spacing-gutter);
-    padding-inline: clamp(calc(12 * var(--rem)), var(--spacing-gutter), calc(30 * var(--rem)));
+    padding-inline: clamp(
+      calc(12 * var(--rem)),
+      var(--spacing-gutter),
+      calc(30 * var(--rem))
+    );
   }
   &__container {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
-    block-size: calc(var(--header-height) * var(--fluid-ratio-min-container));
-    max-block-size: calc(var(--header-height-pc) * var(--rem));
+    block-size: clamp(calc(var(--header-height) * var(--rem)),
+    calc((var(--header-height) / var(--layout-width-min)) * 100cqi),
+    calc(var(--header-height-pc) * var(--rem)));
   }
   &__logo-img {
-    inline-size: calc(var(--logo-width) * var(--fluid-ratio-min-container));
+    inline-size: calc((var(--logo-width) / 375) * 100cqi);
     aspect-ratio: var(--logo-width) / var(--logo-height);
     max-inline-size: calc(var(--logo-width-pc) * var(--rem));
   }
-  &__menu {
-    display: grid;
-    justify-items: center;
-    margin-inline-start: auto;
+  &__contents {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    column-gap: calc(40 * var(--rem));
+  }
+  &__cta {
+    display: none;
+    @media (min-width: 1052px) {
+      display: flex;
+      column-gap: calc(22 * var(--rem));
+    }
+  }
+  &__recruiting-link {
+    inline-size: calc(126 * var(--rem));
+  }
+  &__entry-link {
+    inline-size: calc(126 * var(--rem));
   }
   &__menu-button {
-    inline-size: calc(var(--menu-button-wt) * var(--fluid-ratio-min-container));
+    font-family: var(--ft-fml-2);
+    font-size: clamp(0.625rem, calc(0.5rem + 0.333vw), 0.75rem);
+    color: var(--color-white-1);
+    inline-size: calc((var(--menu-button-wt) / 375) * 100cqi);
     max-inline-size: calc(var(--menu-button-wt-pc) * var(--rem));
-    position: relative;
-    display: grid;
-    align-content: center;
-    aspect-ratio: var(--menu-button-wt) / var(--menu-button-ht);
+    text-align: center;
+    white-space: nowrap;
   }
   &__menu-icon {
     display: grid;
+    align-items: center;
+    inline-size: stretch;
+    block-size: clamp(
+      calc(var(--menu-icon-ht) * var(--rem)),
+      calc((var(--menu-icon-ht) / 375) * 100cqi),
+      calc(var(--menu-icon-ht-pc) * var(--rem))
+    );
+    position: relative;
+    margin-block-end: clamp(
+      calc(3 * var(--rem)),
+      calc(3 * var(--fluid-ratio-min)),
+      calc(6 * var(--rem))
+    );
+  }
+  &__menu-bar {
+    display: grid;
+    justify-items: center;
     background-color: var(--color-white-1);
+    inline-size: 100%;
     block-size: 2px;
-    &::before, &::after {
+    &::before,
+    &::after {
       content: "";
       display: inline-block;
       block-size: 2px;
-      inline-size: stretch;
+      inline-size: 100%;
       background-color: inherit;
       position: absolute;
     }
@@ -65,10 +108,23 @@
       inset-block-end: 0;
     }
   }
-  &__menu-name {
-    font-family: var(--ft-fml-2);
-    font-size: clamp(0.625rem, calc(0.5rem + 0.333vw), 0.75rem);
-    color: var(--color-white-1);
-    margin-block-start: clamp(calc(0 * var(--rem)), calc(9 * var(--fluid-ratio-max)), calc(9 * var(--rem)));
+}
+
+.l-header.fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation-name: fadeIn;
+  animation-timing-function: var(--ease-out-expo);
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
   }
 }

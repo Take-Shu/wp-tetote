@@ -3,6 +3,8 @@
 /* benefits
 --------------------------- */
 .p-benefits {
+  --spacing-gutter: calc(17 * var(--fluid-ratio-min-container));
+  padding-inline: var(--spacing-gutter);
   padding-block-start: clamp(
     calc(70 * var(--rem)),
     calc(70 * var(--fluid-ratio-min)),

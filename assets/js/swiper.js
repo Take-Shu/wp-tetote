@@ -10,39 +10,28 @@ const swiperFv = new Swiper(".p-fv__slide", {
 
 const swiperCareer = new Swiper(".p-career__slide", {
   loop: true,
-  speed: 8000,
-  slidesPerView: 1.4,
-  spaceBetween: 16,
+  speed: 10000,
+  slidesPerView: 1.3,
+  centeredSlides: true,
+  spaceBetween: 0,
   autoplay: {
     delay: 0,
     disableOnInteraction: false,
   },
   breakpoints: {
     768: {
-      speed: 8000,
-      slidesPerView: 2,
-      spaceBetween: 25,
-    },
-    1024: {
-      speed: 15000,
-      slidesPerView: 2.7,
-      spaceBetween: 34,
-    },
-    1920: {
-      speed: 15000,
-      slidesPerView: 3.3,
-      spaceBetween: 43,
+      slidesPerView: 2.67,
     },
   },
 });
 
 const swiperEmployee = new Swiper(".p-employee__slide", {
   loop: true,
-  speed: 8000,
-  slidesPerView: 1.4,
+  speed: 1000,
+  slidesPerView: 2.84,
   spaceBetween: 23,
   autoplay: {
-    delay: 0,
+    delay: 3000,
     disableOnInteraction: false,
   },
   navigation: {
@@ -50,44 +39,17 @@ const swiperEmployee = new Swiper(".p-employee__slide", {
     prevEl: ".p-employee__slide-button_prev",
   },
   breakpoints: {
-    425: {
-      slidesPerView: 1.5,
-      spaceBetween: 23,
-      autoplay: true,
-    },
-    576: {
-      slidesPerView: 1.8,
-      spaceBetween: 23,
-      autoplay: true,
-    },
-    640: {
-      slidesPerView: 2,
-      spaceBetween: 23,
-      autoplay: true,
-    },
     768: {
-      speed: 1000,
-      slidesPerView: 2.2,
+      speed: 600,
+      slidesPerView: 3.62,
       spaceBetween: 43,
       autoplay: false,
     },
-    1024: {
-      speed: 1000,
-      slidesPerView: 2.8,
+    1052: {
+      speed: 600,
+      slidesPerView: 3.62,
       spaceBetween: 43,
       autoplay: false,
-    },
-    1440: {
-      speed: 1000,
-      slidesPerView: 3.6,
-      spaceBetween: 43,
-      autoplay: false,
-    },
-    1920: {
-      speed: 1000,
-      slidesPerView: 4.2,
-      spaceBetween: 43,
-      autoplay: false,
-    },
+    }
   },
 });

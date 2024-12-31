@@ -3,6 +3,8 @@
 /* recruitment
 --------------------------- */
 .p-recruitment {
+  --spacing-gutter: calc(17 * var(--fluid-ratio-min-container));
+  padding-inline: var(--spacing-gutter);
   background-color: var(--color-white-2);
   padding-block-start: clamp(
     calc(66 * var(--rem)),
