@@ -17,19 +17,26 @@
  *--------------------------------*/
  @use "./object/component/button";
  @use "./object/component/inner";
- @use "./object/component/section-title";
+ @use "./object/component/c-section-title";
+ @use "./object/component/c-lower-fv";
+ @use "./object/component/c-location";
+ @use "./object/component/c-cta";
 
  /*--------------------------------*
  * project
  *--------------------------------*/
- @use "./object/project/fv";
- @use "./object/project/career";
- @use "./object/project/employee";
- @use "./object/project/benefits";
- @use "./object/project/blog";
- @use "./object/project/recruitment";
- @use "./object/project/cta";
- @use "./object/project/drawer";
+ @use "./object/project/top/p-fv";
+ @use "./object/project/top/p-career";
+ @use "./object/project/top/p-employee";
+ @use "./object/project/top/p-benefits";
+ @use "./object/project/top/p-blog";
+ @use "./object/project/top/p-recruitment";
+ @use "./object/project/p-drawer";
+ @use "./object/project/p-lower-fv";
+ @use "./object/project/about/p-lower-important";
+ @use "./object/project/about/p-lower-message";
+ @use "./object/project/about/p-lower-businesses";
+ @use "./object/project/about/p-lower-company";
  
  /*--------------------------------*
  * utility

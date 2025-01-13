@@ -3,44 +3,44 @@
 /* header
 --------------------------- */
 .l-header {
-  --header-height: 56;
-  --header-height-pc: 118;
-  --logo-width: 151;
-  --logo-width-pc: 251;
+  --header-height-max: 118;
+  --header-height-min: 56;
+  --logo-width-max: 251;
+  --logo-width-min: 151;
   --logo-height: 40;
-  --menu-icon-ht: 18;
-  --menu-icon-ht-pc: 30;
-  --menu-button-wt: 32;
-  --menu-button-ht: 35;
-  --menu-button-wt-pc: 52;
+  --menu-button-width-max: 52;
+  --menu-button-width-min: 32;
+  --menu-button-height: 35;
+  --menu-icon-height-max: 30;
+  --menu-icon-height-min: 18;
   inline-size: 100%;
   position: relative;
   margin-block-end: clamp(
-    calc((var(--header-height-pc) * var(--rem)) * -1),
-    calc(((var(--header-height) / var(--layout-width-min)) * 100%) * -1),
-    calc((var(--header-height) * var(--rem)) * -1)
+    calc((var(--header-height-max) * var(--rem)) * -1),
+    calc((var(--header-height-min) * var(--ratio-dvi-min)) * -1),
+    calc((var(--header-height-min) * var(--rem)) * -1)
   );
   z-index: var(--z-index-header);
-  container: header-container / inline-size;
-  &__inner {
-    padding-inline: clamp(
-      calc(12 * var(--rem)),
-      var(--spacing-gutter),
-      calc(30 * var(--rem))
-    );
-  }
   &__container {
+    --spacing-gutter: calc(12 * var(--ratio-dvi-min)); 
+    padding-inline: var(--spacing-gutter);
+    margin-inline: auto;
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
-    block-size: clamp(calc(var(--header-height) * var(--rem)),
-    calc((var(--header-height) / var(--layout-width-min)) * 100cqi),
-    calc(var(--header-height-pc) * var(--rem)));
+    block-size: clamp(
+    calc(var(--header-height-min) * var(--rem)),
+    calc(var(--header-height-min) * var(--ratio-dvi-min)),
+    calc(var(--header-height-max) * var(--rem))
+    );
+    container: header-container / inline-size;
   }
   &__logo-img {
-    inline-size: calc((var(--logo-width) / 375) * 100cqi);
-    aspect-ratio: var(--logo-width) / var(--logo-height);
-    max-inline-size: calc(var(--logo-width-pc) * var(--rem));
+    inline-size: min(
+      calc(var(--logo-width-min) * var(--ratio-dvi-min)),
+      calc(var(--logo-width-max) * var(--rem))
+      );
+    aspect-ratio: var(--logo-width-min) / var(--logo-height);
   }
   &__contents {
     display: flex;
@@ -55,35 +55,36 @@
       column-gap: calc(22 * var(--rem));
     }
   }
-  &__recruiting-link {
-    inline-size: calc(126 * var(--rem));
-  }
-  &__entry-link {
+  &__recruiting-link, &__entry-link {
     inline-size: calc(126 * var(--rem));
   }
   &__menu-button {
     font-family: var(--ft-fml-2);
     font-size: clamp(0.625rem, calc(0.5rem + 0.333vw), 0.75rem);
     color: var(--color-white-1);
-    inline-size: calc((var(--menu-button-wt) / 375) * 100cqi);
-    max-inline-size: calc(var(--menu-button-wt-pc) * var(--rem));
+    inline-size: min(
+      calc(var(--menu-button-width-min) * var(--ratio-dvi-min)),
+      calc(var(--menu-button-width-max) * var(--rem))
+      );
     text-align: center;
     white-space: nowrap;
   }
   &__menu-icon {
+    --outside-space-max: 6;
+    --outside-space-min: 3;
     display: grid;
     align-items: center;
     inline-size: stretch;
     block-size: clamp(
-      calc(var(--menu-icon-ht) * var(--rem)),
-      calc((var(--menu-icon-ht) / 375) * 100cqi),
-      calc(var(--menu-icon-ht-pc) * var(--rem))
+      calc(var(--menu-icon-height-min) * var(--rem)),
+      calc((var(--menu-icon-height-min)* var(--ratio-dvi-min))),
+      calc(var(--menu-icon-height-max) * var(--rem))
     );
     position: relative;
     margin-block-end: clamp(
-      calc(3 * var(--rem)),
-      calc(3 * var(--fluid-ratio-min)),
-      calc(6 * var(--rem))
+      calc(var(--outside-space-min) * var(--rem)),
+      calc(var(--outside-space-min) * var(--ratio-dvi-min)),
+      calc(var(--outside-space-max) * var(--rem))
     );
   }
   &__menu-bar {
@@ -126,5 +127,19 @@
   }
   to {
     transform: translateY(0);
+  }
+}
+
+
+/* lower-header
+--------------------------- */
+.l-lower-header {
+  background-color: var(--color-white-1);
+  margin-block-end: revert;
+  & .l-header__menu-button {
+    color: var(--color-black);
+  }
+  & .l-header__menu-bar {
+    background-color: var(--color-black);
   }
 }

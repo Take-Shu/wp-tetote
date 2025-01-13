@@ -1,8 +1,9 @@
 @use "./../foundation/function" as *;
 
-
 /* main
 --------------------------- */
-.l-main {
-  
+.l-lower-about-us-main {
+  --container-size: 980;
+  display: grid;
+  justify-items: center;
 }

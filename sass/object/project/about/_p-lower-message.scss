@@ -1,0 +1,143 @@
+/* p-lower-message
+--------------------------- */
+.p-lower-message {
+  --inside-space-block-start-max: 125;
+  display: grid;
+  justify-items: center;
+  inline-size: min(
+    calc(var(--container-size) * var(--rem)),
+    calc(100% - var(--spacing-gutter) * 2)
+  );
+  padding-block-start: clamp(
+    var(--spacing-4),
+    calc(var(--inside-space-block-start-max) * var(--ratio-dvi-max)),
+    calc(var(--inside-space-block-start-max) * var(--rem))
+  );
+  container: lower-message / inline-size;
+  &__title {
+    text-align: center;
+  }
+  &__wrap {
+    --margin-block-start-max: 109;
+    --img-column-max: 484;
+    display: grid;
+    grid-template-columns: min(
+      calc(var(--img-column-max) * var(--rem)),
+      calc(var(--img-column-max) * var(--ratio-dvi-max))
+      ) 
+      1fr;
+    column-gap: calc(17 * var(--rem));
+    margin-block-start: clamp(
+      var(--spacing-5),
+      calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
+      calc(var(--margin-block-start-max) * var(--rem))
+    );
+    @container lower-message (max-width: 979px) {
+      --container-size-max: 648;
+      max-inline-size: calc(var(--container-size-max) * var(--rem));
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+  }
+  &__img-wrap {
+    position: relative;
+    @container lower-message (max-width: 979px) {
+      --row-gap: 16;
+      display: grid;
+      justify-items: center;
+      row-gap: max(
+        var(--spacing-2),
+        calc(var(--row-gap) * var(--ratio-dvi-max))
+      );
+    }
+  }
+  &__img {
+    --img-width-max: 484;
+    --img-height-max: 629;
+    aspect-ratio: var(--img-width-max) / var(--img-height-max);
+    @container lower-message (max-width: 979px) {
+      inline-size: min(
+        calc(var(--img-width-max) * var(--rem)),
+        calc(100%)
+      );
+    }
+  }
+  &__detail {
+    --outside-space-block-start-max: 206;
+    margin-block-start: min(
+      calc(var(--outside-space-block-start-max) * var(--rem)),
+      calc(var(--outside-space-block-start-max) * var(--ratio-dvi-max))
+    );
+    @container lower-message (max-width: 979px) {
+      margin-block-start: var(--spacing-3);
+    }
+  }
+  &__detail-title {
+    --font-size-max: 32;
+    --font-size-min: 26;
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+    font-weight: var(--ft-wt-bold);
+    inline-size: max-content;
+    position: absolute;
+    left: 87%;
+    top: 2%;
+    @container lower-message (max-width: 979px) {
+      position: static;
+      inline-size: auto;
+      justify-self: start;
+    }
+  }
+  &__detail-title_pc-only {
+    @container lower-message (max-width: 979px) {
+      display: none;
+    }
+  }
+  &__detail-text {
+    --font-size-max: 16;
+    --font-size-min: 14;
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+    line-height: var(--line-ht-md-2);
+    line-break: strict;
+    & :where(p + p) {
+      --outside-space-block-start-max: 31;
+      --outside-space-block-start-min: 16;
+      margin-block-start: clamp(
+        calc(var(--outside-space-block-start-min) * var(--rem)),
+        calc(var(--outside-space-block-start-max) * var(--ratio-dvi-max)),
+        calc(var(--outside-space-block-start-max) * var(--rem))
+      );
+      @container lower-message (max-width: 979px) {
+        margin-block-start: var(--spacing-2);
+      }
+    }
+  }
+  &__detail-img {
+    --margin-block-start-max: 21;
+    --margin-block-start-min: 16;
+    --img-width-max: 185;
+    --img-width-min: 130;
+    --img-height: 35;
+    inline-size: clamp(
+      calc(var(--img-width-min) * var(--rem)),
+      calc(var(--img-width-max) * var(--ratio-dvi-max)),
+      calc(var(--img-width-max) * var(--rem))
+    );
+    aspect-ratio: var(--img-width-max) / var(--img-height);
+    margin-block-start: clamp(
+      calc(var(--margin-block-start-min) * var(--rem)),
+      calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
+      calc(var(--margin-block-start-max) * var(--rem))
+    );
+    @container lower-message (max-width: 979px) {
+      justify-self: end;
+    }
+  }
+}

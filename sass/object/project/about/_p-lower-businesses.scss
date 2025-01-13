@@ -1,0 +1,158 @@
+/* p-lower-businesses
+--------------------------- */
+.p-lower-businesses {
+  --padding-block-start-max: 111;
+  --padding-block-start-min: 32;
+  inline-size: min(
+    calc(var(--container-size) * var(--rem)),
+    calc(100% - var(--spacing-gutter) * 2)
+  );
+  padding-block-start: clamp(
+    calc(var(--padding-block-start-min) * var(--rem)),
+    calc(var(--padding-block-start-max) * var(--ratio-dvi-max)),
+    calc(var(--padding-block-start-max) * var(--rem))
+  );
+  container: lower-businesses / inline-size;
+  &__introduction {
+    --margin-block-start-max: 44;
+    --margin-block-start-min: 24;
+    margin-block-start: clamp(
+      calc(var(--margin-block-start-min) * var(--rem)),
+      calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
+      calc(var(--margin-block-start-max) * var(--rem))
+    );
+  }
+  &__wrap {
+    --margin-block-start-max: 82;
+    --margin-block-start-min: 32;
+    display: flex;
+    flex-direction: column;
+    margin-block-start: clamp(
+      calc(var(--margin-block-start-min) * var(--rem)),
+      calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
+      calc(var(--margin-block-start-max) * var(--rem))
+    );
+    & :nth-child(1 of article) {
+      padding-block-start: 0;
+    }
+    & :nth-child(even of article) {
+      position: relative;
+    }
+    & :nth-child(even of article)::before,
+    & :nth-child(even of article)::after {
+      --line-size-max: 1024;
+      content: "";
+      display: inline-block;
+      inline-size: clamp(
+        100%,
+        calc(var(--line-size-max) * var(--ratio-dvi-max)),
+        calc(var(--line-size-max) * var(--rem))
+      );
+      border-top: solid 1px var(--color-main);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    & :nth-child(even of article)::before {
+      top: 0;
+    }
+    & :nth-child(even of article)::after {
+      bottom: 0;
+    }
+    & :last-child {
+      padding-block-end: 0;
+    }
+  }
+  &__card {
+    --gap-max: 47;
+    --gap-min: 16;
+    --padding-block-max: 49;
+    --padding-block-min: 24;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(
+      calc(var(--gap-min) * var(--rem)),
+      calc(var(--gap-max) * var(--ratio-dvi-max)),
+      calc(var(--gap-max) * var(--rem))
+    );
+    padding-block: max(
+      var(--padding-block-min) * var(--rem),
+      calc(var(--padding-block-max) * var(--ratio-dvi-max)
+    ));
+    @container lower-businesses (max-width: 699px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__card-content {
+    --row-gap-max: 30;
+    --row-gap-min: 16;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    order: 2;
+    row-gap: clamp(
+      calc(var(--row-gap-min) * var(--rem)),
+      calc(var(--row-gap-max) * var(--ratio-dvi-max)),
+      calc(var(--row-gap-max) * var(--rem))
+    );
+    align-self: center;
+    padding-inline-start: 0;
+    @container lower-businesses (max-width: 699px) {
+      padding: 0;
+    }
+  }
+  &__card-title {
+    --font-size-max: 32;
+    --font-size-min: 26;
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+    color: var(--color-main);
+    font-weight: var(--ft-wt-bold);
+  }
+  &__card-img {
+    --img-size-max: 457;
+    inline-size: min(
+      var(--img-size-max) * var(--rem),
+      calc(var(--img-size-max) * var(--ratio-dvi-max))  
+    );
+    aspect-ratio: 457 / 261;
+    order: 1;
+    border-radius: 20px;
+    @container lower-businesses (max-width: 699px) {
+      inline-size: min(
+        var(--img-size-max) * var(--rem),
+        100%
+      );
+      justify-self: center;
+    }
+  }
+  &__card-text {
+    --font-size-max: 24;
+    --font-size-min: 16;
+    & :nth-child(1 of p) {
+      font-size: clamp(
+        calc(var(--font-size-min) * var(--rem)),
+        calc(var(--font-size-max) * var(--ratio-dvi-max)),
+        calc(var(--font-size-max) * var(--rem))
+      );
+    }
+    & :nth-child(2 of p) {
+      --font-size-max: 16;
+      --font-size-min: 14;
+      --margin-block-start-max: 30;
+      --margin-block-start-min: 16;  
+      font-size: clamp(
+        calc(var(--font-size-min) * var(--rem)),
+        calc(var(--font-size-max) * var(--ratio-cqi-max)),
+        calc(var(--font-size-max) * var(--rem))
+      );
+      margin-block-start: clamp(
+        calc(var(--margin-block-start-min) * var(--rem)),
+        calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
+        calc(var(--margin-block-start-max) * var(--rem))
+      )
+    }
+  }
+}

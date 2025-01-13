@@ -1,0 +1,57 @@
+/* c-lower-fv
+--------------------------- */
+.c-lower-fv {
+  aspect-ratio: 1440 / 339;
+  inline-size: stretch;
+  block-size: calc(339 * var(--rem));
+  &__container {
+    inline-size: min(
+      calc(var(--container-size) * var(--rem)),
+      calc(100% - var(--spacing-gutter) * 2)
+    );
+    block-size: stretch;
+    margin-inline: auto;
+  }
+  &__title {
+    padding-block-start: calc(78 * var(--rem));
+  }
+  &__title-en {
+    font-family: var(--ft-fml-2);
+    font-size: clamp(
+      calc(var(--fz-xxl-2) * var(--rem)),
+      calc(var(--fz-xxl-4) * var(--ratio-dvi-max)),
+      calc(var(--fz-xxl-4) * var(--rem))
+    );
+    line-height: 1;
+    background-color: var(--color-white-1);
+    inline-size: max-content;
+    padding-inline: calc(10 * var(--rem));
+  }
+  &__title-ja {
+    font-size: clamp(
+      calc(var(--fz-base) * var(--rem)),
+      calc(var(--fz-lg-2) * var(--ratio-dvi-max)),
+      calc(var(--fz-lg-2) * var(--rem))
+    );
+    font-weight: var(--ft-wt-bold);
+    background-color: var(--color-white-1);
+    inline-size: max-content;
+    margin-block-start: calc(18 * var(--rem));
+    padding-inline: calc(10 * var(--rem));
+  }
+  &__text {
+    --element-size-max: 16;
+    --element-size-min: 14;
+    font-size: clamp(
+      calc(var(--fz-sm-3) * var(--rem)),
+      calc(var(--fz-base) * var(--ratio-dvi-max)),
+      calc(var(--fz-base) * var(--rem))
+    );
+    font-weight: var(--ft-wt-bold);
+    color: var(--color-main);
+    background-color: var(--color-white-1);
+    inline-size: max-content;
+    margin-block-start: calc(18 * var(--rem));
+    padding-inline: calc(10 * var(--rem));
+  }
+}

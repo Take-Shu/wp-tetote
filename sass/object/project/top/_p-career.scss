@@ -1,0 +1,116 @@
+/* career
+--------------------------- */
+.p-career {
+  --element-size-max: 393;
+  --element-size-min: 210;
+  --inside-space-block-start-max: 100;
+  --inside-space-block-start-min: 40;
+  padding-block-start: clamp(
+    calc(var(--inside-space-block-start-min) * var(--rem)),
+    calc(var(--inside-space-block-start-min) * var(--ratio-dvi-min)),
+    calc(var(--inside-space-block-start-max) * var(--rem))
+  );
+  position: relative;
+  &__container {
+    max-inline-size: calc(var(--layout-width-max) * var(--rem));
+    margin-inline: auto;
+    container: career / inline-size;
+  }
+  &__slide-wrap {
+    position: relative;
+  }
+  & .swiper-wrapper {
+    transition-timing-function: linear;
+  }
+  & .swiper-slide.p-career__slide-item_down {
+    --outside-space-block-start-max: 36;
+    --outside-space-block-start-min: 27;
+    margin-block-start: clamp(
+      calc(var(--outside-space-block-start-min) * var(--rem)),
+      calc(var(--outside-space-block-start-min) * var(--ratio-dvi-min)),
+      calc(var(--outside-space-block-start-max) * var(--rem))
+    );
+  }
+  &__slide-img {
+    --element-size-inline-max: 506;
+    --element-size-inline-min: 271;
+    --element-size-block-max: 393;
+    --element-size-block-min: 210;
+    inline-size: calc((var(--element-size-inline-min) * var(--ratio-dvi-min)));
+    aspect-ratio: var(--element-size-inline-min) / var(--element-size-block-min);
+    border-radius: 60px;
+    @container career (min-width: 768px) {
+      inline-size: min(calc(var(--element-size-inline-max) * var(--rem)),
+      calc(var(--element-size-inline-max) * var(--ratio-dvi-max)));
+      aspect-ratio: var(--element-size-inline-max) / var(--element-size-block-max);
+    }
+  }
+  &__title {
+    display: grid;
+    gap: calc(8 * var(--rem));
+    inline-size: fit-content;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -13%;
+    z-index: var(--z-index-base);
+    font-size: clamp(1.5rem, calc(1.148rem + 1.502vw), 2.5rem);
+    @container career (min-width: 768px) {
+      bottom: 0;
+    }
+  }
+  &__title-text {
+    inline-size: max-content;
+    margin-inline: auto;
+    background-color: var(--color-white-1);
+    &:nth-child(1), &:nth-child(2) {
+      padding: calc(7 * var(--rem)) calc(11 * var(--rem));
+    }
+  }
+  &__objective {
+    --outside-space-max: 100;
+    --outside-space-min: 80;
+    font-size: clamp(1.125rem, calc(0.729rem + 1.69vw), 2.25rem);
+    font-weight: var(--ft-wt-bold);
+    line-height: var(--line-ht-lg);
+    text-align: center;
+    margin-block-start: clamp(
+      calc(var(--outside-space-min) * var(--rem)),
+      calc(var(--outside-space-min) * var(--ratio-dvi-min)),
+      calc(var(--outside-space-max) * var(--rem))
+    );
+    @container career (min-width: 768px) {
+      line-height: var(--line-ht-md-1);
+    }
+  }
+  &__map {
+    --outside-space-max: 52;
+    --outside-space-min: 40;
+    --inside-space-max: 52;
+    --inside-space-min: 40;
+    display: grid;
+    gap: clamp(
+      calc(var(--outside-space-min) * var(--rem)),
+      calc(var(--outside-space-min) * var(--ratio-dvi-min)),
+      calc(var(--outside-space-max) * var(--rem))
+    );
+    max-inline-size: calc(var(--layout-width-max) * 1px);
+    margin-inline: auto;
+    background: url(../img/top/map_01.png) no-repeat;
+    background-size: 85% auto;
+    background-position-x: center;
+    background-position-y: top;
+    padding-block-end: clamp(
+      calc(var(--inside-space-min) * var(--rem)),
+      calc(var(--inside-space-min) * var(--ratio-dvi-min)),
+      calc(var(--inside-space-max) * var(--rem))
+    );
+    @container career (min-width: 768px) {
+      background-size: 69% auto;
+    }
+  }
+  &__view-more {
+    text-align: center;
+  }
+}

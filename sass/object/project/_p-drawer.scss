@@ -69,7 +69,7 @@
   }
   &__nav-ja {
     font-size: clamp(0.875rem, calc(0.806rem + 0.296vw), 1rem);
-    font-weight: var(--fz-wt-bold);
+    font-weight: var(--ft-wt-bold);
   }
   &__contents-bt {
     --gap: 13;
@@ -141,12 +141,12 @@
   }
   &__logo {
     justify-self: end;
-    margin-inline-end: min(calc(63 * var(--rem)), calc(63 * var(--fluid-ratio-max)));
+    margin-inline-end: min(calc(63 * var(--rem)), calc(63 * var(--ratio-dvi-max)));
   }
   &__contents-bt-right {
     border-left: solid 1px var(--color-sub);
     margin-block-start: calc(128 * var(--rem));
-    margin-inline-end: min(calc(101 * var(--rem)), calc(101 * var(--fluid-ratio-max)));
+    margin-inline-end: min(calc(101 * var(--rem)), calc(101 * var(--ratio-dvi-max)));
     & :nth-child(1 of li), & :nth-child(2 of li) {
       border-top: solid 1px var(--color-sub);
     }
@@ -155,7 +155,7 @@
     padding-block: calc(23 * var(--rem));
   }
   &__nav-list {
-    margin-inline-start: min(63 * var(--rem), calc(63 * var(--fluid-ratio-max)));
+    margin-inline-start: min(63 * var(--rem), calc(63 * var(--ratio-dvi-max)));
     display: grid;
     grid-template-columns: repeat(2, minmax(calc(258 * var(--rem)), 1fr));
     column-gap: calc(30 * var(--rem));

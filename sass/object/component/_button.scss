@@ -2,10 +2,15 @@
 
 /* button
 --------------------------- */
-
 /* view-more
 --------------------------- */
 .c-button__view-more {
+  --element-size-inline-max: 355;
+  --element-size-inline-min: 277;
+  --element-size-block-max: 80;
+  --element-size-block-min: 62;
+  --inside-space-inline-max: 20;
+  --inside-space-inline-min: 17;
   font-family: var(--ft-fml-2);
   font-size: clamp(1rem, calc(0.912rem + 0.376vw), 1.25rem);
   line-height: normal;
@@ -14,19 +19,19 @@
   column-gap: calc(8 * var(--rem));
   align-items: center;
   inline-size: clamp(
-    calc(277 * var(--rem)),
-    calc(277 * var(--fluid-ratio-min-container)),
-    calc(355 * var(--rem))
+    calc(var(--element-size-inline-min) * var(--rem)),
+    calc(var(--element-size-inline-min) * var(--ratio-dvi-min)),
+    calc(var(--element-size-inline-max) * var(--rem))
   );
   block-size: clamp(
-    calc(62 * var(--rem)),
-    calc(62 * var(--fluid-ratio-min-container)),
-    calc(80 * var(--rem))
+    calc(var(--element-size-block-min) * var(--rem)),
+    calc(var(--element-size-block-min) * var(--ratio-dvi-min)),
+    calc(var(--element-size-block-max) * var(--rem))
   );
   padding-inline: clamp(
-    calc(17 * var(--rem)),
-    calc(17 * var(--fluid-ratio-min-container)),
-    calc(10 * var(--rem))
+    calc(var(--inside-space-inline-min) * var(--rem)),
+    calc(var(--inside-space-inline-min) * var(--ratio-dvi-min)),
+    calc(var(--inside-space-inline-max) * var(--rem))
   );
   border: solid 1px var(--color-black);
   cursor: pointer;
@@ -44,17 +49,19 @@
   &::before {
     content: "";
   }
-  &:hover {
-    color: var(--color-white-1);
-    background-color: var(--color-black);
-    &::after {
-      border-block-start: 2px solid var(--color-white-1);
-      border-inline-end: 2px solid var(--color-white-1);
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--color-white-1);
+      background-color: var(--color-black);
+      &::after {
+        border-block-start: 2px solid var(--color-white-1);
+        border-inline-end: 2px solid var(--color-white-1);
+      }
     }
   }
 }
 
-/* circle-left
+/* circle
 --------------------------- */
 .c-button__circle {
   --circle-button-width: 58;
@@ -66,7 +73,7 @@
   aspect-ratio: 1;
   border: solid 1px var(--color-black);
   border-radius: 50%;
-  transition: transform 0.3s;
+  transition: scale 0.3s;
   background-color: var(--color-white-1);
   &::before {
     content: "";
@@ -87,17 +94,21 @@
     background-color: var(--color-black);
     transform: translateX(-4px);
   }
-  &:hover {
-    transform: scale(1.2);
+  @media (any-hover: hover) {
+    &:hover {
+      scale: 1.2 1.2
+    } 
   }
 }
 
 /* circle-right
 --------------------------- */
 .c-button__circle-right {
-  transform: scale(-1, 1);
-  &:hover {
-    transform: scale(-1.2, 1.2);
+  scale: -1 1;
+  @media (any-hover: hover) {
+    &:hover {
+      scale: -1.2 1.2
+    } 
   }
 }
 
@@ -124,6 +135,10 @@
 /* entry
 --------------------------- */
 .c-button__entry {
+  --inside-space-block-max: 27;
+  --inside-space-block-min: 20;
+  --inside-space-inline-max: 27;
+  --inside-space-inline-min: 19;
   font-family: var(--ft-fml-2);
   font-size: clamp(0.875rem, calc(0.831rem + 0.188vw), 1rem);
   color: var(--color-black);
@@ -133,14 +148,14 @@
   align-items: center;
   transition: background-color 0.3s, color 0.3s;
   padding-block: clamp(
-    calc(20 * var(--rem)),
-    calc((20 / 375) * 100cqi),
-    calc(27 * var(--rem))
+    calc(var(--inside-space-block-min) * var(--rem)),
+    calc(var(--inside-space-block-min) * var(--ratio-dvi-min)),
+    calc(var(--inside-space-block-max) * var(--rem))
   );
   padding-inline: clamp(
-    calc(19 * var(--rem)),
-    calc((19 / 375) * 100cqi),
-    calc(27 * var(--rem))
+    calc(var(--inside-space-inline-min) * var(--rem)),
+    calc(var(--inside-space-inline-min) * var(--ratio-dvi-min)),
+    calc(var(--inside-space-inline-max) * var(--rem))
   );
   background-color: var(--color-sub);
   &::after {
@@ -156,13 +171,15 @@
   &::before {
     content: "";
   }
-  &:hover {
-    color: var(--color-white-1);
-    background-color: var(--color-black);
-    &::after {
-      border-block-start: 3px solid var(--color-white-1);
-      border-inline-end: 3px solid var(--color-white-1);
-    }
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--color-white-1);
+      background-color: var(--color-black);
+      &::after {
+        border-block-start: 3px solid var(--color-white-1);
+        border-inline-end: 3px solid var(--color-white-1);
+      }
+    } 
   }
 }
 
@@ -182,10 +199,12 @@
   transition: background-color 0.3s,
   color 0.3s,
   border 0.3s;
-  &:hover {
-    color: var(--color-black);
-    background-color: var(--color-white-1);
-    border: solid 1px var(--color-black);
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--color-black);
+      background-color: var(--color-white-1);
+      border: solid 1px var(--color-black);
+    } 
   }
 }
 
@@ -193,7 +212,9 @@
   font-family: var(--ft-fml-2);
   background-color: var(--color-sub);
   transition: background-color 0.3s;
-  &:hover {
-    background-color: var(--color-main);
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: var(--color-main);
+    } 
   }
 }

@@ -1,17 +1,23 @@
-@use "./function" as *;
-
-/* カスタム変数
+  /* CSS変数
 --------------------------- */
 :root {
-  --layout-width-min: 375;
   --layout-width-max: 1440;
-  --fluid-ratio-min: calc(1 / var(--layout-width-min) * 100dvi);
-  --fluid-ratio-max: calc(1 / var(--layout-width-max) * 100dvi);
-  --fluid-ratio-min-container: calc(1 / var(--layout-width-min) * 100cqi);
-  --fluid-ratio-max-container: calc(1 / var(--layout-width-max) * 100cqi);
-  --spacing-gutter: calc(12 * var(--fluid-ratio-min));
-  --leading-trim: calc((1em - 1lh) / 2);
+  --layout-width-min: 375;
+  --spacing-gutter: calc(17 * var(--ratio-dvi-min));
+  --ratio-dvi-max: calc(1 / var(--layout-width-max) * 100dvi);
+  --ratio-dvi-min: calc(1 / var(--layout-width-min) * 100dvi);
+  --ratio-vw-min: calc(1 / var(--layout-width-min) * 100vw);
+  // --container-width-max: 980;
+  // --container-width-min: 375;
+  // --ratio-cqi-max: calc(1 / var(--container-width-max) * 100cqi);
+  // --ratio-cqi-min: calc(1 / var(--container-width-min) * 100cqi);
+  // --ratio-cqi-layout-max: calc(1 / var(--layout-width-max) * 100cqi);
+  // --ratio-cqi-layout-min: calc(1 / var(--layout-width-min) * 100cqi);
+  --ratio-percent-max: calc(1 / var(--layout-width-max) * 100%);
+  --ratio-percent-min: calc(1 / var(--layout-width-min) * 100%);
 
+  /* CSS変数(font-size)
+--------------------------- */
   --fz-base: 16;
   --fz-sm-1: 10;
   --fz-sm-2: 12;
@@ -24,39 +30,78 @@
   --fz-xxl-1: 40;
   --fz-xxl-2: 48;
   --fz-xxl-3: 52;
+  --fz-xxl-4: 64;
   --rem: calc(1rem / var(--fz-base));
 
-  --fz-wt-base: 400;
-  --fz-wt-sm: ;
-  --fz-wt-md: ;
-  --fz-wt-bold: 700;
+  /* CSS変数(font-family)
+--------------------------- */
+--ft-fml-base: "Noto Sans JP", serif;
+--ft-fml-1: "Inter", sans-serif;
+--ft-fml-2: "Viga", serif;
+--ft-fml-3: "Poppins", serif;
 
+  /* CSS変数(font-weight)
+--------------------------- */
+  --ft-wt-base: 400;
+  --ft-wt-sm: ;
+  --ft-wt-md: ;
+  --ft-wt-bold: 700;
+
+  /* CSS変数(line-height)
+--------------------------- */
   --line-ht-base: 1.5;
   --line-ht-sm: 1.2;
-  --line-ht-md: 1.8;
+  --line-ht-md-1: 1.8;
+  --line-ht-md-2: 2;
   --line-ht-lg: 2.5;
 
+  /* CSS変数(letter-spacing)
+--------------------------- */
   --letter-sg-base: em;
   --letter-sg-sm: 0.15em;
   --letter-sg-md: em;
   --letter-sg-lg: em;
 
-  --ft-fml-base: "Noto Sans JP", serif;
-  --ft-fml-1: "Inter", sans-serif;
-  --ft-fml-2: "Viga", serif;
-  --ft-fml-3: "Poppins", serif;
-  
+  /* CSS変数(color)
+--------------------------- */
   --color-main: #988C2C;
   --color-sub: #AFA86F;
   --color-black: #222;
   --color-white-1: #fff;
   --color-white-2: #FAF7F1;
+  --color-white-3: #F0F0F0;
   --color-grey-1: #999;
-  
+
+  /* CSS変数(z-index)
+--------------------------- */
   --z-index-negative-layer: -1;
   --z-index-base: 2;
   --z-index-header: 9;
   --z-index-top-layer: 10;
+
+   /* CSS変数(spacing)
+--------------------------- */
+  --spacing-1: 0.5rem;
+  --spacing-2: 1rem;
+  --spacing-3: 1.5rem;
+  --spacing-4: 2rem;
+  --spacing-5: 3rem;
+}
+
+  /* base
+--------------------------- */
+html {
+  font-size: calc(var(--fz-base) * var(--rem));
+}
+
+body {
+  font-family: var(--ft-fml-base);
+  color: var(--color-black);
+}
+
+img {
+  inline-size: 100%;
+  object-fit: cover;
 }
 
 :where(dialog, [popover]) {
@@ -65,20 +110,4 @@
   max-height: unset;
   width: unset;
   height: unset;
-}
-
-/* base
---------------------------- */
-html {
-  font-size: calc(var(--fz-base) * var(--rem));
-}
-
-body {
-  font-family: var(--fz-fml-base);
-  color: var(--color-black);
-}
-
-img {
-  inline-size: 100%;
-  object-fit: cover;
 }

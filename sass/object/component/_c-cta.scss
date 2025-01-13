@@ -1,0 +1,87 @@
+/* cta
+--------------------------- */
+.c-cta {
+  --element-width: 375;
+  --element-height: 250;
+  background-color: var(--color-white-2);
+  background: url(../img/top/cta_sp.png) center no-repeat;
+  background-size: cover;
+  inline-size: 100%;
+  aspect-ratio: var(--element-width) / var(--element-height);
+  max-block-size: calc(488 * var(--rem));
+  position: relative;
+  container: cta / inline-size;
+  @media (min-width: 1052px) {
+    --element-width: 1440;
+    --element-height: 488;
+    background: url(../img/top/cta_pc.png) center no-repeat;
+    background-size: cover;
+  }
+  &__contents { 
+    --element-size-max: 956;
+    --element-size-min: 343;
+    --inside-space-block-start-max: 50;
+    --inside-space-block-start-min: 24;
+    --inside-space-block-end-max: 50;
+    --inside-space-block-end-min: 29;
+    --inside-space-inline-max: 200;
+    --inside-space-inline-min: 24;
+    margin-inline: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 54%;
+    inline-size: clamp(
+      calc(var(--element-size-min) * var(--rem)),
+      calc(var(--element-size-min) * var(--ratio-dvi-min)),
+      calc(var(--element-size-max) * var(--rem))
+    );
+    padding-block-start: clamp(
+      calc(var(--inside-space-block-start-min) * var(--rem)),
+      calc(var(--inside-space-block-start-min) * var(--ratio-dvi-min)),
+      calc(var(--inside-space-block-start-max) * var(--rem))
+    );
+    padding-block-end: clamp(
+      calc(var(--inside-space-block-end-min) * var(--rem)),
+      calc(var(--inside-space-block-end-min) * var(--ratio-dvi-min)),
+      calc(var(--inside-space-block-end-max) * var(--rem))
+    );
+    padding-inline: clamp(
+      calc(var(--inside-space-inline-min) * var(--rem)),
+      calc(var(--inside-space-inline-min) * var(--ratio-dvi-min)),
+      calc(var(--inside-space-inline-max) * var(--rem))
+    );
+    background-color: var(--color-white-1);
+    border-radius: 20px;
+    text-align: center;
+    @container cta (min-width: 1052px) {
+      top: 72%;
+    }
+  }
+  &__message {
+    font-size: clamp(0.875rem, calc(0.831rem + 0.188vw), 1rem);
+    font-weight: var(--ft-wt-bold);
+    line-height: var(--line-ht-lg);
+    @container cta (min-width: 1052px) {
+      line-height: unset;
+    }
+  }
+  &__entry {
+    --outside-space-block-start-max: 31;
+    --outside-space-block-start-min: 24;
+    margin-block-start: clamp(
+      calc(var(--outside-space-block-start-min) * var(--rem)),
+      calc(var(--outside-space-block-start-min) * var(--ratio-dvi-min)),
+      calc(var(--outside-space-block-start-max) * var(--rem))
+    );
+  }
+  &__entry-link {
+    --element-size-max: 556;
+    --element-size-min: 200;
+    inline-size: clamp(
+      calc(var(--element-size-min) * var(--rem)),
+      calc(var(--element-size-min) * var(--ratio-dvi-min)),
+      calc(var(--element-size-max) * var(--rem))
+    );
+  }
+}

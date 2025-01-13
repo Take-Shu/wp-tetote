@@ -1,9 +1,17 @@
 @use "./../../foundation/function" as *;
 
-
 /* inner
 --------------------------- */
 .c-inner {
-  max-inline-size: calc(var(--layout-width-max) * var(--rem));
+  --inner-width-max: 1440;
+  max-inline-size: calc(var(--inner-width-max) * var(--rem));
   margin-inline: auto;
+}
+
+/* lower-inner
+--------------------------- */
+.c-lower-inner {
+  // --inner-width-max: 960;
+  // max-inline-size: calc(var(--inner-width-max) * var(--rem));
+  // margin-inline: auto;
 }

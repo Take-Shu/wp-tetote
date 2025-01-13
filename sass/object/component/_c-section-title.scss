@@ -1,0 +1,27 @@
+/* c-section-title
+--------------------------- */
+.c-section-title-en {
+  --section-title-col: rgb(151 151 151 / 0.1);
+  font-family: var(--ft-fml-3);
+  font-size: clamp(5rem, calc(3.768rem + 5.258vw), 8.5rem);
+  font-weight: var(--ft-wt-base);
+  color: var(--section-title-col);
+}
+
+.c-section-title-ja {
+  font-size: clamp(2rem, calc(1.56rem + 1.878vw), 3.25rem);
+  font-weight: var(--ft-wt-bold);
+}
+
+/* c-lower-section-title
+--------------------------- */
+.c-lower-section-title {
+  --font-size-max: 32;
+  --font-size-min: 26;
+  font-size: clamp(
+    calc(var(--font-size-min) * var(--rem)),
+    calc(var(--font-size-max) * var(--ratio-dvi-max)),
+    calc(var(--font-size-max) * var(--rem))
+  );
+  font-weight: var(--ft-wt-bold);
+}

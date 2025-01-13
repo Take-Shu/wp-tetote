@@ -1,0 +1,80 @@
+/* p-lower-businesses
+--------------------------- */
+.p-lower-company {
+  --padding-block-start-max: 153;
+  --padding-block-start-min: 32;
+  --padding-block-end-max: 139;
+  inline-size: min(
+    calc(var(--container-size) * var(--rem)),
+    calc(100% - var(--spacing-gutter) * 2)
+  );
+  padding-block-start: clamp(
+    calc(var( --padding-block-start-min) * var(--rem)),
+    calc(var(--padding-block-start-max) * var(--ratio-dvi-max)),
+    calc(var(--padding-block-start-max) * var(--rem))
+  );
+  padding-block-end: clamp(
+    var(--spacing-5),
+    calc(var(--padding-block-end-max) * var(--ratio-dvi-max)),
+    calc(var(--padding-block-end-max) * var(--rem))
+  );
+  container: lower-company / inline-size;
+  &__content {
+    --margin-block-start-max: 113;
+    --margin-block-start-min: 24;
+    display: block;
+    margin-block-start: clamp(
+      calc(var(--margin-block-start-min) * var(--rem)),
+      calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
+      calc(var(--margin-block-start-max) * var(--rem))
+    );
+  }
+  &__content :where(:any-link) {
+    text-decoration: var(--is-hover-true, underline);
+    transition: text-decoration 0.3s;
+  }
+  &__content tbody {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+  }
+  &__content tbody :nth-child(1 of tr) {
+    padding-block-start: 0;
+  }
+  &__content tr {
+    --padding-block-max: 36;
+    --padding-block-min: 16;
+    --gap-max: 102;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+    column-gap: calc(var(--gap-max) * var(--ratio-dvi-max));
+    padding-block: clamp(
+      calc(var(--padding-block-min) * var(--rem)),
+      calc(var(--padding-block-max) * var(--ratio-dvi-max)),
+      calc(var(--padding-block-max) * var(--rem))
+    );
+    border-bottom: dotted 1px var(--color-black);
+  }
+  &__content th {
+    --font-size-max: 16;
+    --font-size-min: 14;
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+    font-weight: var(--ft-wt-bold);
+  }
+  &__content td {
+    --font-size-max: 16;
+    --font-size-min: 14;
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+  }
+  &__activities > li::before {
+    content: "・ ";
+  }
+}
