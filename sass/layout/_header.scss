@@ -135,7 +135,7 @@
 --------------------------- */
 .l-lower-header {
   background-color: var(--color-white-1);
-  margin-block-end: revert;
+  // margin-block-end: revert;
   & .l-header__menu-button {
     color: var(--color-black);
   }

@@ -92,13 +92,13 @@ const fvObserver = new IntersectionObserver((entries) => {
       header.style.backgroundColor = "var(--color-white-1)";
       menuButton.style.color = "var(--color-black)";
       menuIconBar.style.backgroundColor = "var(--color-black)";
-      logoImage.setAttribute("src", "/assets/img/top/logo_black.svg");
+      logoImage.setAttribute("src", "/assets/img/commonness/logo_black.svg");
     } else {
       header.classList.remove("fade");
       header.style.backgroundColor = "";
       menuButton.style.color = "";
       menuIconBar.style.backgroundColor = "";
-      logoImage.setAttribute("src", "/assets/img/top/logo_white_sp.svg");
+      logoImage.setAttribute("src", "/assets/img/commonness/logo_white_sp.svg");
     }
   })
 },

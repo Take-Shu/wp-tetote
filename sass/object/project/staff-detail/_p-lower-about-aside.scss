@@ -1,0 +1,129 @@
+/* p-lower-staff-detail-about & aside
+--------------------------- */
+.p-lower-staff-detail {
+  &__about-aside-wrap {
+    --gap: 56;
+    --padding-block-start-max: 101;
+    --padding-block-end-max: 107;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: calc(var(--gap) * var(--rem));
+    inline-size: min(
+      calc(var(--container-size) * var(--rem)),
+      calc(100% - var(--spacing-gutter) * 2)
+    );
+    margin-inline: auto;
+    padding-block-start: clamp(
+      var(--spacing-5),
+      calc(var(--padding-block-start-max) * var(--ratio-dvi-max)),
+      calc(var(--padding-block-start-max) * var(--rem))
+    );
+    padding-block-end: clamp(
+      var(--spacing-5),
+      calc(var(--padding-block-end-max) * var(--ratio-dvi-max)),
+      calc(var(--padding-block-end-max) * var(--rem))
+    );
+    container: lower-about-aside / inline-size;
+    @media (max-width: 1024px) {
+      gap: 0;
+    }
+  }
+  &__about h2 {
+    --font-size-max: var(--fz-lg-2);
+    --font-size-min: var(--fz-lg-1);
+    --margin-block-end-max: 50;
+    --margin-block-start-max: 23;
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+    font-weight: var(--ft-wt-bold);
+    margin-block-start: calc(var(--margin-block-start-max) * var(--rem) + var(--leading-trim));
+    margin-block-end: calc(var(--margin-block-end-max) * var(--rem) + var(--leading-trim));
+    display: block flow-root;
+    &::before {
+      --bar-size-max: 216;
+      --gap: clamp(
+        calc(8 * var(--rem)),
+        calc(16 * var(--ratio-dvi-max)),
+        calc(16 * var(--rem))
+      );
+      --inline-size: min(
+        calc(var(--bar-size-max) * var(--rem)),
+        calc(var(--bar-size-max) * var(--ratio-dvi-max))
+      );
+      --block-size: calc(1 * var(--rem));
+      content: "";
+      float: inline-start;
+      inline-size: var(--inline-size);
+      block-size: var(--block-size);
+      margin-block: calc((1lh - var(--block-size)) / 2);
+      margin-inline-start: calc((var(--inline-size) + var(--gap)) * -1);
+      background-color: var(--color-black);
+    }
+  }
+  &__about :where(ol) {
+    counter-reset: item;
+  }
+  &__about :where(li) {
+    // list-style-type: revert;
+    &::before {
+      counter-increment: item;
+      content: counter(item)".";
+      font-weight: var(--ft-wt-bold);
+    }
+  }
+  &__about :where(p), &__about :where(li) {
+    --font-size-max: var(--fz-base);
+    --font-size-min: var(--fz-sm-3);
+    --margin-block: 23;
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+    line-height: var(--line-ht-md-1);
+    margin-block: calc(var(--margin-block) * var(--rem) + var(--leading-trim));
+  }
+  &__about >:first-child {
+    margin-block-start: 0;
+  }
+  &__about >:last-child {
+    margin-block-end: 0;
+  }
+  &__about :where(strong) {
+    font-weight: var(--ft-wt-bold);
+  }
+  
+  &__aside {
+    @container lower-about-aside (max-width: 932px) {
+      display: none;
+    }
+  }
+  &__sidebar {
+    position: sticky;
+    inset-block-start: calc(var(--header-height) + var(--spacing-4));
+    color: var(--color-grey-2);
+    font-size: calc(var(--fz-sm-3) * var(--rem));
+  }
+  &__sidebar-list {
+    --margin-block-start: calc(13 * var(--rem));
+    --row-gap: calc(16 * var(--rem));
+    margin-block-start: var(--margin-block-start);
+    display: grid;
+    row-gap: var(--row-gap);
+  }
+  &__sidebar-item {
+    display: block flow-root;
+    &::before {
+      content: "・ ";
+      float: inline-start;
+      block-size: 1lh;
+    }
+  }
+  &__sidebar-item.active > a {
+    font-weight: var(--ft-wt-bold);
+    color: var(--color-black);
+  }
+}

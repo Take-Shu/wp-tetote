@@ -25,3 +25,10 @@
     display: block;
   }
 }
+
+/* pagination current-color
+--------------------------- */
+.u-current-color {
+  color: var(--color-white-1);
+  background-color: var(--color-black);
+}

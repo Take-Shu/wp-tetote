@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
-<body class="l-lower-staff-body">
+<body class="l-lower-staff-detail-body">
   <header class="l-header l-lower-header js-header">
     <div class="l-header__container">
       <div class="l-header__logo">
@@ -60,148 +60,153 @@
     </div>
   </header>
 
-  <main class="l-lower-staff-main">
-    <div class="p-lower-staff-fv c-lower-fv js-observation-target">
-      <div class="c-lower-fv__container">
-        <hgroup class="p-lower-staff-fv__title c-lower-fv__title">
-          <h1 lang="en" translate="no" class="p-lower-staff-fv__title-en c-lower-fv__title-en">STAFF</h1>
-            <p class="p-lower-staff-fv__title-ja c-lower-fv__title-ja">
-              社員について</p>
-        </hgroup>
-        <p class="p-lower-staff-fv__text c-lower-fv__text">弊社社員のリアルな声を紹介しています。</p>
+  <main class="l-lower-staff-detail-main">
+    <article class="p-lower-staff-detail__article js-observer-target">
+      <div class="p-lower-staff-detail__container">
+        <div class="p-lower-staff-detail__contents">
+          <div class="p-lower-staff-detail__text-wrap">
+            <h1 class="p-lower-staff-detail__title">
+              <div><span class="p-lower-staff-detail__title_large">あなたが担当で良かった</span></div>
+              <div><span class="p-lower-staff-detail__title_small">この一言が、最高のやりがい</span></div>
+            </h1>
+            <div class="p-lower-staff-detail__occupation">コンサルタント</div>
+            <div class="p-lower-staff-detail__name-date-wrap">
+              <span class="p-lower-staff-detail__name">西村 優</span>
+              <span class="p-lower-staff-detail__date"><time datetime="2011"
+                class="p-lower-staff-detail__date-time">2011</time>年入社
+              </span>
+            </div>
+            <p class="p-lower-staff-detail__description">
+              東京大学工学部を卒業後、大手IT企業でシステムエンジニアとして5年間、システム開発に携わった。その後、TETOTEに転職し、IT戦略策定やシステム導入プロジェクトの支援に従事。豊富な経験と知識を活かし、クライアントの課題解決に貢献している。
+            </p>
+          </div>
+          <img src="/assets/img/commonness/emp_01.png" alt="西村 優" class="p-lower-staff-detail__img">
+        </div>
       </div>
-    </div>
+    </article>
 
     <div class="c-lower-location">
       <div class="c-lower-location__container">
-        <div class="breadcrumb">
+        <div class="breadcrumb" aria-label="パンくずリスト">
           <span><a href="./">TOP</a></span>
-          <span><a href="./staff" aria-current="location">STAFF</a></span>
+          <span><a href="./staff">STAFF</a></span>
+          <span><a href="./staff/nishimura" aria-current="location">NISHIMURA</a></span>
         </div>
       </div>
     </div>
 
-    <section class="p-lower-staff">
-      <ul class="p-lower-staff__list">
-        <li class="p-lower-staff__item">
-          <article class="p-lower-staff__article" aria-labelledby="lower-staff-1">
-            <a href="" class="p-lower-staff__link">
-              <h2 id="lower-staff-1" class="p-lower-staff__name">西村 優</h2>
-              <div class="p-lower-staff__data">
-                <span class="p-lower-staff__occupation">コンサルタント</span>
-                <span class="p-lower-staff__date"><time datetime="2011"
-                    class="p-lower-staff__date-time">2011</time>年入社</span>
+    <div class="p-lower-staff-detail__about-aside-wrap">
+      <article class="p-lower-staff-detail__about">
+        <h2 id="tasks">普段の業務内容について</h2>
+        <p>TETOTEのコンサルティング本部で、ITコンサルタントとして勤務しています。主な業務内容は、以下の3つです。</p>
+        <ol>
+          <li>
+            <strong>クライアントの経営課題のヒアリングと分析</strong><br>クライアント企業の経営者やIT部門の責任者から、経営課題や業務内容、既存のシステム状況などをヒアリングし、課題解決のためのIT戦略を策定します。
+          </li>
+          <li>
+            <strong>システム導入プロジェクトの支援</strong><br>システム導入プロジェクトの企画・立案から導入後の運用まで、一貫して支援します。
+          </li>
+          <li>
+            <strong>IT人材育成</strong><br>クライアント企業のIT部門向けに、ITスキル向上のための研修やセミナーを実施します。これらの業務を通して、クライアント企業のIT戦略の立案から実行までを支援し、課題解決に貢献しています。
+          </li>
+        </ol>
+    
+        <h2 id="student-days">学生時代に力を入れたことは？</h2>
+        <p>学生時代に力を入れたことは、ロボットプログラミングサークルでの活動です。<br>私は、東京大学工学部在学中に、ロボットプログラミングサークルに所属していました。サークルでは、二足歩行ロボットや自律走行ロボットなどの製作に取り組み、全国大会にも出場しました。<br>この活動を通して、問題解決能力、チームワーク力、プレゼンテーション能力を身につけました。<br>特に、二足歩行ロボットの製作では、ロボットが歩行できるようにするためのプログラムを開発しました。試行錯誤を繰り返しながら、目標を達成するために必要な知識を積極的に学び、チームメンバーと協力して課題を解決しました。<br>この経験は、現在の仕事、つまり、クライアントの課題を解決するために、必要な知識を積極的に学び、チームメンバーと協力して課題を解決する、ここに活かされています。</p>
+    
+        <h2 id="desire">TETOTEを志望した理由は？</h2>
+        <p>IT戦略策定からシステム導入まで一貫して支援できる点です。<br>
+        前職でシステムエンジニアとして5年間、システム開発に携わった中で、単なる技術課題解決ではなく、クライアントの経営課題解決に貢献したいと考えるようになりました。<br>TETOTEは、IT戦略策定から導入まで一貫して支援できる数少ないコンサルティング会社です。自分の技術力と経営視点を活かし、課題解決に貢献したいという想いを叶えられる環境だと確信しました。</p>
+    
+        <h2 id="worth">やりがいを感じる瞬間は？</h2>
+        <p>特に印象深いのは、大手製造業のA社でのプロジェクトです。A社は、生産管理システムの老朽化により、作業効率の低 下とコスト増加に悩んでいました。<br>私は、A社の経営層や現場担当者と綿密なヒアリングを行い、課題を分析しました。そして、最新のクラウド技術を活用した新しい生産管理システムを提案しました。<br>導入後は、作業効率が大幅に向上し、コストも削減できました。さらに、システムの使いやすさが好評で、現場担当者からも感謝の言葉を頂きました。<br>この経験を通して、ITの力でクライアントの課題解決に貢献できる仕事の価値を実感しました。</p>
+    
+        <h2 id="work-with">どんな人と一緒に働きたい？</h2>
+        <p>自分の考えを相手に分かりやすく伝え、相手の意見を尊重できる人です。<br>このような人々と共に働くことで、互いに刺激を与え合い、より高いレベルを目指していけると考えています。</p>
+  
+        <h2 id="applicant">応募者へのメッセージ</h2>
+        <p>TETOTEは、「ITの力で社会課題を解決する」というビジョンを掲げ、日々成長している会社です。<br>高い志を持ち、自ら考え行動できる人と一緒に働きたいです。<br>一緒に、社会に貢献できる仕事に挑戦しましょう！</p>
+      </article>
+  
+      <aside class="p-lower-staff-detail__aside">
+        <div class="p-lower-staff-detail__sidebar">
+          <h4 class="p-lower-staff-detail__sidebar-title">目次</h4>
+          <ol class="p-lower-staff-detail__sidebar-list">
+            <li class="p-lower-staff-detail__sidebar-item"><a href="#tasks">普段の業務内容について</a></li>
+            <li class="p-lower-staff-detail__sidebar-item"><a href="#student-days">学生時代に力を入れたことは？</a></li>
+            <li class="p-lower-staff-detail__sidebar-item"><a href="#desire">TETOTEを志望した理由は？</a></li>
+            <li class="p-lower-staff-detail__sidebar-item"><a href="#worth">やりがいを感じる瞬間は？</a></li>
+            <li class="p-lower-staff-detail__sidebar-item"><a href="#work-with">どんな人と一緒に働きたい？</a></li>
+            <li class="p-lower-staff-detail__sidebar-item"><a href="#applicant">応募者へのメッセージ</a></li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+
+    <section class="p-lower-staff-detail__other">
+      <h2 class="p-lower-staff-detail__other-title">その他のメンバー</h2>
+      <ul class="p-lower-staff-detail__other-list">
+        <li class="p-lower-staff-detail__other-item">
+          <article class="c-staff__article" aria-labelledby="lower-staff-1">
+            <a href="" class="c-staff__link">
+              <h3 id="lower-staff-1" class="c-staff__name">高橋 智</h3>
+              <div class="c-staff__data">
+                <span class="c-staff__occupation">データサイエンティスト</span>
+                <span class="c-staff__date"><time datetime="2002"
+                    class="c-staff__date-time">2002</time>年入社
+                </span>
               </div>
-              <div class="p-lower-staff__message-img-wrap">
-                <div class="p-lower-staff__message">
-                  <span>「あなたが担当で良かった」</span>
-                  <span>この一言が、最高のやりがい</span>
+              <div class="c-staff__message-img-wrap">
+                <div class="c-staff__message">
+                  <div><span>ビジネスの課題を</span></div>
+                  <div><span>データで解決する醍醐味</span></div>
                 </div>
-                <div class="p-lower-staff__img-wrap">
-                  <img src="/assets/img/commonness/emp_01.png" alt="" class="p-lower-staff__img">
-                </div>
-              </div>
-            </a>
-          </article>
-        </li>
-        <li class="p-lower-staff__item">
-          <article class="p-lower-staff__article" aria-labelledby="lower-staff-2">
-            <a href="" class="p-lower-staff__link">
-              <h2 id="lower-staff-2" class="p-lower-staff__name">橋本 拓也</h2>
-              <div class="p-lower-staff__data">
-                <span class="p-lower-staff__occupation">コンサルタント</span>
-                <span class="p-lower-staff__date"><time datetime="2015"
-                    class="p-lower-staff__date-time">2015</time>年入社</span>
-              </div>
-              <div class="p-lower-staff__message-img-wrap">
-                <div class="p-lower-staff__message">
-                  <span>全力で考えぬける環境</span>
-                  <span>試練の数だけ強くなれました</span>
-                </div>
-                <div class="p-lower-staff__img-wrap">
-                  <img src="/assets/img/commonness/emp_02.png" alt="" class="p-lower-staff__img">
-                </div>
-              </div>
-            </a>
-          </article>
-        </li>
-        <li class="p-lower-staff__item">
-          <article class="p-lower-staff__item" aria-labelledby="lower-staff-2">
-            <a href="" class="p-lower-staff__link">
-              <h2 id="lower-staff-2" class="p-lower-staff__name">青木 美月</h2>
-              <div class="p-lower-staff__data">
-                <span class="p-lower-staff__occupation">ソリューション営業</span>
-                <span class="p-lower-staff__date"><time datetime="2017"
-                    class="p-lower-staff__date-time">2017</time>年入社</span>
-              </div>
-             <div class="p-lower-staff__message-img-wrap">
-              <div class="p-lower-staff__message">
-                <span>お客様も知らない課題を</span>
-                <span>一緒に探し出す醍醐味</span>
-              </div>
-              <div class="p-lower-staff__img-wrap">
-                <img src="/assets/img/commonness/emp_03.png" alt="" class="p-lower-staff__img">
-              </div>
-            </div>
-            </a>
-          </article>
-        </li>
-        <li class="p-lower-staff__item">
-          <article class="p-lower-staff__item" aria-labelledby="lower-staff-3">
-            <a href="" class="p-lower-staff__link">
-              <h2 id="lower-staff-3" class="p-lower-staff__name">高橋 智</h2>
-              <div class="p-lower-staff__data">
-                <span class="p-lower-staff__occupation">データサイエンティスト</span>
-                <span class="p-lower-staff__date"><time datetime="2002"
-                    class="p-lower-staff__date-time">2002</time>年入社</span>
-              </div>
-              <div class="p-lower-staff__message-img-wrap">
-                <div class="p-lower-staff__message">
-                  <span>ビジネスの課題を</span>
-                  <span>データで解決する醍醐味</span>
-                </div>
-                <div class="p-lower-staff__img-wrap">
-                  <img src="/assets/img/commonness/emp_04.png" alt="" class="p-lower-staff__img">
+                <div class="c-staff__img-wrap">
+                  <img src="/assets/img/commonness/emp_04.png" alt="" class="c-staff__img">
                 </div>
               </div>
             </a>
           </article>
         </li>
-        <li class="p-lower-staff__item">
-          <article class="p-lower-staff__item" aria-labelledby="lower-staff-4">
-            <a href="" class="p-lower-staff__link">
-              <h2 id="lower-staff-4" class="p-lower-staff__name">高田 凛</h2>
-              <div class="p-lower-staff__data">
-                <span class="p-lower-staff__occupation">コンサルタント</span>
-                <span class="p-lower-staff__date"><time datetime="2011"
-                    class="p-lower-staff__date">2006</time>年入社</span>
+        <li class="p-lower-staff-detail__other-item">
+          <article class="c-staff__article" aria-labelledby="lower-staff-2">
+            <a href="" class="c-staff__link">
+              <h3 id="lower-staff-2" class="c-staff__name">高田 凛</h3>
+              <div class="c-staff__data">
+                <span class="c-staff__occupation">コンサルタント</span>
+                <span class="c-staff__date"><time datetime="2006"
+                    class="c-staff__date-time">2006</time>年入社
+                </span>
               </div>
-              <div class="p-lower-staff__message-img-wrap">
-                <div class="p-lower-staff__message">
-                  <span>どんな難解な案件も</span>
-                  <span>チームで突破できる強い連携</span>
+              <div class="c-staff__message-img-wrap">
+                <div class="c-staff__message">
+                  <div><span>どんな難解な案件も</span></div>
+                  <div><span>チームで突破できる強い連携</span></div>
                 </div>
-                <div class="p-lower-staff__img-wrap"><img src="/assets/img/commonness/emp_05.png" alt="高田 凛" class="p-lower-staff__img"></div>
+                <div class="c-staff__img-wrap">
+                  <img src="/assets/img/commonness/emp_05.png" alt="" class="c-staff__img">
+                </div>
               </div>
             </a>
           </article>
         </li>
-        <li class="p-lower-staff__item">
-          <article class="p-lower-staff__item" aria-labelledby="lower-staff-5">
-            <a href="" class="p-lower-staff__link">
-              <h2 id="lower-staff-5" class="p-lower-staff__name">橘 光</h2>
-              <div class="p-lower-staff__data">
-                <span class="p-lower-staff__occupation">システム事業部課長</span>
-                <span class="p-lower-staff__date"><time datetime="2011"
-                    class="p-lower-staff__date">2007</time>年入社</span>
+        <li class="p-lower-staff-detail__other-item">
+          <article class="c-staff__article" aria-labelledby="lower-staff-3">
+            <a href="" class="c-staff__link">
+              <h3 id="lower-staff-3" class="c-staff__name">橘 光</h3>
+              <div class="c-staff__data">
+                <span class="c-staff__occupation">システム事業部課長</span>
+                <span class="c-staff__date"><time datetime="2007"
+                    class="c-staff__date-time">2007</time>年入社
+                </span>
               </div>
-              <div class="p-lower-staff__message-img-wrap">
-                <div class="p-lower-staff__message">
-                  <span>お客様と一緒に開発</span>
-                  <span>豊富なプライム案件が魅力です</span>
+              <div class="c-staff__message-img-wrap">
+                <div class="c-staff__message">
+                  <div><span>お客様と一緒に開発</span></div>
+                  <div><span>豊富なプライム案件が魅力です</span></div>
                 </div>
-                <div class="p-lower-staff__img-wrap">
-                  <img src="/assets/img/commonness/emp_06.png" alt="橘 光" class="p-lower-staff__img">
+                <div class="c-staff__img-wrap">
+                  <img src="/assets/img/commonness/emp_06.png" alt="" class="c-staff__img">
                 </div>
               </div>
             </a>
@@ -344,7 +349,7 @@
               </a>
             </li>
             <li class="p-drawer__nav-item p-drawer-pc__nav-item">
-              <a href="./about-us" class="p-drawer__nav-link p-drawer-pc__nav-link">STAFF
+              <a href="./staff" class="p-drawer__nav-link p-drawer-pc__nav-link">STAFF
                 <span class="p-drawer__nav-ja p-drawer-pc__nav-ja">社員について</span>
               </a>
             </li>

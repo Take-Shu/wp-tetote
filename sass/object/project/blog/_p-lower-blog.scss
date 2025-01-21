@@ -1,0 +1,75 @@
+/* p-lower-blog
+--------------------------- */
+.p-lower-blog {
+  --container-size: 956;
+  --padding-block-start-max: 130;
+  --padding-block-start-min: 48;
+  --padding-block-end-max: 139;
+  --padding-block-end-min: 48;
+  inline-size: min(
+    calc(100% - var(--spacing-gutter) * 2),
+    calc(var(--container-size) * var(--rem))
+  );
+  margin-inline: auto;
+  padding-block-start: clamp(
+    calc(var(--padding-block-start-min) * var(--rem)),
+    calc(var(--padding-block-start-max) * var(--ratio-dvi-max)),
+    calc(var(--padding-block-start-max) * var(--rem))
+  );
+  padding-block-end: clamp(
+    calc(var(--padding-block-end-min) * var(--rem)),
+    calc(var(--padding-block-end-max) * var(--ratio-dvi-max)),
+    calc(var(--padding-block-end-max) * var(--rem))
+  );
+  container: lower-blog / inline-size;
+  &__list {
+    --article-width: calc(452 * var(--rem));
+    --row-gap-max: 23;
+    --row-gap-min: 9;
+    --column-gap: calc(52 * var(--rem));
+    max-inline-size: calc((var(--article-width) * 2) + var(--column-gap));
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(var(--article-width), 100%), 1fr)
+    );
+    row-gap: clamp(
+      calc(var(--row-gap-min) * var(--rem)),
+      calc(var(--row-gap-min) * var(--ratio-dvi-min)),
+      calc(var(--row-gap-max) * var(--rem))
+    );
+    column-gap: var(--column-gap);
+  }
+  &__article-link {
+    background-color: var(--color-white-2);
+  }
+  &__pagination {
+    --margin-block-start-max: 98;
+    --margin-block-start-min: 32;
+    --font-size-max: var(--fz-sm-3);
+    --font-size-min: var(--fz-sm-2);
+    margin-block-start: clamp(
+      calc(var(--margin-block-start-min) * var(--rem)),
+      calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
+      calc(var(--margin-block-start-max) * var(--rem))
+    );
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: calc(32em / var(--font-size-max));
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+  }
+  &__pagination-link {
+    display: inline grid;
+    inline-size: calc(58em / var(--fz-sm-3));
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: solid 1px var(--color-black);
+    place-items: center;
+  }
+}

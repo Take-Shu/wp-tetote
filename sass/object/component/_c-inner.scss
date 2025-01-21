@@ -1,0 +1,7 @@
+/* inner
+--------------------------- */
+.c-inner {
+  --inner-width-max: 1440;
+  max-inline-size: calc(var(--inner-width-max) * var(--rem));
+  margin-inline: auto;
+}

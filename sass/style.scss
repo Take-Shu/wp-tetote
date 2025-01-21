@@ -15,12 +15,14 @@
 /*--------------------------------*
  * component
  *--------------------------------*/
- @use "./object/component/button";
- @use "./object/component/inner";
+ @use "./object/component/c-button";
+ @use "./object/component/c-inner";
  @use "./object/component/c-section-title";
  @use "./object/component/c-lower-fv";
  @use "./object/component/c-location";
  @use "./object/component/c-cta";
+ @use "./object/component/c-staff";
+ @use "./object/component/c-blog";
 
  /*--------------------------------*
  * project
@@ -38,6 +40,10 @@
  @use "./object/project/about/p-lower-businesses";
  @use "./object/project/about/p-lower-company";
  @use "./object/project/staff/p-lower-staff";
+ @use "./object/project/staff-detail/p-lower-article";
+ @use "./object/project/staff-detail/p-lower-about-aside";
+ @use "./object/project/staff-detail/p-lower-other";
+ @use "./object/project/blog/p-lower-blog";
  
  /*--------------------------------*
  * utility

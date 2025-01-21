@@ -25,6 +25,7 @@
   --fz-md: 18;
   --fz-lg-1: 20;
   --fz-lg-2: 24;
+  --fz-lg-3: 28;
   --fz-xl-1: 32;
   --fz-xl-2: 36;
   --fz-xxl-1: 40;
@@ -32,6 +33,11 @@
   --fz-xxl-3: 52;
   --fz-xxl-4: 64;
   --rem: calc(1rem / var(--fz-base));
+  // 32 - 28
+  // 24 - 20
+  // 24 - 16
+  // 16 - 14
+  // 14 - 12
 
   /* CSS変数(font-family)
 --------------------------- */
@@ -71,6 +77,7 @@
   --color-white-2: #FAF7F1;
   --color-white-3: #F0F0F0;
   --color-grey-1: #999;
+  --color-grey-2: #666;
 
   /* CSS変数(z-index)
 --------------------------- */
@@ -79,19 +86,31 @@
   --z-index-header: 9;
   --z-index-top-layer: 10;
 
-   /* CSS変数(spacing)
+  /* CSS変数(spacing)
 --------------------------- */
   --spacing-1: 0.5rem;
   --spacing-2: 1rem;
   --spacing-3: 1.5rem;
   --spacing-4: 2rem;
   --spacing-5: 3rem;
+
+  /* CSS変数(header)
+--------------------------- */
+--header-height-max: 118;
+--header-height-min: 56;
+--header-height: clamp(
+  calc(var(--header-height-min) * var(--rem)),
+  calc(var(--header-height-min) * var(--ratio-dvi-min)),
+  calc(var(--header-height-max) * var(--rem))
+  )
 }
+
 
   /* base
 --------------------------- */
 html {
   font-size: calc(var(--fz-base) * var(--rem));
+  scroll-padding-block-start: var(--header-height);
 }
 
 body {

@@ -6,6 +6,7 @@
   --container-size: 980;
   display: grid;
   justify-items: center;
+  margin-block-start: var(--header-height);
 }
 
 /* staff
@@ -14,4 +15,23 @@
   --container-size: 980;
   display: grid;
   justify-items: center;
+  margin-block-start: var(--header-height);
+}
+
+/* staff-detail
+--------------------------- */
+.l-lower-staff-detail-main {
+  --container-size: 980;
+  display: grid;
+  justify-items: center;
+  margin-block-start: var(--header-height);
+}
+
+/* blog
+--------------------------- */
+.l-lower-blog-main {
+  --container-size: 980;
+  display: grid;
+  justify-items: center;
+  margin-block-start: var(--header-height);
 }
