@@ -15,10 +15,6 @@
     );
     margin-inline: auto;
   }
-  & .breadcrumb {
-    display: flex;
-    align-items: center;
-  }
   & span + span::before {
     content: ">";
     display: inline-block;

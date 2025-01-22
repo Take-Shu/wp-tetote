@@ -66,11 +66,10 @@
   &-category > dd {
     display: block flow-root;
     &::before {
-      --icon-width: 12;
-      --icon-height: 14;
+      --icon-width: 14;
       content: "";
       float: inline-start;
-      background: url(../img/top/icon_category.png) center no-repeat;
+      background: url(../img/commonness/icon_category.png) center no-repeat;
       background-size: contain;
       inline-size: calc(var(--icon-width) * var(--rem));
       block-size: 1lh;

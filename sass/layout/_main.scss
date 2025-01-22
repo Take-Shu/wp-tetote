@@ -35,3 +35,10 @@
   justify-items: center;
   margin-block-start: var(--header-height);
 }
+
+/* blog-post
+--------------------------- */
+.l-lower-blog-post-main {
+  --container-size: 980;
+  margin-block-start: var(--header-height);
+}
