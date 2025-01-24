@@ -43,9 +43,16 @@
   margin-block-start: var(--header-height);
 }
 
-/* benefits
+/* BENEFIT ページ
 --------------------------- */
 .l-lower-benefits-main {
+  --container-size: 980;
+  margin-block-start: var(--header-height);
+}
+
+/* CAREER ページ
+--------------------------- */
+.l-lower-career-main {
   --container-size: 980;
   margin-block-start: var(--header-height);
 }
