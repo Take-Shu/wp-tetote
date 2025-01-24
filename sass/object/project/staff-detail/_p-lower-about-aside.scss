@@ -113,6 +113,10 @@
     margin-block-start: var(--margin-block-start);
     display: grid;
     row-gap: var(--row-gap);
+    & :where(a[aria-current]) {
+      font-weight: var(--ft-wt-bold);
+      color: var(--color-black);
+    }
   }
   &__sidebar-item {
     display: block flow-root;
@@ -121,9 +125,5 @@
       float: inline-start;
       block-size: 1lh;
     }
-  }
-  &__sidebar-item.active > a {
-    font-weight: var(--ft-wt-bold);
-    color: var(--color-black);
   }
 }

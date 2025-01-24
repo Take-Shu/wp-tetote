@@ -326,6 +326,14 @@ img {
           margin-block-start: var(--header-height);
 }
 
+/* benefits
+--------------------------- */
+.l-lower-benefits-main {
+  --container-size: 980;
+  -webkit-margin-before: var(--header-height);
+          margin-block-start: var(--header-height);
+}
+
 /* footer
 --------------------------- */
 .l-footer {
@@ -749,6 +757,18 @@ img {
   --font-size-min: 26;
   font-size: clamp(var(--font-size-min) * var(--rem), var(--font-size-max) * var(--ratio-dvi-max), var(--font-size-max) * var(--rem));
   font-weight: var(--ft-wt-bold);
+}
+
+/* BENEFITS
+--------------------------- */
+/* section-title 
+----------------------------*/
+.c-lower-benefits__section-title {
+  --font-size-max: var(--fz-xl-1);
+  --font-size-min: var(--fz-lg-3);
+  font-size: clamp(var(--font-size-min) * var(--rem), var(--font-size-max) * var(--ratio-dvi-max), var(--font-size-max) * var(--rem));
+  font-weight: var(--ft-wt-bold);
+  margin-block: var(--leading-trim);
 }
 
 /* c-lower-fv
@@ -2366,6 +2386,13 @@ img {
   background-size: cover;
 }
 
+/* benefits
+--------------------------- */
+.p-lower-benefits-fv {
+  background: url(../img/benefits/benefits-fv.png) center no-repeat;
+  background-size: cover;
+}
+
 /* p-lower-important
 --------------------------- */
 .p-lower-important {
@@ -3124,6 +3151,10 @@ img {
   display: grid;
   row-gap: var(--row-gap);
 }
+.p-lower-staff-detail__sidebar-list :where(a[aria-current]) {
+  font-weight: var(--ft-wt-bold);
+  color: var(--color-black);
+}
 .p-lower-staff-detail__sidebar-item {
   display: block flow-root;
 }
@@ -3131,10 +3162,6 @@ img {
   content: "・ ";
   float: inline-start;
   block-size: 1lh;
-}
-.p-lower-staff-detail__sidebar-item.active > a {
-  font-weight: var(--ft-wt-bold);
-  color: var(--color-black);
 }
 
 /* p-lower-staff-detail-other
@@ -3440,6 +3467,123 @@ img {
 }
 .p-lower-blog-post__pagination :where(time) {
   font-size: calc(var(--fz-sm-2) * var(--rem));
+}
+
+/* BENEFITS-page
+--------------------------- */
+.p-lower-benefits {
+  --padding-block-start-max: 146;
+  --padding-block-start-min: var(--spacing-5);
+  --padding-block-end-max: 139;
+  --padding-block-end-min: var(--spacing-5);
+  inline-size: min(100% - var(--spacing-gutter) * 2, var(--container-size) * var(--rem));
+  margin-inline: auto;
+  -webkit-padding-before: clamp(var(--padding-block-start-min), var(--padding-block-start-max) * var(--ratio-dvi-max), var(--padding-block-start-max) * var(--rem));
+          padding-block-start: clamp(var(--padding-block-start-min), var(--padding-block-start-max) * var(--ratio-dvi-max), var(--padding-block-start-max) * var(--rem));
+  -webkit-padding-after: clamp(var(--padding-block-end-min), var(--padding-block-end-max) * var(--ratio-dvi-max), var(--padding-block-end-max) * var(--rem));
+          padding-block-end: clamp(var(--padding-block-end-min), var(--padding-block-end-max) * var(--ratio-dvi-max), var(--padding-block-end-max) * var(--rem));
+  container: lower-benefits/inline-size;
+}
+
+.p-lower-benefits-systems__table {
+  --margin-block-start-max: 113;
+  --margin-block-start-min: var(--spacing-5);
+  -webkit-margin-before: clamp(var(--margin-block-start-min), var(--margin-block-start-max) * var(--ratio-dvi-max), var(--margin-block-start-max) * var(--rem));
+          margin-block-start: clamp(var(--margin-block-start-min), var(--margin-block-start-max) * var(--ratio-dvi-max), var(--margin-block-start-max) * var(--rem));
+}
+.p-lower-benefits-systems__table {
+  inline-size: -webkit-fill-available;
+  inline-size: -moz-available;
+  inline-size: stretch;
+}
+.p-lower-benefits-systems__table th, .p-lower-benefits-systems__table td {
+  --font-size-max: var(--fz-base);
+  --font-size-min: var(--fz-sm-3);
+  padding-block: calc(36em / var(--font-size-max) + var(--leading-trim));
+  font-size: clamp(var(--font-size-min) * var(--rem), var(--font-size-max) * var(--ratio-dvi-max), var(--font-size-max) * var(--rem));
+}
+.p-lower-benefits-systems__table tbody {
+  display: grid;
+  grid-template-columns: -webkit-max-content 1fr;
+  grid-template-columns: max-content 1fr;
+}
+.p-lower-benefits-systems__table tbody :nth-child(1 of tr) th, .p-lower-benefits-systems__table tbody :nth-child(1 of tr) td {
+  -webkit-padding-before: 0;
+          padding-block-start: 0;
+}
+.p-lower-benefits-systems__table tr {
+  --column-gap-max: 151;
+  --column-gap-min: var(--spacing-4);
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1/-1;
+  -webkit-column-gap: clamp(var(--column-gap-min), var(--column-gap-max) * var(--ratio-dvi-max), var(--column-gap-max) * var(--rem));
+     -moz-column-gap: clamp(var(--column-gap-min), var(--column-gap-max) * var(--ratio-dvi-max), var(--column-gap-max) * var(--rem));
+          column-gap: clamp(var(--column-gap-min), var(--column-gap-max) * var(--ratio-dvi-max), var(--column-gap-max) * var(--rem));
+  border-bottom: dotted 1px var(--color-black);
+}
+.p-lower-benefits-systems__table th {
+  font-weight: var(--ft-wt-bold);
+}
+.p-lower-benefits-systems__table li {
+  display: flow-root;
+  -webkit-padding-start: 1em;
+          padding-inline-start: 1em;
+}
+.p-lower-benefits-systems__table li::before {
+  content: "・";
+  float: inline-start;
+  -webkit-margin-start: -1em;
+          margin-inline-start: -1em;
+}
+
+.p-lower-benefits-user {
+  --margin-block-start-max: 128;
+  --margin-block-start-min: var(--spacing-5);
+  -webkit-margin-before: clamp(var(--margin-block-start-min), var(--margin-block-start-max) * var(--ratio-dvi-max), var(--margin-block-start-max) * var(--rem));
+          margin-block-start: clamp(var(--margin-block-start-min), var(--margin-block-start-max) * var(--ratio-dvi-max), var(--margin-block-start-max) * var(--rem));
+}
+.p-lower-benefits-user__contents {
+  --gap-max: 46;
+  --gap-min: var(--spacing-3);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(467 * var(--rem), 100%), 1fr));
+  gap: clamp(var(--gap-min), var(--gap-max) * var(--ratio-dvi-max), var(--gap-max) * var(--rem));
+  -webkit-margin-before: calc(23 * var(--rem));
+          margin-block-start: calc(23 * var(--rem));
+}
+.p-lower-benefits-user__date {
+  --font-size-max: var(--fz-base);
+  --font-size-min: var(--fz-sm-3);
+  font-size: clamp(var(--font-size-min) * var(--rem), var(--font-size-max) * var(--ratio-dvi-max), var(--font-size-max) * var(--rem));
+  font-weight: var(--ft-wt-bold);
+  color: var(--color-main);
+}
+.p-lower-benefits-user__name {
+  --font-size-max: var(--fz-lg-2);
+  --font-size-min: var(--fz-lg-1);
+  font-size: clamp(var(--font-size-min) * var(--rem), var(--font-size-max) * var(--ratio-dvi-max), var(--font-size-max) * var(--rem));
+  font-weight: var(--ft-wt-bold);
+}
+.p-lower-benefits-user__comment {
+  --font-size-max: var(--fz-base);
+  --font-size-min: var(--fz-sm-3);
+  font-size: clamp(var(--font-size-min) * var(--rem), var(--font-size-max) * var(--ratio-dvi-max), var(--font-size-max) * var(--rem));
+  line-height: var(--line-ht-md-1);
+  -webkit-margin-before: calc(25em / var(--fz-base) + var(--leading-trim));
+          margin-block-start: calc(25em / var(--fz-base) + var(--leading-trim));
+}
+.p-lower-benefits-user__img-wrap {
+  --margin-block-start-max: 36;
+  --margin-block-start-min: var(--spacing-4);
+  -webkit-margin-before: clamp(var(--margin-block-start-min), var(--margin-block-start-max) * var(--ratio-dvi-max), var(--margin-block-start-max) * var(--rem));
+          margin-block-start: clamp(var(--margin-block-start-min), var(--margin-block-start-max) * var(--ratio-dvi-max), var(--margin-block-start-max) * var(--rem));
+}
+.p-lower-benefits-user__img {
+  --inline-size-max: 980;
+  --block-size-max: 560;
+  inline-size: min(var(--inline-size-max) * var(--rem), 100%);
+  aspect-ratio: var(--inline-size-max)/var(--block-size-max);
 }
 
 /*--------------------------------*

@@ -1,0 +1,159 @@
+/* BENEFITS-page
+--------------------------- */
+.p-lower-benefits {
+  --padding-block-start-max: 146;
+  --padding-block-start-min: var(--spacing-5);
+  --padding-block-end-max: 139;
+  --padding-block-end-min: var(--spacing-5);
+  inline-size: min(
+    calc(100% - var(--spacing-gutter) * 2),
+    calc(var(--container-size) * var(--rem))
+  );
+  margin-inline: auto;
+  padding-block-start: clamp(
+    var(--padding-block-start-min),
+    calc(var(--padding-block-start-max) * var(--ratio-dvi-max)),
+    calc(var(--padding-block-start-max) * var(--rem))
+  );
+  padding-block-end: clamp(
+    var(--padding-block-end-min),
+    calc(var(--padding-block-end-max) * var(--ratio-dvi-max)),
+    calc(var(--padding-block-end-max) * var(--rem))
+  );
+  container: lower-benefits / inline-size;
+}
+
+.p-lower-benefits-systems {
+  &__table {
+    --margin-block-start-max: 113;
+    --margin-block-start-min: var(--spacing-5);
+    margin-block-start: clamp(
+      var(--margin-block-start-min),
+      calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
+      calc(var(--margin-block-start-max) * var(--rem))
+    );
+  }
+  &__table {
+    inline-size: stretch;
+    th, td {
+      --font-size-max: var(--fz-base);
+      --font-size-min: var(--fz-sm-3);
+      padding-block: calc(36em / var(--font-size-max) + var(--leading-trim));
+      font-size: clamp(
+        calc(var(--font-size-min) * var(--rem)),
+        calc(var(--font-size-max) * var(--ratio-dvi-max)),
+        calc(var(--font-size-max) * var(--rem))
+      );
+    }
+    tbody {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      & :nth-child(1 of tr) {
+        th, td {
+          padding-block-start: 0;
+        }
+      }
+    }
+    tr {
+      --column-gap-max: 151;
+      --column-gap-min: var(--spacing-4);
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-column: 1 / -1;
+      column-gap: clamp(
+        var(--column-gap-min),
+        calc(var(--column-gap-max) * var(--ratio-dvi-max)),
+        calc(var(--column-gap-max) * var(--rem))
+      );
+      border-bottom: dotted 1px var(--color-black);
+    }
+    th {
+      font-weight: var(--ft-wt-bold);
+    }
+    li {
+      display: flow-root;
+      padding-inline-start: 1em;
+      &::before {
+        content: "・";
+        float: inline-start;
+        margin-inline-start: -1em;
+      }
+    }
+  }
+}
+
+.p-lower-benefits-user {
+  --margin-block-start-max: 128;
+  --margin-block-start-min: var(--spacing-5);
+  margin-block-start: clamp(
+    var(--margin-block-start-min),
+    calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
+    calc(var(--margin-block-start-max) * var(--rem))
+  );
+  &__contents {
+    --gap-max: 46;
+    --gap-min: var(--spacing-3);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(
+      calc(467 * var(--rem)), 100%
+    ),
+    1fr)
+    );
+    gap: clamp(
+      var(--gap-min),
+      calc(var(--gap-max) * var(--ratio-dvi-max)),
+      calc(var(--gap-max) * var(--rem))
+    );
+    margin-block-start: calc(23 * var(--rem));
+  }
+  &__date {
+    --font-size-max: var(--fz-base);
+    --font-size-min: var(--fz-sm-3);
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+    font-weight: var(--ft-wt-bold);
+    color: var(--color-main);
+  }
+  &__name {
+    --font-size-max: var(--fz-lg-2);
+    --font-size-min: var(--fz-lg-1);
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+    font-weight: var(--ft-wt-bold);
+  }
+  &__comment {
+    --font-size-max: var(--fz-base);
+    --font-size-min: var(--fz-sm-3);
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+    line-height: var(--line-ht-md-1);
+    margin-block-start: calc(25em / var(--fz-base) + var(--leading-trim));
+  }
+  &__img-wrap {
+    --margin-block-start-max: 36;
+    --margin-block-start-min: var(--spacing-4);
+    margin-block-start: clamp(
+      var(--margin-block-start-min),
+      calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
+      calc(var(--margin-block-start-max) * var(--rem))
+    );
+  }
+  &__img {
+    --inline-size-max: 980;
+    --block-size-max: 560;
+    inline-size: min(
+      calc(var(--inline-size-max)  * var(--rem)),
+      100%
+    );
+    aspect-ratio: var(--inline-size-max) / var(--block-size-max);
+  }
+}

@@ -25,3 +25,19 @@
   );
   font-weight: var(--ft-wt-bold);
 }
+
+/* BENEFITS
+--------------------------- */
+/* section-title 
+----------------------------*/
+.c-lower-benefits__section-title {
+  --font-size-max: var(--fz-xl-1);
+  --font-size-min: var(--fz-lg-3);
+  font-size: clamp(
+    calc(var(--font-size-min) * var(--rem)),
+    calc(var(--font-size-max) * var(--ratio-dvi-max)),
+    calc(var(--font-size-max) * var(--rem))
+  );
+  font-weight: var(--ft-wt-bold);
+  margin-block: var(--leading-trim);
+}

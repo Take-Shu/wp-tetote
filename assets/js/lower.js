@@ -121,48 +121,50 @@ headerObserver.observe(observerTarget);
 
 // /* サイドバーのアクティブ表示
 // ----------------------------------------------------- */
-const sidebarItems = nodeOps.qsAll(".p-lower-staff-detail__sidebar-item");
+const sidebarItems = nodeOps.qsAll(".p-lower-staff-detail__sidebar-item a");
 const sections = nodeOps.qsAll(".p-lower-staff-detail__about h2");
 const aside = nodeOps.qs(".p-lower-staff-detail__aside");
 
-const handleClick = function() {
-  sidebarItems.forEach((i) => i.classList.remove('active'));
-  this.classList.add('active');
-}
+const handleClick = function () {
+  sidebarItems.forEach((i) => i.removeAttribute("aria-current"));
+  this.setAttribute("aria-current", "true");
+};
 
-let timeoutId;
+let timeout;
 const handleResize = () => {
-  cancelAnimationFrame(timeoutId);
-  timeoutId = requestAnimationFrame(() => {
+  clearTimeout(timeout);
+  timeout = setTimeout(() => {
     const isVisible = window.getComputedStyle(aside).display !== "none";
     if (isVisible) {
       // サイドバーの項目をクリックした時の処理
       sidebarItems.forEach((item) => {
-        item.addEventListener('click', handleClick);
+        item.addEventListener("click", handleClick);
       });
 
       // 最初のセクションタイトル用の設定(articleセクションが監視対象)
       const firstSectionOptions = {
         root: null,
-        rootMargin: "-50% 0px", // 画面中央でトリガー
-        threshold: 0, // 一部でも見えたらコールバックを実行
+        rootMargin: "-50% 0px 0px 0px", // 画面中央でトリガー
+        threshold: 0 // 一部でも見えたらコールバックを実行
       };
       // 全てのセクションタイトル用の設定（画面上部手前トリガー）
       const otherSectionOptions = {
         root: null, // ビューポートをルートとして使用
-        rootMargin: "-200px 0px -100% 0px", // 画面上部手前でトリガー
-        threshold: 0, // 一部でも見えたらコールバックを実行
+        rootMargin: "0px 0px -70% 0px", // 画面上部手前でトリガー
+        threshold: 0 // 一部でも見えたらコールバックを実行
       };
 
       // 最初のセクションタイトル用のコールバック
       const firstSectionCallback = (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            if (sidebarItems[0].classList.contains("active")) {
-              sidebarItems[0].classList.remove("active");
-            } else {
-              return;
-            }
+            sidebarItems.forEach((item) => {
+              if (item.hasAttribute('aria-current')) {
+                item.removeAttribute('aria-current')
+              } else {
+                return;
+              }
+            });
           }
         });
       };
@@ -174,13 +176,15 @@ const handleResize = () => {
           const targetId = entry.target.id;
           const activeItem = nodeOps.qs(
             `.p-lower-staff-detail__sidebar-item a[href="#${targetId}"]`
-          )?.parentElement;
+          );
 
           if (!activeItem) return;
 
           if (entry.isIntersecting) {
-            sidebarItems.forEach((item) => item.classList.remove("active"));
-            activeItem.classList.add("active");
+            sidebarItems.forEach((item) =>
+              item.removeAttribute("aria-current")
+            );
+            activeItem.setAttribute("aria-current", "true");
           }
         });
       };
@@ -202,13 +206,12 @@ const handleResize = () => {
 
       // articleセクションを監視対象に追加
       firstSectionObserver.observe(observerTarget);
-
     } else {
       sidebarItems.forEach((item) => {
-        item.removeEventListener('click', handleClick);
+        item.removeEventListener("click", handleClick);
       });
     }
-  });
+  }, 250);
 };
 
 window.addEventListener("resize", handleResize);
