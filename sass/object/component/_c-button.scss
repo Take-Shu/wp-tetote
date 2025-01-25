@@ -1,9 +1,7 @@
-@use "./../../foundation/function" as *;
-
 /* button
---------------------------- */
+------------------------------------ */
 /* view-more
---------------------------- */
+------------------------------------ */
 .c-button__view-more {
   --element-size-inline-max: 355;
   --element-size-inline-min: 277;
@@ -61,8 +59,9 @@
   }
 }
 
+
 /* circle
---------------------------- */
+------------------------------------ */
 .c-button__circle {
   --circle-button-width: 58;
   display: inline grid;
@@ -101,8 +100,9 @@
   }
 }
 
+
 /* circle-right
---------------------------- */
+------------------------------------ */
 .c-button__circle-right {
   scale: -1 1;
   @media (any-hover: hover) {
@@ -112,8 +112,9 @@
   }
 }
 
+
 /* circle-black
---------------------------- */
+------------------------------------ */
 .c-button__circle_black {
   background-color: var(--color-black);
   &::after {
@@ -125,15 +126,17 @@
   }
 }
 
+
 /* circle-sm
---------------------------- */
+------------------------------------ */
 .c-button__circle_sm {
   --circle-button-width: 42;
   inline-size: calc(var(--circle-button-width) * var(--rem));
 }
 
+
 /* entry
---------------------------- */
+------------------------------------ */
 .c-button__entry {
   --inside-space-block-max: 27;
   --inside-space-block-min: 20;
@@ -183,8 +186,9 @@
   }
 }
 
+
 /* 募集事項　・　ENTRY
---------------------------- */
+------------------------------------ */
 .c-cta__button {
   font-size: calc(var(--fz-sm-3) * var(--rem));
   color: var(--color-white-1);
@@ -216,5 +220,75 @@
     &:hover {
       background-color: var(--color-main);
     } 
+  }
+}
+
+
+/* oblong-button
+------------------------------------ */
+.c-oblong-button {
+  --font-size-max: var(--fz-lg-1);
+  --font-size-min: var(--fz-md);
+  --padding-max: 18;
+  --gap-max: 49; 
+  display: inline-block;
+  font-size: clamp(
+    calc(var(--font-size-min) * var(--rem)),
+    calc(var(--font-size-max) * var(--ratio-dvi-max)),
+    calc(var(--font-size-max) * var(--rem))
+  );
+  font-weight: var(--ft-wt-bold);
+  background-color: var(--color-white-2);
+  padding: calc((var(--padding-max) * 1em / var(--font-size-max)) + var(--leading-trim));
+  border: solid 1px var(--color-black);
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  transition: color 0.3s, background-color 0.3s;
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--color-white-1);
+      background-color: var(--color-black);
+      & :where(span) {
+        background-color: var(--color-white-1);
+        &::before, &::after {
+          background-color: var(--color-white-1);
+        }
+      }
+    }
+  }
+}
+
+.c-oblong-button :where(span) {
+  margin-inline-start: 1em;
+  margin-inline-end: -1em;
+  display: inline-block;
+  block-size: 1em;
+  inline-size: 2px;
+  background-color: var(--color-black);
+  position: relative;
+  transition: background-color 0.3s;
+  &::before, &::after {
+    content: "";
+    display: inline-block;
+    inline-size: 0.5em;
+    block-size: 2px;
+    background-color: var(--color-black);
+    border-radius: 0.1em;
+    position: absolute;
+    inset-block-end: 0;
+    transition: background-color 0.3s;
+  }
+  &::before {
+    rotate: 45deg;
+    inset-inline-end: 0;
+    translate: 5% -100%;
+  }
+  &::after {
+    rotate: -45deg;
+    inset-inline-start: 0;
+    translate: -5% -100%;
   }
 }

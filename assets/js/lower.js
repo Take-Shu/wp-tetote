@@ -10,8 +10,11 @@ const nodeOps = {
   },
 };
 
-// /* drawer
-// ----------------------------------------------------- */
+
+/* 下層ページ 
+-------------------------------------------------- */
+/* drawer
+-------------------------------------------------- */
 const modalOpenButtons = nodeOps.qsAll(".js-modal-open-button");
 
 const modalManager = {
@@ -52,8 +55,11 @@ const modalOpenTrigger = () => {
 
 modalOpenTrigger();
 
-// /* drawer表示切り替え(pcとsp)
-// ----------------------------------------------------- */
+
+/* 下層ページ 
+-------------------------------------------------- */
+/* drawer表示切り替え(pcとsp)
+----------------------------------------------------- */
 const drawerOpenButton = nodeOps.qs(".l-header__menu-button");
 const BREAKPOINT = 1052;
 
@@ -75,8 +81,11 @@ window.addEventListener("resize", () => {
   }, 100);
 });
 
-// /* ヘッダーの表示切り替え
-// ----------------------------------------------------- */
+
+/* 下層ページ 
+-------------------------------------------------- */
+/* header
+-------------------------------------------------- */
 const observerTarget = nodeOps.qs(".js-observer-target");
 const header = nodeOps.qs(".js-header");
 
@@ -98,29 +107,11 @@ const headerObserver = new IntersectionObserver(
 
 headerObserver.observe(observerTarget);
 
-// /* スタッフ詳細ページ
-// ----------------------------------------------------- */
-// /* スムーススクロール
-// ----------------------------------------------------- */
-// const staffAboutLinks = nodeOps.qsAll(".p-lower-staff-detail__sidebar a");
 
-// staffAboutLinks.forEach(staffAboutLink => {
-//   staffAboutLink.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     const id = staffAboutLink.getAttribute('href').replace('#', '');
-//     const targetElement = nodeOps.getById(id);
-
-//     if (targetElement) {
-//       targetElement.scrollIntoView({
-//         behavior: 'smooth',
-//         block: 'start'
-//       });
-//     }
-//   });
-// });
-
-// /* サイドバーのアクティブ表示
-// ----------------------------------------------------- */
+/* STAFF-DETAIL ページ 
+-------------------------------------------------- */
+/* sidebar
+-------------------------------------------------- */
 const sidebarItems = nodeOps.qsAll(".p-lower-staff-detail__sidebar-item a");
 const sections = nodeOps.qsAll(".p-lower-staff-detail__about h2");
 const aside = nodeOps.qs(".p-lower-staff-detail__aside");
@@ -134,6 +125,7 @@ let timeout;
 const handleResize = () => {
   clearTimeout(timeout);
   timeout = setTimeout(() => {
+    if (!aside) return;
     const isVisible = window.getComputedStyle(aside).display !== "none";
     if (isVisible) {
       // サイドバーの項目をクリックした時の処理
@@ -216,3 +208,27 @@ const handleResize = () => {
 
 window.addEventListener("resize", handleResize);
 handleResize();
+
+
+/* DETAILS ページ 
+-------------------------------------------------- */
+/* スムーススクロール
+-------------------------------------------------- */
+const occupationLinks = nodeOps.qsAll(".p-lower-details-occupation__category-link");
+
+occupationLinks.forEach(occupationLink => {
+  occupationLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    const id = occupationLink.getAttribute('href').replace('#', '');
+    const targetElement = nodeOps.getById(id);
+    const isPrefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const scrollBehavior = isPrefersReduced ? 'instant' : 'smooth';
+
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: scrollBehavior,
+        block: 'start'
+      });
+    }
+  });
+});
