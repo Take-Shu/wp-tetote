@@ -350,6 +350,14 @@ img {
           margin-block-start: var(--header-height);
 }
 
+/* FAQ ページ
+--------------------------- */
+.l-lower-faq-main {
+  --container-size: 980;
+  -webkit-margin-before: var(--header-height);
+          margin-block-start: var(--header-height);
+}
+
 /* footer
 --------------------------- */
 .l-footer {
@@ -2456,47 +2464,54 @@ img {
             transform: translateX(100%);
   }
 }
-/* p-lower-fv
+/* 下層ページ fv
 --------------------------- */
-/* about-us
+/* ABOUT-US
 --------------------------- */
 .p-lower-about-us-fv {
   background: url(../img/about-us/about-fv.png) center no-repeat;
   background-size: cover;
 }
 
-/* staff
+/* STAFF
 --------------------------- */
 .p-lower-staff-fv {
   background: url(../img/staff/staff-fv.png) center no-repeat;
   background-size: cover;
 }
 
-/* staff
+/* BLOG
 --------------------------- */
 .p-lower-blog-fv {
   background: url(../img/blog/blog-fv.png) center no-repeat;
   background-size: cover;
 }
 
-/* BENEFITS fv
+/* BENEFITS
 --------------------------- */
 .p-lower-benefits-fv {
   background: url(../img/benefits/benefits-fv.png) center no-repeat;
   background-size: cover;
 }
 
-/* CAREER fv
+/* CAREER
 --------------------------- */
 .p-lower-career-fv {
   background: url(../img/career/career-fv.png) center no-repeat;
   background-size: cover;
 }
 
-/* DETAILS fv
+/* DETAILS
 --------------------------- */
 .p-lower-details-fv {
   background: url(../img/details/details-fv.png) center no-repeat;
+  background-size: cover;
+}
+
+/* FAQ
+--------------------------- */
+.p-lower-faq-fv {
+  background: url(../img/faq/faq-fv.png) center no-repeat;
   background-size: cover;
 }
 
@@ -3943,6 +3958,125 @@ img {
   --block-size-max: 560;
   inline-size: min(var(--inline-size-max) * var(--rem), 100%);
   aspect-ratio: var(--inline-size-max)/var(--block-size-max);
+}
+
+.p-lower-faq {
+  --padding-block-start-max: 146;
+  --padding-block-start-min: var(--spacing-5);
+  --padding-block-end-max: 139;
+  --padding-block-end-min: var(--spacing-5);
+  inline-size: min(100% - var(--spacing-gutter) * 2, var(--container-size) * var(--rem));
+  margin-inline: auto;
+  -webkit-padding-before: clamp(var(--padding-block-start-min), var(--padding-block-start-max) * var(--ratio-dvi-max), var(--padding-block-start-max) * var(--rem));
+          padding-block-start: clamp(var(--padding-block-start-min), var(--padding-block-start-max) * var(--ratio-dvi-max), var(--padding-block-start-max) * var(--rem));
+  -webkit-padding-after: clamp(var(--padding-block-end-min), var(--padding-block-end-max) * var(--ratio-dvi-max), var(--padding-block-end-max) * var(--rem));
+          padding-block-end: clamp(var(--padding-block-end-min), var(--padding-block-end-max) * var(--ratio-dvi-max), var(--padding-block-end-max) * var(--rem));
+  container: lower-details/inline-size;
+}
+.p-lower-faq :nth-child(1 of .p-lower-faq-section) {
+  --margin-block-start-max: 97;
+  --margin-block-start-min: var(--spacing-5);
+  -webkit-margin-before: clamp(var(--margin-block-start-min), var(--margin-block-start-max) * var(--ratio-dvi-max), var(--margin-block-start-max) * var(--rem));
+          margin-block-start: clamp(var(--margin-block-start-min), var(--margin-block-start-max) * var(--ratio-dvi-max), var(--margin-block-start-max) * var(--rem));
+}
+
+.p-lower-faq-category__list {
+  --gap-max: 49;
+  --gap-min: var(--spacing-3);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(294 * var(--rem), 100%), calc(294 * var(--rem))));
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: clamp(var(--gap-min), var(--gap-max) * var(--ratio-dvi-max), var(--gap-max) * var(--rem));
+}
+
+.p-lower-faq-section {
+  --margin-block-start-max: 88;
+  --margin-block-start-min: var(--spacing-5);
+  -webkit-margin-before: clamp(var(--margin-block-start-min), var(--margin-block-start-max) * var(--ratio-dvi-max), var(--margin-block-start-max) * var(--rem));
+          margin-block-start: clamp(var(--margin-block-start-min), var(--margin-block-start-max) * var(--ratio-dvi-max), var(--margin-block-start-max) * var(--rem));
+}
+.p-lower-faq-section__title {
+  --font-size-max: var(--fz-xl-1);
+  --font-size-min: var(--fz-lg-3);
+  font-size: clamp(var(--font-size-min) * var(--rem), var(--font-size-max) * var(--ratio-dvi-max), var(--font-size-max) * var(--rem));
+  font-weight: var(--ft-wt-bold);
+  margin-block: var(--leading-trim);
+}
+.p-lower-faq-section__details-wrap {
+  --margin-block-start-max: 113;
+  --margin-block-start-min: var(--spacing-5);
+  -webkit-margin-before: clamp(var(--margin-block-start-min), var(--margin-block-start-max) * var(--ratio-dvi-max), var(--margin-block-start-max) * var(--rem));
+          margin-block-start: clamp(var(--margin-block-start-min), var(--margin-block-start-max) * var(--ratio-dvi-max), var(--margin-block-start-max) * var(--rem));
+}
+.p-lower-faq-section__accordion {
+  --duration: 0.3s;
+  --padding-block-max: 36;
+  padding-block: calc(var(--padding-block-max) * 1em / var(--fz-base) + var(--leading-trim));
+  -webkit-border-before: 1px solid var(--color-sub);
+          border-block-start: 1px solid var(--color-sub);
+  cursor: pointer;
+}
+.p-lower-faq-section__accordion :where([open] *)::after {
+  opacity: 0;
+}
+.p-lower-faq-section__accordion:last-child {
+  -webkit-border-after: 1px solid var(--color-sub);
+          border-block-end: 1px solid var(--color-sub);
+}
+.p-lower-faq-section__summary {
+  --font-size-max: var(--fz-base);
+  --font-size-min: var(--fz-sm-3);
+  font-size: clamp(var(--font-size-min) * var(--rem), var(--font-size-max) * var(--ratio-dvi-max), var(--font-size-max) * var(--rem));
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: calc(20em / var(--font-size-max));
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.p-lower-faq-section__summary::before {
+  --font-size-max: var(--fz-lg-2);
+  --font-size-min: var(--fz-lg-1);
+  content: "Q";
+  font-family: var(--ft-fml-2);
+  font-size: clamp(var(--font-size-min) * var(--rem), var(--font-size-max) * var(--ratio-dvi-max), var(--font-size-max) * var(--rem));
+  color: var(--color-main);
+  -ms-flex-item-align: start;
+      align-self: start;
+  margin-block: var(--leading-trim);
+}
+.p-lower-faq-section__icon {
+  display: grid;
+  place-content: center;
+  inline-size: 1em;
+  aspect-ratio: 1;
+}
+.p-lower-faq-section__icon::before, .p-lower-faq-section__icon::after {
+  content: "";
+  inline-size: 1em;
+  block-size: 1px;
+  background-color: var(--color-main);
+}
+.p-lower-faq-section__icon::after {
+  rotate: 90deg;
+}
+.p-lower-faq-section p {
+  --font-size-max: var(--fz-base);
+  --font-size-min: var(--fz-sm-3);
+  --gap-max: 20;
+  --gap-min: 17.5;
+  --initial-q-width-max: 15.44;
+  --initial-q-width-min: 12.88;
+  --padding-block-start-max: 22;
+  --padding-inline-max: calc(var(--gap-max) + var(--initial-q-width-max));
+  --padding-inline-min: calc(var(--gap-min) + var(--initial-q-width-min));
+  padding-inline: clamp(var(--padding-inline-min) * var(--rem), var(--padding-inline-max) * var(--ratio-dvi-max), var(--padding-inline-max) * var(--rem));
+  -webkit-padding-before: calc(var(--padding-block-start-max) * 1em / var(--font-size-max) + var(--leading-trim));
+          padding-block-start: calc(var(--padding-block-start-max) * 1em / var(--font-size-max) + var(--leading-trim));
+  font-size: clamp(var(--font-size-min) * var(--rem), var(--font-size-max) * var(--ratio-dvi-max), var(--font-size-max) * var(--rem));
+  line-height: var(--line-ht-md-1);
 }
 
 /*--------------------------------*

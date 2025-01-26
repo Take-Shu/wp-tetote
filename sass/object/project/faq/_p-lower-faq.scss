@@ -1,0 +1,163 @@
+.p-lower-faq {
+  --padding-block-start-max: 146;
+  --padding-block-start-min: var(--spacing-5);
+  --padding-block-end-max: 139;
+  --padding-block-end-min: var(--spacing-5);
+  inline-size: min(
+    calc(100% - var(--spacing-gutter) * 2),
+    calc(var(--container-size) * var(--rem))
+  );
+  & :nth-child(1 of .p-lower-faq-section) {
+    --margin-block-start-max: 97;
+    --margin-block-start-min: var(--spacing-5);
+    margin-block-start: clamp(
+      var(--margin-block-start-min),
+      calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
+      calc(var(--margin-block-start-max) * var(--rem))
+    );
+  }
+  margin-inline: auto;
+  padding-block-start: clamp(
+    var(--padding-block-start-min),
+    calc(var(--padding-block-start-max) * var(--ratio-dvi-max)),
+    calc(var(--padding-block-start-max) * var(--rem))
+  );
+  padding-block-end: clamp(
+    var(--padding-block-end-min),
+    calc(var(--padding-block-end-max) * var(--ratio-dvi-max)),
+    calc(var(--padding-block-end-max) * var(--rem))
+  );
+  container: lower-details / inline-size;
+}
+
+.p-lower-faq-category {
+  &__list {
+    --gap-max: 49;
+    --gap-min: var(--spacing-3);
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(calc(294 * var(--rem)), 100%), calc(294 * var(--rem)))
+    );
+    justify-content: center;
+    gap: clamp(
+      var(--gap-min),
+      calc(var(--gap-max) * var(--ratio-dvi-max)),
+      calc(var(--gap-max) * var(--rem))
+    );
+  }
+}
+
+.p-lower-faq-section {
+  --margin-block-start-max: 88;
+  --margin-block-start-min: var(--spacing-5);
+  margin-block-start: clamp(
+    var(--margin-block-start-min),
+    calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
+    calc(var(--margin-block-start-max) * var(--rem))
+  );
+  &__title {
+    --font-size-max: var(--fz-xl-1);
+    --font-size-min: var(--fz-lg-3);
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+    font-weight: var(--ft-wt-bold);
+    margin-block: var(--leading-trim);
+  }
+  &__details-wrap {
+    --margin-block-start-max: 113;
+    --margin-block-start-min: var(--spacing-5);
+    margin-block-start: clamp(
+      var(--margin-block-start-min),
+      calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
+      calc(var(--margin-block-start-max) * var(--rem))
+    );
+  }
+  &__accordion {
+    --duration: 0.3s;
+    --padding-block-max: 36;
+    padding-block: calc(
+      var(--padding-block-max) * 1em / var(--fz-base) + var(--leading-trim)
+    );
+    border-block-start: 1px solid var(--color-sub);
+    cursor: pointer;
+    & :where([open] *)::after {
+      opacity: 0;
+    }
+    &:last-child {
+      border-block-end: 1px solid var(--color-sub);
+    }
+  }
+  &__summary {
+    --font-size-max: var(--fz-base);
+    --font-size-min: var(--fz-sm-3);
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: calc(20em / var(--font-size-max));
+    align-items: center;
+    &::before {
+      --font-size-max: var(--fz-lg-2);
+      --font-size-min: var(--fz-lg-1);
+      content: "Q";
+      font-family: var(--ft-fml-2);
+      font-size: clamp(
+        calc(var(--font-size-min) * var(--rem)),
+        calc(var(--font-size-max) * var(--ratio-dvi-max)),
+        calc(var(--font-size-max) * var(--rem))
+      );
+      color: var(--color-main);
+      align-self: start;
+      margin-block: var(--leading-trim);
+    }
+  }
+  &__icon {
+    display: grid;
+    place-content: center;
+    inline-size: 1em;
+    aspect-ratio: 1;
+    &::before,
+    &::after {
+      content: "";
+      inline-size: 1em;
+      block-size: 1px;
+      background-color: var(--color-main);
+    }
+    &::after {
+      rotate: 90deg;
+    }
+  }
+  p {
+    --font-size-max: var(--fz-base);
+    --font-size-min: var(--fz-sm-3);
+    --gap-max: 20;
+    --gap-min: 17.5;
+    --initial-q-width-max: 15.44;
+    --initial-q-width-min: 12.88;
+    --padding-block-start-max: 22;
+    --padding-inline-max: calc(var(--gap-max) + var(--initial-q-width-max));
+    --padding-inline-min: calc(var(--gap-min) + var(--initial-q-width-min));
+    padding-inline: clamp(
+      calc(var(--padding-inline-min) * var(--rem)),
+      calc(var(--padding-inline-max) * var(--ratio-dvi-max)),
+      calc(var(--padding-inline-max) * var(--rem))
+    );
+    padding-block-start: calc(
+      var(--padding-block-start-max) * 1em / var(--font-size-max) +
+        var(--leading-trim)
+    );
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+    line-height: var(--line-ht-md-1);
+  }
+}
