@@ -1,5 +1,5 @@
 /* about-us
---------------------------- */
+/* --------------------------- */
 .l-lower-about-us-main {
   --container-size: 980;
   display: grid;
@@ -8,7 +8,7 @@
 }
 
 /* staff
---------------------------- */
+/* --------------------------- */
 .l-lower-staff-main {
   --container-size: 980;
   display: grid;
@@ -17,7 +17,7 @@
 }
 
 /* staff-detail
---------------------------- */
+/* --------------------------- */
 .l-lower-staff-detail-main {
   --container-size: 980;
   display: grid;
@@ -26,7 +26,7 @@
 }
 
 /* blog
---------------------------- */
+/* --------------------------- */
 .l-lower-blog-main {
   --container-size: 980;
   display: grid;
@@ -42,21 +42,21 @@
 }
 
 /* BENEFIT ページ
---------------------------- */
+/* --------------------------- */
 .l-lower-benefits-main {
   --container-size: 980;
   margin-block-start: var(--header-height);
 }
 
 /* CAREER ページ
---------------------------- */
+/* --------------------------- */
 .l-lower-career-main {
   --container-size: 980;
   margin-block-start: var(--header-height);
 }
 
 /* DETAILS ページ
---------------------------- */
+/* --------------------------- */
 .l-lower-details-main {
   --container-size: 980;
   margin-block-start: var(--header-height);
@@ -70,8 +70,15 @@
 }
 
 /* ENTRY ページ
---------------------------- */
+/* --------------------------- */
 .l-lower-entry-main {
+  --container-size: 980;
+  margin-block-start: var(--header-height);
+}
+
+/* THANKS ページ
+/* --------------------------- */
+.l-lower-thanks-main {
   --container-size: 980;
   margin-block-start: var(--header-height);
 }

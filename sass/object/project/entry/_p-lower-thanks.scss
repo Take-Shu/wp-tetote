@@ -1,0 +1,86 @@
+/* THANKS ページ
+/* ------------------------------ */
+.p-lower-thanks {
+  --padding-block-start-max: 33;
+  --padding-block-start-min: var(--spacing-3);
+  --padding-block-end-max: 57;
+  --padding-block-end-min: var(--spacing-4);
+  --margin-block-end-max: 139;
+  --margin-block-end-min: var(--spacing-5);
+  margin-block-end: clamp(
+    var(--margin-block-end-min),
+    calc(var(--margin-block-end-max) * var(--ratio-dvi-max)),
+    calc(var(--margin-block-end-max) * var(--rem))
+  );
+  padding-block-start: clamp(
+    var(--padding-block-start-min),
+    calc(var(--padding-block-start-max) * var(--ratio-dvi-max)),
+    calc(var(--padding-block-start-max) * var(--rem))
+  );
+  padding-block-end: clamp(
+    var(--padding-block-end-min),
+    calc(var(--padding-block-end-max) * var(--ratio-dvi-max)),
+    calc(var(--padding-block-end-max) * var(--rem))
+  );
+  background-color: var(--color-white-2);
+}
+
+.p-lower-thanks-container {
+  --container-size: 880;
+  --padding-block-start-max: 58;
+  --padding-block-start-min: var(--spacing-4);
+  --padding-block-end-max: 81;
+  --padding-block-end-min: var(--spacing-5);
+  --padding-inline-max: 71;
+  --padding-inline-min: 17;
+  inline-size: min(
+    calc(100% - var(--spacing-gutter) * 2),
+    calc(var(--container-size) * var(--rem))
+  );
+  margin-inline: auto;
+  padding-block-start: clamp(
+    var(--padding-block-start-min),
+    calc(var(--padding-block-start-max) * var(--ratio-dvi-max)),
+    calc(var(--padding-block-start-max) * var(--rem))
+  );
+  padding-block-end: clamp(
+    var(--padding-block-end-min),
+    calc(var(--padding-block-end-max) * var(--ratio-dvi-max)),
+    calc(var(--padding-block-end-max) * var(--rem))
+  );
+  padding-inline: clamp(
+    calc(var(--padding-inline-min) * var(--rem)),
+    calc(var(--padding-inline-max) * var(--ratio-dvi-max)),
+    calc(var(--padding-inline-max) * var(--rem))
+  );
+  background-color: var(--color-white-1);
+  display: grid;
+  justify-items: center;
+  &__text-large {
+    --font-size-max: var(--fz-xl-1);
+    --font-size-min: var(--fz-lg-1);
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+    font-weight: var(--ft-wt-bold);
+    text-align: center;
+  }
+  &__text {
+    --font-size-max: var(--fz-base);
+    --font-size-min: var(--fz-sm-3);
+    --margin-block-start-max: 43;
+    --margin-block-start-min: var(--spacing-2);
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+    margin-block-start: clamp(
+      var(--margin-block-start-min),
+      calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
+      calc(var(--margin-block-start-max) * var(--rem))
+    );
+  }
+}
