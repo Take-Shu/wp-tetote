@@ -1,16 +1,13 @@
-@use "./../../foundation/function" as *;
-
 /* utility
---------------------------- */
-
+------------------------------------ */
 /* position
---------------------------- */
+------------------------------------ */
 .u-position-left {
   object-position: 62% center;
 }
 
 /* border-bottom
---------------------------- */
+------------------------------------ */
 .u-border-bottom {
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
@@ -18,7 +15,7 @@
 }
 
 /* br
---------------------------- */
+------------------------------------ */
 .u-blog__description_pc-only {
   display: none;
   @container blog-container (min-width: 1052px) {
@@ -27,8 +24,14 @@
 }
 
 /* pagination current-color
---------------------------- */
+------------------------------------ */
 .u-current-color {
   color: var(--color-white-1);
   background-color: var(--color-black);
+}
+
+/* ENTRY ページ
+------------------------------------ */
+.u-lower-entry-container__color-change {
+  color: var(--color-main);
 }

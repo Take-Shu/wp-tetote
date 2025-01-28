@@ -7,15 +7,6 @@
     calc(100% - var(--spacing-gutter) * 2),
     calc(var(--container-size) * var(--rem))
   );
-  & :nth-child(1 of .p-lower-faq-section) {
-    --margin-block-start-max: 97;
-    --margin-block-start-min: var(--spacing-5);
-    margin-block-start: clamp(
-      var(--margin-block-start-min),
-      calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
-      calc(var(--margin-block-start-max) * var(--rem))
-    );
-  }
   margin-inline: auto;
   padding-block-start: clamp(
     var(--padding-block-start-min),
@@ -28,6 +19,15 @@
     calc(var(--padding-block-end-max) * var(--rem))
   );
   container: lower-details / inline-size;
+  & :nth-child(1 of .p-lower-faq-section) {
+    --margin-block-start-max: 97;
+    --margin-block-start-min: var(--spacing-5);
+    margin-block-start: clamp(
+      var(--margin-block-start-min),
+      calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
+      calc(var(--margin-block-start-max) * var(--rem))
+    );
+  }
 }
 
 .p-lower-faq-category {
