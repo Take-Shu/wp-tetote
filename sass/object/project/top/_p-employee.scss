@@ -93,10 +93,6 @@
       calc(var(--outside-space-max) * var(--rem))
     );
   }
-  &__slide-link {
-    display: grid;
-    position: relative;
-  }
   &__name {
     --outside-space-max: 16;
     --outside-space-min: 14;

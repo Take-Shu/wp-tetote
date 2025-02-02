@@ -10,51 +10,69 @@ const nodeOps = {
   },
 };
 
-// /* drawer
-// ----------------------------------------------------- */
-const modalOpenButtons = nodeOps.qsAll(".js-modal-open-button");
 
-const modalManager = {
-  currentModal: null,
-  modalOpen: function (targetModal) {
-    this.currentModal = targetModal;
-    this.currentModal.showModal();
-    this.currentModal.addEventListener("click", handleModalClose);
-  },
-  modalClose: function () {
-    this.currentModal.removeEventListener("click", handleModalClose);
-    this.currentModal.close();
-    this.currentModal = null;
-  },
-};
+/* drawer
+/* -------------------------------- */
+const ModalOpenButtons = nodeOps.qsAll(".js-modal-open-button");
+const ModalCloseButtons = nodeOps.qsAll(".js-modal-close-button");
+let currentModal = null;
 
+// モーダルを開く
 const handleModalOpen = (e) => {
-  const targetButton = e.target.closest(".js-modal-open-button");
-  if (!targetButton) return;
+  const openButton = e.target.closest(".js-modal-open-button");
+  if (!openButton) return;
 
-  const attributeValue = targetButton.getAttribute("data-modal-open");
+  const attributeValue = openButton.getAttribute("data-modal-open");
   const targetModal = nodeOps.getById(attributeValue);
-  modalManager.modalOpen(targetModal);
-};
-
-const handleModalClose = (e) => {
-  if (e.target.classList.contains("js-modal-close-button")) {
-    modalManager.modalClose();
-  }
-};
-
-const modalOpenTrigger = () => {
-  modalOpenButtons.forEach(modalOpenButton => {
-    modalOpenButton.removeEventListener('click', handleModalOpen);
-    modalOpenButton.addEventListener('click', handleModalOpen);
+  currentModal = targetModal;
+  targetModal.classList.add("show-from");
+  targetModal.showModal();
+  header.classList.add("is-scroll-lock");
+  currentModal.addEventListener('keydown', handleModalCloseKeydown);
+  requestAnimationFrame(() => {
+    targetModal.classList.remove("show-from");
   });
 };
 
-modalOpenTrigger();
+// モーダルを閉じる
+const handleModalClose = () => {
+  currentModal.classList.add("hide-to");
+  // transitionが終わった後のイベントを追加
+  currentModal.addEventListener(
+    "transitionend",
+    () => {
+      currentModal.classList.remove("hide-to");
+      currentModal.close();
+      header.classList.remove("is-scroll-lock");
+      currentModal = null;
+    },
+    {
+      once: true, // trueを指定しないと2回目からモーダルが自動で閉じてしまう
+    },
+  );
+};
+
+// モーダルを閉じる(Escapeキーが押下された時)
+const handleModalCloseKeydown = (e) => {
+  e.preventDefault()
+  if (e.key === 'Escape') {
+    handleModalClose();
+  }
+};
+
+// menuボタンにイベントを追加
+ModalOpenButtons.forEach((openButton) => {
+  openButton.addEventListener("click", handleModalOpen);
+});
+
+// closeボタンにイベントを追加
+ModalCloseButtons.forEach((closeButton) => {
+  closeButton.addEventListener("click", handleModalClose);
+});
 
 
-// /* drawer表示切り替え(pcとsp)
-// ----------------------------------------------------- */
+/* drawer表示切り替え(pcとsp)
+/* -------------------------------- */
 const drawerOpenButton = nodeOps.qs(".l-header__menu-button");
 const BREAKPOINT = 1052;
 
@@ -77,34 +95,39 @@ window.addEventListener("resize", () => {
 });
 
 
-// /* ヘッダーの表示切り替え
-// ----------------------------------------------------- */
+/* ヘッダーの表示切り替え
+/* -------------------------------- */
 const fvSection = nodeOps.qs(".p-fv");
 const header = nodeOps.qs(".js-header");
 const menuButton = nodeOps.qs(".js-modal-open-button");
 const menuIconBar = nodeOps.qs(".js-header__menu-bar");
 const logoImage = nodeOps.qs(".js-header__logo-img");
 
-const fvObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) {
-      header.classList.add("fade");
-      header.style.backgroundColor = "var(--color-white-1)";
-      menuButton.style.color = "var(--color-black)";
-      menuIconBar.style.backgroundColor = "var(--color-black)";
-      logoImage.setAttribute("src", "/assets/img/commonness/logo_black.svg");
-    } else {
-      header.classList.remove("fade");
-      header.style.backgroundColor = "";
-      menuButton.style.color = "";
-      menuIconBar.style.backgroundColor = "";
-      logoImage.setAttribute("src", "/assets/img/commonness/logo_white_sp.svg");
-    }
-  })
-},
-{
-  threshold: 0,
-  rootMargin: "0px 0px 0px 0px",
-});
+const fvObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        header.classList.add("fade");
+        header.style.backgroundColor = "var(--color-white-1)";
+        menuButton.style.color = "var(--color-black)";
+        menuIconBar.style.backgroundColor = "var(--color-black)";
+        logoImage.setAttribute("src", "/assets/img/commonness/logo_black.svg");
+      } else {
+        header.classList.remove("fade");
+        header.style.backgroundColor = "";
+        menuButton.style.color = "";
+        menuIconBar.style.backgroundColor = "";
+        logoImage.setAttribute(
+          "src",
+          "/assets/img/commonness/logo_white_sp.svg"
+        );
+      }
+    });
+  },
+  {
+    threshold: 0,
+    rootMargin: "0px 0px 0px 0px",
+  }
+);
 
 fvObserver.observe(fvSection);

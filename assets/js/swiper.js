@@ -13,13 +13,13 @@ const swiperCareer = new Swiper(".p-career__slide", {
   speed: 10000,
   slidesPerView: 1.3,
   centeredSlides: true,
-  spaceBetween: 0,
+  spaceBetween: 16,
   autoplay: {
     delay: 0,
     disableOnInteraction: false,
   },
   breakpoints: {
-    768: {
+    769: {
       slidesPerView: 2.67,
     },
   },
@@ -27,13 +27,9 @@ const swiperCareer = new Swiper(".p-career__slide", {
 
 const swiperEmployee = new Swiper(".p-employee__slide", {
   loop: true,
-  speed: 1000,
-  slidesPerView: 2.84,
+  speed: 600,
+  slidesPerView: 2.85,
   spaceBetween: 23,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
   navigation: {
     nextEl: ".p-employee__slide-button_next",
     prevEl: ".p-employee__slide-button_prev",
@@ -45,11 +41,5 @@ const swiperEmployee = new Swiper(".p-employee__slide", {
       spaceBetween: 43,
       autoplay: false,
     },
-    1052: {
-      speed: 600,
-      slidesPerView: 3.62,
-      spaceBetween: 43,
-      autoplay: false,
-    }
   },
 });

@@ -10,54 +10,69 @@ const nodeOps = {
   },
 };
 
-/* 下層ページ 
--------------------------------------------------- */
+
 /* drawer
--------------------------------------------------- */
-const modalOpenButtons = nodeOps.qsAll(".js-modal-open-button");
+/* -------------------------------- */
+const ModalOpenButtons = nodeOps.qsAll(".js-modal-open-button");
+const ModalCloseButtons = nodeOps.qsAll(".js-modal-close-button");
+let currentModal = null;
 
-const modalManager = {
-  currentModal: null,
-  modalOpen: function (targetModal) {
-    this.currentModal = targetModal;
-    this.currentModal.showModal();
-    this.currentModal.addEventListener("click", handleModalClose);
-  },
-  modalClose: function () {
-    this.currentModal.removeEventListener("click", handleModalClose);
-    this.currentModal.close();
-    this.currentModal = null;
-  },
-};
-
+// モーダルを開く
 const handleModalOpen = (e) => {
-  const targetButton = e.target.closest(".js-modal-open-button");
-  if (!targetButton) return;
+  const openButton = e.target.closest(".js-modal-open-button");
+  if (!openButton) return;
 
-  const attributeValue = targetButton.getAttribute("data-modal-open");
+  const attributeValue = openButton.getAttribute("data-modal-open");
   const targetModal = nodeOps.getById(attributeValue);
-  modalManager.modalOpen(targetModal);
-};
-
-const handleModalClose = (e) => {
-  if (e.target.classList.contains("js-modal-close-button")) {
-    modalManager.modalClose();
-  }
-};
-
-const modalOpenTrigger = () => {
-  modalOpenButtons.forEach((modalOpenButton) => {
-    modalOpenButton.removeEventListener("click", handleModalOpen);
-    modalOpenButton.addEventListener("click", handleModalOpen);
+  currentModal = targetModal;
+  targetModal.classList.add("show-from");
+  targetModal.showModal();
+  header.classList.add("is-scroll-lock");
+  currentModal.addEventListener('keydown', handleModalCloseKeydown);
+  requestAnimationFrame(() => {
+    targetModal.classList.remove("show-from");
   });
 };
 
-modalOpenTrigger();
+// モーダルを閉じる
+const handleModalClose = () => {
+  currentModal.classList.add("hide-to");
+  // transitionが終わった後のイベントを追加
+  currentModal.addEventListener(
+    "transitionend",
+    () => {
+      currentModal.classList.remove("hide-to");
+      currentModal.close();
+      header.classList.remove("is-scroll-lock");
+      currentModal = null;
+    },
+    {
+      once: true, // trueを指定しないと2回目からモーダルが自動で閉じてしまう
+    },
+  );
+};
 
-/* 下層ページ 
--------------------------------------------------- */
+// モーダルを閉じる(Escapeキーが押下された時)
+const handleModalCloseKeydown = (e) => {
+  e.preventDefault()
+  if (e.key === 'Escape') {
+    handleModalClose();
+  }
+};
+
+// menuボタンにイベントを追加
+ModalOpenButtons.forEach((openButton) => {
+  openButton.addEventListener("click", handleModalOpen);
+});
+
+// closeボタンにイベントを追加
+ModalCloseButtons.forEach((closeButton) => {
+  closeButton.addEventListener("click", handleModalClose);
+});
+
+
 /* drawer表示切り替え(pcとsp)
------------------------------------------------------ */
+/* -------------------------------- */
 const drawerOpenButton = nodeOps.qs(".l-header__menu-button");
 const BREAKPOINT = 1052;
 
@@ -79,34 +94,36 @@ window.addEventListener("resize", () => {
   }, 100);
 });
 
-/* 下層ページ 共通
--------------------------------------------------- */
-/* header
--------------------------------------------------- */
+
+/* headerの追従切り替え
+/* -------------------------------- */
 const observerTarget = nodeOps.qs(".js-observer-target");
 const header = nodeOps.qs(".js-header");
 
-const headerObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        header.classList.add("fade");
-      } else {
-        header.classList.remove("fade");
-      }
-    });
-  },
-  {
-    threshold: 0,
-    rootMargin: "0px 0px 0px 0px",
-  }
-);
+if (observerTarget) {
+  const headerObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          header.classList.add("fade");
+        } else {
+          header.classList.remove("fade");
+        }
+      });
+    },
+    {
+      threshold: 0,
+      rootMargin: "0px 0px 0px 0px",
+    }
+  );
+  
+  headerObserver.observe(observerTarget);
+}
 
-headerObserver.observe(observerTarget);
 
-/* STAFF-DETAIL ページ 
--------------------------------------------------- */
-/* sidebar
+/* STAFF　ページ
+/* -------------------------------- */
+/* sidebarのアクティブ表示
 -------------------------------------------------- */
 const sidebarItems = nodeOps.qsAll(".p-lower-staff-detail__sidebar-item a");
 const sections = nodeOps.qsAll(".p-lower-staff-detail__about h2");
@@ -205,10 +222,11 @@ const handleResize = () => {
 window.addEventListener("resize", handleResize);
 handleResize();
 
+
 /* DETAILS | FAQ ページ 
--------------------------------------------------- */
+/* -------------------------------- */
 /* スムーススクロール
--------------------------------------------------- */
+/* -------------------------------- */
 const occupationLinks = nodeOps.qsAll(".js-scroll-link");
 
 occupationLinks.forEach((occupationLink) => {
@@ -230,10 +248,11 @@ occupationLinks.forEach((occupationLink) => {
   });
 });
 
+
 /* FAQ ページ 
--------------------------------------------------- */
+/* -------------------------------- */
 /* アコーディオン
--------------------------------------------------- */
+/* -------------------------------- */
 const defaultOptions = {
   duration: 300,
   easing: "ease-in-out",

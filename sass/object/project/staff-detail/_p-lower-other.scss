@@ -61,4 +61,8 @@
   &__other-item {
     display: contents;
   }
+  &__other-link {
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+  }
 }

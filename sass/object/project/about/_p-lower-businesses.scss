@@ -7,6 +7,7 @@
     calc(var(--container-size) * var(--rem)),
     calc(100% - var(--spacing-gutter) * 2)
   );
+  margin-inline: auto;
   padding-block-start: clamp(
     calc(var(--padding-block-start-min) * var(--rem)),
     calc(var(--padding-block-start-max) * var(--ratio-dvi-max)),

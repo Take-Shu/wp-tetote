@@ -10,6 +10,7 @@
   aspect-ratio: var(--element-width) / var(--element-height);
   max-block-size: calc(488 * var(--rem));
   position: relative;
+  z-index: var(--z-index-base);
   container: cta / inline-size;
   @media (min-width: 1052px) {
     --element-width: 1440;

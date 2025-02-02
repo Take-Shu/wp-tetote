@@ -34,6 +34,7 @@
     }
   }
   &__g-nav-sns-wrap {
+    display: gird;
     @container footer (min-width: 1052px) {
       order: 2;
     }
@@ -71,9 +72,6 @@
       calc(var(--outside-space-block-start-min) * var(--ratio-dvi-min)),
       calc(var(--outside-space-block-start-max) * var(--rem))
     );
-    @container footer (min-width: 1052px) {
-      justify-self: end;
-    }
   }
   &__sns-list {
     display: grid;
@@ -81,6 +79,12 @@
     align-items: center;
     justify-content: center;
     column-gap: calc(16 * var(--rem));
+    @container footer (min-width: 1052px) {
+      justify-content: end;
+    }
+  }
+  &__sns-item {
+    display: grid;
   }
   &__sns-icon {
     inline-size: calc(24 * var(--rem));

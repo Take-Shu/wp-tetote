@@ -4,13 +4,14 @@
  @use "./foundation/base";
  @use "./foundation/function";
 
- /*--------------------------------*
+/*--------------------------------*
  * layout
  *--------------------------------*/
  @use "./layout/body";
  @use "./layout/header";
  @use "./layout/main";
  @use "./layout/footer";
+ @use "./layout/container";
 
 /*--------------------------------*
  * component
@@ -24,7 +25,7 @@
  @use "./object/component/c-staff";
  @use "./object/component/c-blog";
 
- /*--------------------------------*
+/*--------------------------------*
  * project
  *--------------------------------*/
  @use "./object/project/top/p-fv";
@@ -52,7 +53,7 @@
  @use "./object/project/entry/p-lower-entry";
  @use "./object/project/entry/p-lower-thanks";
  
- /*--------------------------------*
+/*--------------------------------*
  * utility
  *--------------------------------*/
  @use "./object/utility/utility";

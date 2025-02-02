@@ -358,7 +358,9 @@
       border-radius: 50%;
       background-color: var(--color-black);
       position: absolute;
+      inset-block-start: 50%;
       inset-inline-start: calc(7em / var(--font-size-max));
+      translate: 0 -50%;
     }
     input[type="radio"]:focus-within + .wpcf7-list-item-label::before {
       outline: auto;
@@ -411,10 +413,12 @@
         aspect-ratio: 1;
         background-color: var(--color-black);
         position: absolute;
+        inset-block-start: 50%;
         inset-inline-start: calc(
           (var(--checkbox-size) - var(--inner-box-size)) / 2 * 1em /
             var(--fz-base)
         );
+        translate: 0 -50%;
       }
       &:focus + .wpcf7-list-item-label::before {
         outline: auto;
@@ -473,9 +477,11 @@
         border-block-end: 2px solid var(--color-black);
         position: absolute;
         rotate: 45deg;
+        inset-block-start: 50%;
         inset-inline-start: calc(
           ((var(--checkbox-size) / 2.5) * 1em / var(--font-size-max))
         );
+        translate: 0 -50%;
       }
       &:focus + .wpcf7-list-item-label::before {
         outline: auto;

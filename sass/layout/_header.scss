@@ -13,7 +13,7 @@
   --menu-button-height: 35;
   --menu-icon-height-max: 30;
   --menu-icon-height-min: 18;
-  inline-size: 100%;
+  inline-size: stretch;
   position: relative;
   margin-block-end: clamp(
     calc((var(--header-height-max) * var(--rem)) * -1),
@@ -33,7 +33,6 @@
     calc(var(--header-height-min) * var(--ratio-dvi-min)),
     calc(var(--header-height-max) * var(--rem))
     );
-    container: header-container / inline-size;
   }
   &__logo-img {
     inline-size: min(
@@ -113,13 +112,19 @@
 
 .l-header.fade {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset-block-start: 0;
+  inset-inline-start: 0;
   animation-name: fadeIn;
   animation-timing-function: var(--ease-out-expo);
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
+
+
+// .l-header.fade.is-scrollLock {
+//   overflow: auto;
+//   scrollbar-gutter: stable;
+// }
 
 @keyframes fadeIn {
   from {

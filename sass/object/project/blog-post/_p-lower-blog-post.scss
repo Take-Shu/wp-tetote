@@ -141,7 +141,7 @@
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   &-link {
-    block-size: stretch;
+    block-size: 100%;
     position: relative;
     background-color: var(--color-white-3);
     transition: background-color 0.3s;

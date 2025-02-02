@@ -39,7 +39,7 @@
     inline-size: calc((var(--element-size-inline-min) * var(--ratio-dvi-min)));
     aspect-ratio: var(--element-size-inline-min) / var(--element-size-block-min);
     border-radius: 60px;
-    @container career (min-width: 768px) {
+    @container career (min-width: 769px) {
       inline-size: min(calc(var(--element-size-inline-max) * var(--rem)),
       calc(var(--element-size-inline-max) * var(--ratio-dvi-max)));
       aspect-ratio: var(--element-size-inline-max) / var(--element-size-block-max);
@@ -56,7 +56,7 @@
     bottom: -13%;
     z-index: var(--z-index-base);
     font-size: clamp(1.5rem, calc(1.148rem + 1.502vw), 2.5rem);
-    @container career (min-width: 768px) {
+    @container career (min-width: 769px) {
       bottom: 0;
     }
   }
@@ -80,7 +80,7 @@
       calc(var(--outside-space-min) * var(--ratio-dvi-min)),
       calc(var(--outside-space-max) * var(--rem))
     );
-    @container career (min-width: 768px) {
+    @container career (min-width: 769px) {
       line-height: var(--line-ht-md-1);
     }
   }
@@ -106,7 +106,7 @@
       calc(var(--inside-space-min) * var(--ratio-dvi-min)),
       calc(var(--inside-space-max) * var(--rem))
     );
-    @container career (min-width: 768px) {
+    @container career (min-width: 769px) {
       background-size: 69% auto;
     }
   }

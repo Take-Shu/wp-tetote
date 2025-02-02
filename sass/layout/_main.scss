@@ -1,22 +1,20 @@
-/* about-us
+/* ABOUT-US ページ
 /* --------------------------- */
 .l-lower-about-us-main {
   --container-size: 980;
-  display: grid;
-  justify-items: center;
+  // display: grid;
+  // justify-items: center;
   margin-block-start: var(--header-height);
 }
 
-/* staff
+/* STAFF ページ
 /* --------------------------- */
 .l-lower-staff-main {
   --container-size: 980;
-  display: grid;
-  justify-items: center;
   margin-block-start: var(--header-height);
 }
 
-/* staff-detail
+/* STAFF-DETAIL ページ
 /* --------------------------- */
 .l-lower-staff-detail-main {
   --container-size: 980;
@@ -25,16 +23,14 @@
   margin-block-start: var(--header-height);
 }
 
-/* blog
+/* BLOG ページ
 /* --------------------------- */
 .l-lower-blog-main {
   --container-size: 980;
-  display: grid;
-  justify-items: center;
   margin-block-start: var(--header-height);
 }
 
-/* blog-post
+/* BLOG-POST ページ
 --------------------------- */
 .l-lower-blog-post-main {
   --container-size: 980;
