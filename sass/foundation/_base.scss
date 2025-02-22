@@ -1,23 +1,20 @@
-  /* CSS変数
---------------------------- */
+/* ------------------------------------------------------
+// カスタム変数
+*/
 :root {
+  /* Calculation */
   --layout-width-max: 1440;
   --layout-width-min: 375;
   --spacing-gutter: calc(17 * var(--ratio-dvi-min));
   --ratio-dvi-max: calc(1 / var(--layout-width-max) * 100dvi);
   --ratio-dvi-min: calc(1 / var(--layout-width-min) * 100dvi);
   --ratio-vw-min: calc(1 / var(--layout-width-min) * 100vw);
-  // --container-width-max: 980;
-  // --container-width-min: 375;
-  // --ratio-cqi-max: calc(1 / var(--container-width-max) * 100cqi);
-  // --ratio-cqi-min: calc(1 / var(--container-width-min) * 100cqi);
-  // --ratio-cqi-layout-max: calc(1 / var(--layout-width-max) * 100cqi);
-  // --ratio-cqi-layout-min: calc(1 / var(--layout-width-min) * 100cqi);
   --ratio-percent-max: calc(1 / var(--layout-width-max) * 100%);
   --ratio-percent-min: calc(1 / var(--layout-width-min) * 100%);
+  --rem: calc(1rem / var(--fz-base));
+  --ft-size-32-28: clamp(1.75rem, calc(1.662rem + 0.376vw), 2rem); /* min: 28px, max: 32px */
 
-  /* CSS変数(font-size)
---------------------------- */
+  /* Font size */
   --fz-base: 16;
   --fz-sm-1: 10;
   --fz-sm-2: 12;
@@ -32,7 +29,6 @@
   --fz-xxl-2: 48;
   --fz-xxl-3: 52;
   --fz-xxl-4: 64;
-  --rem: calc(1rem / var(--fz-base));
   // 32 - 28
   // 24 - 20
   // 24 - 16
@@ -40,37 +36,27 @@
   // 16 - 14
   // 14 - 12
 
-  /* CSS変数(font-family)
---------------------------- */
---ft-fml-base: "Noto Sans JP", serif;
---ft-fml-1: "Inter", sans-serif;
---ft-fml-2: "Viga", serif;
---ft-fml-3: "Poppins", serif;
+/* Font family */
+  --ft-fml-base: "Noto Sans JP", serif;
+  --ft-fml-1: "Inter", sans-serif;
+  --ft-fml-2: "Viga", serif;
+  --ft-fml-3: "Poppins", serif;
 
-  /* CSS変数(font-weight)
---------------------------- */
+/* Font weight */
   --ft-wt-base: 400;
-  --ft-wt-sm: ;
-  --ft-wt-md: ;
   --ft-wt-bold: 700;
 
-  /* CSS変数(line-height)
---------------------------- */
+/* Line height */
   --line-ht-base: 1.5;
   --line-ht-sm: 1.2;
   --line-ht-md-1: 1.8;
   --line-ht-md-2: 2;
   --line-ht-lg: 2.5;
 
-  /* CSS変数(letter-spacing)
---------------------------- */
-  --letter-sg-base: em;
+/* Letter spacing */
   --letter-sg-sm: 0.15em;
-  --letter-sg-md: em;
-  --letter-sg-lg: em;
 
-  /* CSS変数(color)
---------------------------- */
+/* Color */
   --color-main: #988C2C;
   --color-sub: #AFA86F;
   --color-black: #222;
@@ -83,31 +69,28 @@
   --color-grey-3: #4B4B4B;
   --color-grey-4: #757575;
 
-  /* CSS変数(z-index)
---------------------------- */
+/* Z index */
   --z-index-negative-layer: -1;
   --z-index-base: 0;
   --z-index-1: 1;
   --z-index-header: 9;
   --z-index-top-layer: 10;
 
-  /* CSS変数(spacing)
---------------------------- */
+/* Spacing */
   --spacing-1: 0.5rem;
   --spacing-2: 1rem;
   --spacing-3: 1.5rem;
   --spacing-4: 2rem;
   --spacing-5: 3rem;
 
-  /* CSS変数(header)
---------------------------- */
---header-height-max: 118;
---header-height-min: 56;
---header-height: clamp(
-  calc(var(--header-height-min) * var(--rem)),
-  calc(var(--header-height-min) * var(--ratio-dvi-min)),
-  calc(var(--header-height-max) * var(--rem))
-  )
+/* Header size */
+  --header-height-max: 118;
+  --header-height-min: 56;
+  --header-height: clamp(
+    calc(var(--header-height-min) * var(--rem)),
+    calc(var(--header-height-min) * var(--ratio-dvi-min)),
+    calc(var(--header-height-max) * var(--rem))
+    );
 }
 
 
@@ -122,16 +105,6 @@
   height: unset;
 }
 
-// :where(li) {
-//   /* align the indentation. */
-//   padding-inline-start: 1em;
-// }
-
-// :where(li)::before {
-//   /* align the indentation. */
-//   margin-inline-start: -1em;
-// }
-
 html {
   font-size: calc(var(--fz-base) * var(--rem));
   scroll-padding-block-start: var(--header-height);
@@ -144,5 +117,6 @@ body {
 
 img {
   inline-size: 100%;
+  // max-inline-size: 100%;
   object-fit: cover;
 }
