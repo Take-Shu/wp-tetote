@@ -1,10 +1,11 @@
-/* p-lower-blog
---------------------------- */
+/* ------------------------------------------------------
+// Blog page
+*/
 .p-lower-blog {
   --container-size: 956;
   --padding-block-start-max: 130;
   --padding-block-start-min: 48;
-  --padding-block-end-max: 139;
+  --padding-block-end-max: 134;
   --padding-block-end-min: 48;
   inline-size: min(
     calc(100% - var(--spacing-gutter) * 2),
@@ -44,6 +45,9 @@
   &__article-link {
     background-color: var(--color-white-2);
   }
+  &__article-contents {
+    background-color: var(--color-white-2);
+  }
   &__pagination {
     --margin-block-start-max: 98;
     --margin-block-start-min: 32;
@@ -71,5 +75,55 @@
     border-radius: 50%;
     border: solid 1px var(--color-black);
     place-items: center;
+  }
+  &__no-list-text {
+    --font-size-max: var(--fz-base);
+    --font-size-min: var(--fz-sm-3);
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+    display: grid;
+    place-items: center;
+  }
+  
+  & .navigation.pagination {
+    /* WordPress pagination */
+    --margin-block-start-max: 98;
+    --margin-block-start-min: 32;
+    margin-block-start: clamp(
+      calc(var(--margin-block-start-min) * var(--rem)),
+      calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
+      calc(var(--margin-block-start-max) * var(--rem))
+    );
+  }
+  & .nav-links {
+    --font-size-max: var(--fz-sm-3);
+    --font-size-min: var(--fz-sm-2);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: calc(32em / var(--font-size-max));
+    font-size: clamp(
+      calc(var(--font-size-min) * var(--rem)),
+      calc(var(--font-size-max) * var(--ratio-dvi-max)),
+      calc(var(--font-size-max) * var(--rem))
+    );
+  }
+  & .page-numbers {
+    display: inline grid;
+    inline-size: calc(58em / var(--fz-sm-3));
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: solid 1px var(--color-black);
+    place-items: center;
+    &.current {
+      color: var(--color-white-1);
+      background-color: var(--color-black);
+    }
+  }
+  & .next.page-numbers, & .prev.page-numbers {
+    display: none;
   }
 }

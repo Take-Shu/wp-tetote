@@ -1,6 +1,8 @@
-/* drawer(sp)
-/* --------------------------- */
+/* ------------------------------------------------------
+// Drawer
+*/
 .p-drawer {
+  /* Sp */
   background-color: var(--color-white-2);
   padding-inline: max(calc(12 * var(--rem)), calc((12 / 375) * 100%));
   padding-block: max(calc(8 * var(--rem)), calc((8 / 375) * 100%));
@@ -22,18 +24,19 @@
     aspect-ratio: 151 / 40;
   }
   &__close-button {
-    inline-size: calc(40 * var(--rem));
+    inline-size: calc(29 * var(--rem));
     aspect-ratio: 1;
     display: grid;
     place-items: center;
     justify-self: end;
+    align-self: start;
     &::before, &::after {
       content: "";
-      display: inline-block;
+      display: inline-grid;
       inline-size: calc(32 * var(--rem));
       block-size: 2px;
       background-color: var(--color-black);
-      grid-area: 1 / 1 / 3 / 3;
+      grid-area: 1 / 1 / -1 / -1;
     }
     &::before {
       rotate: 45deg;
@@ -49,16 +52,26 @@
     border-top: solid 1px var(--color-sub);
   }
   &__nav-item {
-    padding-block: calc(13 * var(--rem));
     border-bottom: solid 1px var(--color-sub);
   }
   &__nav-link {
-    display: inline grid;
+    --padding-block-min: 9;
+    --font-size-min: var(--fz-sm-2);
+    display: grid;
+    row-gap: 1px;
     font-family: var(--ft-fml-2);
-    font-size: clamp(1.125rem, calc(0.64rem + 2.071vw), 2rem);
+    font-size: clamp(1.125rem, calc(0.817rem + 1.315vw), 2rem); /* min: 18px, max: 32px */;
+    padding-block: calc(var(--padding-block-min) * 1em / var(--font-size-min));
+    transition: color 0.3s ease;
+    @media (any-hover: hover) {
+      &:any-link:hover {
+        color: var(--color-sub);
+      }
+    }
   }
   &__nav-ja {
-    font-size: clamp(0.875rem, calc(0.806rem + 0.296vw), 1rem);
+    font-family: var(--ft-fml-base);
+    font-size: clamp(0.75rem, calc(0.662rem + 0.376vw), 1rem); /* min: 12px, max: 16px */;
     font-weight: var(--ft-wt-bold);
   }
   &__contents-bt {
@@ -72,11 +85,11 @@
   }
 }
 
-/* drawer(pc)
-/* --------------------------- */
 .p-drawer-pc {
+  /* Pc */
   padding-block: calc(26 * var(--rem));
-  padding-inline: calc(30 * var(--rem));
+  padding-inline-start: calc(30 * var(--rem));
+  padding-inline-end: calc(23 * var(--rem));
   background-color: var(--color-white-2);
   position: fixed;
   inset: 0;
@@ -90,7 +103,7 @@
     justify-self: end;
     display: flex;
     gap: calc(22 * var(--rem));
-    margin-inline-end: calc(56 * var(--rem));
+    margin-inline-end: calc(47 * var(--rem));
   }
   &__recruiting-link {
     inline-size: calc(126 * var(--rem));
@@ -117,29 +130,33 @@
   }
   &__logo {
     justify-self: end;
+    margin-block-start: calc(114 * var(--rem));
     margin-inline-end: min(calc(63 * var(--rem)), calc(63 * var(--ratio-dvi-max)));
   }
   &__contents-bt-right {
-    border-left: solid 1px var(--color-sub);
-    margin-block-start: calc(128 * var(--rem));
-    margin-inline-end: min(calc(101 * var(--rem)), calc(101 * var(--ratio-dvi-max)));
+    border-inline-start: solid 1px var(--color-sub);
+    margin-block-start: calc(114 * var(--rem));
+    margin-inline-end: min(calc(96 * var(--rem)), calc(96 * var(--ratio-dvi-max)));
     & :nth-child(1 of li), & :nth-child(2 of li) {
       border-top: solid 1px var(--color-sub);
     }
-  }
-  &__nav-item {
-    padding-block: calc(23 * var(--rem));
   }
   &__nav-list {
     margin-inline-start: min(63 * var(--rem), calc(63 * var(--ratio-dvi-max)));
     display: grid;
     grid-template-columns: repeat(2, minmax(calc(258 * var(--rem)), 1fr));
-    column-gap: calc(30 * var(--rem));
+    column-gap: calc(21 * var(--rem));
     border: revert;
-
   }
   &__nav-link {
     font-size: calc(32 * var(--rem));
+    padding-block: calc(16 * var(--rem));
+    transition: color 0.3s ease;
+    @media (any-hover: hover) {
+      &:any-link:hover {
+        color: var(--color-sub);
+      }
+    }
   }
   &__nav-ja {
     font-size: calc(16 * var(--rem));
@@ -157,15 +174,17 @@
   }
 }
 
-/* モーダルアニメーション用のクラス
-/* --------------------------- */
+/* ------------------------------------------------------
+// Drawerアニメーション用のクラス
+*/
 .show-from, // 開く前
 .hide-to { // 閉じた後
   translate: 100% 0;
 }
 
-/* レイアウトシフト防止(Chrome-only)
-/* --------------------------- */
+/* ------------------------------------------------------
+// レイアウトシフト防止(Chrome only)
+*/
 _:lang(x)::-internal-media-controls-overlay-cast-button,
 .fade.is-scroll-lock {
   overflow: auto;

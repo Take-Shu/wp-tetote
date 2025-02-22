@@ -1,21 +1,22 @@
-/* cta
---------------------------- */
+/* ------------------------------------------------------
+// CTA
+*/
 .c-cta {
   --element-width: 375;
   --element-height: 250;
   background-color: var(--color-white-2);
-  background: url(../img/top/cta_sp.png) center no-repeat;
+  background: url(../img/common/cta_sp.png) center no-repeat;
   background-size: cover;
   inline-size: 100%;
   aspect-ratio: var(--element-width) / var(--element-height);
   max-block-size: calc(488 * var(--rem));
   position: relative;
-  z-index: var(--z-index-base);
+  z-index: var(--z-index-1);
   container: cta / inline-size;
   @media (min-width: 1052px) {
     --element-width: 1440;
     --element-height: 488;
-    background: url(../img/top/cta_pc.png) center no-repeat;
+    background: url(../img/common/cta_pc.jpg) center no-repeat;
     background-size: cover;
   }
   &__contents { 
@@ -56,7 +57,7 @@
     border-radius: 20px;
     text-align: center;
     @container cta (min-width: 1052px) {
-      top: 72%;
+      top: 73%;
     }
   }
   &__message {

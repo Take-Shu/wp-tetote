@@ -1,37 +1,49 @@
-/* utility
------------------------------------- */
-/* position
------------------------------------- */
+/* ------------------------------------------------------
+// Utility
+*/
+
+/* ------------------------------------------------------
+// Position
+*/
 .u-position-left {
   object-position: 62% center;
 }
 
-/* border-bottom
------------------------------------- */
+/* ------------------------------------------------------
+// Border
+*/
 .u-border-bottom {
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
 }
 
-/* br
------------------------------------- */
+/* ------------------------------------------------------
+// Br
+*/
 .u-blog__description_pc-only {
   display: none;
-  @container blog-container (min-width: 1052px) {
+  @container blog (min-width: 956px) {
     display: block;
   }
 }
 
-/* pagination current-color
------------------------------------- */
+/* ------------------------------------------------------
+// Color
+*/
 .u-current-color {
+  /* Pagination current color. */
   color: var(--color-white-1);
   background-color: var(--color-black);
 }
-
-/* ENTRY ページ
------------------------------------- */
-.u-lower-entry-container__color-change {
+.u-color-main {
+  /* Change to main colour. */
   color: var(--color-main);
+}
+
+/* ------------------------------------------------------
+// Margin
+*/
+.u-mb-start-17 {
+  margin-block-start: calc(17 * var(--rem));
 }

@@ -1,6 +1,8 @@
-/* c-lower-fv
---------------------------- */
+/* ------------------------------------------------------
+// Component
+*/
 .c-lower-fv {
+  /* Lower fv */
   aspect-ratio: 1440 / 339;
   inline-size: stretch;
   block-size: calc(339 * var(--rem));

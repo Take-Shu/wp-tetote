@@ -1,5 +1,8 @@
+/* ------------------------------------------------------
+// Faq page
+*/
 .p-lower-faq {
-  --padding-block-start-max: 146;
+  --padding-block-start-max: 143;
   --padding-block-start-min: var(--spacing-5);
   --padding-block-end-max: 139;
   --padding-block-end-min: var(--spacing-5);
@@ -68,7 +71,7 @@
     margin-block: var(--leading-trim);
   }
   &__details-wrap {
-    --margin-block-start-max: 113;
+    --margin-block-start-max: 112;
     --margin-block-start-min: var(--spacing-5);
     margin-block-start: clamp(
       var(--margin-block-start-min),

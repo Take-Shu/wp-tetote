@@ -1,9 +1,10 @@
-/* DETAILS page
---------------------------- */
+/* ------------------------------------------------------
+// Details page
+*/
 .p-lower-details {
   --padding-block-start-max: 146;
   --padding-block-start-min: var(--spacing-5);
-  --padding-block-end-max: 139;
+  --padding-block-end-max: 131;
   --padding-block-end-min: var(--spacing-5);
   inline-size: min(
     calc(100% - var(--spacing-gutter) * 2),
@@ -108,7 +109,7 @@
     margin-block: var(--leading-trim);
   }
   &__table {
-    --margin-block-start-max: 113;
+    --margin-block-start-max: 107;
     --margin-block-start-min: var(--spacing-5);
     margin-block-start: clamp(
       var(--margin-block-start-min),
@@ -148,7 +149,7 @@
         calc(var(--column-gap-max) * var(--ratio-dvi-max)),
         calc(var(--column-gap-max) * var(--rem))
       );
-      border-bottom: dotted 1px var(--color-black);
+      border-bottom: dashed 1px var(--color-black);
     }
     th {
       font-weight: var(--ft-wt-bold);

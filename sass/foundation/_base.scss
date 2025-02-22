@@ -86,7 +86,8 @@
   /* CSS変数(z-index)
 --------------------------- */
   --z-index-negative-layer: -1;
-  --z-index-base: 2;
+  --z-index-base: 0;
+  --z-index-1: 1;
   --z-index-header: 9;
   --z-index-top-layer: 10;
 
@@ -110,8 +111,27 @@
 }
 
 
-  /* base
---------------------------- */
+/* ------------------------------------------------------
+// base
+*/
+:where(dialog, [popover]) {
+  margin: unset;
+  max-width: unset;
+  max-height: unset;
+  width: unset;
+  height: unset;
+}
+
+// :where(li) {
+//   /* align the indentation. */
+//   padding-inline-start: 1em;
+// }
+
+// :where(li)::before {
+//   /* align the indentation. */
+//   margin-inline-start: -1em;
+// }
+
 html {
   font-size: calc(var(--fz-base) * var(--rem));
   scroll-padding-block-start: var(--header-height);
@@ -125,12 +145,4 @@ body {
 img {
   inline-size: 100%;
   object-fit: cover;
-}
-
-:where(dialog, [popover]) {
-  margin: unset;
-  max-width: unset;
-  max-height: unset;
-  width: unset;
-  height: unset;
 }

@@ -1,9 +1,11 @@
-/* p-lower-businesses
---------------------------- */
+/* ------------------------------------------------------
+// About-usページ
+*/
 .p-lower-company {
-  --padding-block-start-max: 153;
+  /* 会社概要 */
+  --padding-block-start-max: 148;
   --padding-block-start-min: 32;
-  --padding-block-end-max: 139;
+  --padding-block-end-max: 136;
   inline-size: min(
     calc(var(--container-size) * var(--rem)),
     calc(100% - var(--spacing-gutter) * 2)
@@ -21,7 +23,7 @@
   );
   container: lower-company / inline-size;
   &__content {
-    --margin-block-start-max: 113;
+    --margin-block-start-max: 107;
     --margin-block-start-min: 24;
     display: block;
     margin-block-start: clamp(
@@ -42,7 +44,7 @@
     padding-block-start: 0;
   }
   &__content tr {
-    --padding-block-max: 36;
+    --padding-block-max: 32;
     --padding-block-min: 16;
     --gap-max: 102;
     display: grid;
@@ -74,6 +76,24 @@
       calc(var(--font-size-max) * var(--ratio-dvi-max)),
       calc(var(--font-size-max) * var(--rem))
     );
+    & a {
+      position: relative;
+      &::before {
+        position: absolute;
+        inset-block-end: 0;
+        inset-inline-start: 0;
+        content: "";
+        inline-size: 100%;
+        block-size: 2px;
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+      }
+      @media (any-hover: hover) {
+        &:any-link:hover::before {
+        background-color: oklch(from var(--color-main) calc(l - 0.2) c h);
+        }
+      }
+    }
   }
   &__activities > li {
     padding-inline-start: 1em;

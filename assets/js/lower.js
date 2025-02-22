@@ -10,9 +10,9 @@ const nodeOps = {
   },
 };
 
-
-/* drawer
-/* -------------------------------- */
+/* ------------------------------------------------------
+// drawer
+*/
 const ModalOpenButtons = nodeOps.qsAll(".js-modal-open-button");
 const ModalCloseButtons = nodeOps.qsAll(".js-modal-close-button");
 let currentModal = null;
@@ -28,7 +28,7 @@ const handleModalOpen = (e) => {
   targetModal.classList.add("show-from");
   targetModal.showModal();
   header.classList.add("is-scroll-lock");
-  currentModal.addEventListener('keydown', handleModalCloseKeydown);
+  currentModal.addEventListener("keydown", handleModalCloseKeydown);
   requestAnimationFrame(() => {
     targetModal.classList.remove("show-from");
   });
@@ -48,14 +48,14 @@ const handleModalClose = () => {
     },
     {
       once: true, // trueを指定しないと2回目からモーダルが自動で閉じてしまう
-    },
+    }
   );
 };
 
 // モーダルを閉じる(Escapeキーが押下された時)
 const handleModalCloseKeydown = (e) => {
-  e.preventDefault()
-  if (e.key === 'Escape') {
+  e.preventDefault();
+  if (e.key === "Escape") {
     handleModalClose();
   }
 };
@@ -70,9 +70,9 @@ ModalCloseButtons.forEach((closeButton) => {
   closeButton.addEventListener("click", handleModalClose);
 });
 
-
-/* drawer表示切り替え(pcとsp)
-/* -------------------------------- */
+/* ------------------------------------------------------
+// drawer表示切り替え(pcとsp)
+*/
 const drawerOpenButton = nodeOps.qs(".l-header__menu-button");
 const BREAKPOINT = 1052;
 
@@ -94,9 +94,9 @@ window.addEventListener("resize", () => {
   }, 100);
 });
 
-
-/* headerの追従切り替え
-/* -------------------------------- */
+/* ------------------------------------------------------
+// headerの追従切り替え
+*/
 const observerTarget = nodeOps.qs(".js-observer-target");
 const header = nodeOps.qs(".js-header");
 
@@ -116,15 +116,16 @@ if (observerTarget) {
       rootMargin: "0px 0px 0px 0px",
     }
   );
-  
+
   headerObserver.observe(observerTarget);
 }
 
-
-/* STAFF　ページ
-/* -------------------------------- */
-/* sidebarのアクティブ表示
--------------------------------------------------- */
+/* ------------------------------------------------------
+// STAFF　ページ
+*/
+/* ------------------------------------------------------
+// sidebarのアクティブ表示
+*/
 const sidebarItems = nodeOps.qsAll(".p-lower-staff-detail__sidebar-item a");
 const sections = nodeOps.qsAll(".p-lower-staff-detail__about h2");
 const aside = nodeOps.qs(".p-lower-staff-detail__aside");
@@ -222,11 +223,12 @@ const handleResize = () => {
 window.addEventListener("resize", handleResize);
 handleResize();
 
-
-/* DETAILS | FAQ ページ 
-/* -------------------------------- */
-/* スムーススクロール
-/* -------------------------------- */
+/* ------------------------------------------------------
+// DETAILS | FAQ ページ 
+*/
+/* ------------------------------------------------------
+// スムーススクロール
+*/
 const occupationLinks = nodeOps.qsAll(".js-scroll-link");
 
 occupationLinks.forEach((occupationLink) => {
@@ -248,11 +250,12 @@ occupationLinks.forEach((occupationLink) => {
   });
 });
 
-
-/* FAQ ページ 
-/* -------------------------------- */
-/* アコーディオン
-/* -------------------------------- */
+/* ------------------------------------------------------
+// FAQ ページ 
+*/
+/* ------------------------------------------------------
+// アコーディオン
+*/
 const defaultOptions = {
   duration: 300,
   easing: "ease-in-out",
@@ -395,4 +398,92 @@ document.addEventListener("DOMContentLoaded", () => {
       duration: 300,
     });
   });
+});
+
+/* ------------------------------------------------------
+// ENTRY ページ
+*/
+document.addEventListener("DOMContentLoaded", function () {
+  // フォームを取得
+  const form = nodeOps.qs(".wpcf7-form");
+  if (!form) return;
+
+  // 送信ボタンを取得
+  const submitButton = nodeOps.qs('input[type="submit"]', form);
+  if (!submitButton) return;
+
+  const formControlWraps = nodeOps.qsAll(".wpcf7-form-control-wrap", form);
+
+
+  // 通常の必須項目(テキスト、メール、テキストエリアなど)をチェック
+  function checkRequiredFields() {
+    let isValid = true;
+    const requiredFields = nodeOps.qsAll(".wpcf7-validates-as-required");
+    requiredFields.forEach((field) => {
+      if (field.classList.contains("wpcf7-not-valid") || !field.value.trim()) {
+        isValid = false;
+      }
+    });
+
+    return isValid;
+  }
+
+
+  // ラジオボタングループをチェック
+  function checkRequiredRadio() {
+    let isValid = true;
+    formControlWraps.forEach((wrap) => {
+      const radioGroup = nodeOps.qs(".wpcf7-radio", wrap);
+      if (!radioGroup) return;
+
+      // チェックされていなければNGとなる
+      const radioInputs = nodeOps.qsAll('input[type="radio"]', radioGroup);
+      const isChecked = Array.from(radioInputs).some((radio) => radio.checked);
+
+      if (!isChecked || radioGroup.classList.contains("wpcf7-not-valid")) {
+        isValid = false;
+      }
+    });
+
+    return isValid;
+  }
+
+
+  // 個人情報保護のチェック
+  function checkRequiredPrivacy() {
+    let isValid = true;
+    formControlWraps.forEach((wrap) => {
+      const checkbox = nodeOps.qs(".wpcf7-acceptance", wrap);
+      if (!checkbox) return;
+
+      const checkboxInput = nodeOps.qs('input[type="checkbox"]', checkbox);
+      const isChecked = checkboxInput.checked;
+
+      if (!isChecked) {
+        isValid = false;
+      }
+    });
+
+    return isValid;
+  }
+
+  // 送信ボタンの有効、無効の更新
+  function updateSubmitButton() {
+    const isFieldsValid = checkRequiredFields();
+    const isRadioValid = checkRequiredRadio();
+    const isCheckboxValid = checkRequiredPrivacy();
+
+    submitButton.disabled = !(isFieldsValid && isRadioValid && isCheckboxValid);
+  }
+
+  // フォーム全体の変更を監視
+  const events = ['change', 'input']
+  events.forEach(event => form.addEventListener(event, () => {
+    requestAnimationFrame(() => { // エラーメッセージが発生してからチェックを実行
+      updateSubmitButton();
+    });
+  }));
+
+  // 初期チェック
+  updateSubmitButton();
 });

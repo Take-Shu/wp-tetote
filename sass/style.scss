@@ -7,11 +7,9 @@
 /*--------------------------------*
  * layout
  *--------------------------------*/
- @use "./layout/body";
  @use "./layout/header";
  @use "./layout/main";
  @use "./layout/footer";
- @use "./layout/container";
 
 /*--------------------------------*
  * component
@@ -30,7 +28,7 @@
  *--------------------------------*/
  @use "./object/project/top/p-fv";
  @use "./object/project/top/p-career";
- @use "./object/project/top/p-employee";
+ @use "./object/project/top/p-member";
  @use "./object/project/top/p-benefits";
  @use "./object/project/top/p-blog";
  @use "./object/project/top/p-recruitment";
@@ -46,7 +44,7 @@
  @use "./object/project/staff-detail/p-lower-other";
  @use "./object/project/blog/p-lower-blog";
  @use "./object/project/blog-post/p-lower-blog-post";
- @use "./object/project/benefits/p-lower-systems";
+ @use "./object/project/benefits/p-lower-benefits";
  @use "./object/project/career/p-lower-career";
  @use "./object/project/details/p-lower-details";
  @use "./object/project/faq/p-lower-faq";

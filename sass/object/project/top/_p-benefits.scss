@@ -1,7 +1,9 @@
-/* benefits
---------------------------- */
+/* ------------------------------------------------------
+// Top page
+*/
 .p-benefits {
-  --inside-space-max: 120;
+  /* Benefits */
+  --inside-space-max: 110;
   --inside-space-min: 70;
   padding-block-start: clamp(
     calc(var(--inside-space-min) * var(--rem)),
@@ -20,6 +22,7 @@
   }
   &__title {
     position: relative;
+    z-index: var(--z-index-base);
     @container benefits (min-width: 954px) {
       text-align: center;
     }
@@ -39,16 +42,22 @@
     }
   }
   &__description {
+    --margin-block-start-max: calc(10 * var(--rem));
+    --margin-block-start-min: calc(19 * var(--rem));
+    margin-block-start: clamp(
+      var(--margin-block-start-max),
+      calc(22.17px - 0.845vw),
+      var(--margin-block-start-min)
+    );
     @container benefits (min-width: 954px) {
       inline-size: fit-content;
       margin-inline: auto;
-      margin-block-start: calc(30 * var(--rem));
     }
   }
   &__detail-wrap {
     --gap-max: 94;
     --gap-min: 36;
-    --outside-space-max: 114;
+    --outside-space-max: 101;
     --outside-space-min: 51;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(430px, 100%), 1fr));
@@ -91,7 +100,7 @@
     }
     & .p-benefits__detail-caption {
       --outside-space-max: 26;
-      --outside-space-min: 20;
+      --outside-space-min: 23;
       margin-block-start: clamp(
       calc(var(--outside-space-min) * var(--rem)),
       calc(var(--outside-space-min) * var(--ratio-dvi-min)),
@@ -123,7 +132,7 @@
     }
     & .p-benefits__detail-caption {
       --outside-space-max: 49;
-      --outside-space-min: 35;
+      --outside-space-min: 37;
       margin-block-start: clamp(
       calc(var(--outside-space-min) * var(--rem)),
       calc(var(--outside-space-min) * var(--ratio-dvi-min)),
@@ -188,7 +197,7 @@
     --font-size-max: 24;
     --font-size-min: 14;
     --inset-space-block-end-max: 381;
-    --inset-space-block-end-min: 266;
+    --inset-space-block-end-min: 265;
     font-family: var(--ft-fml-2);
     font-size: clamp(
       calc(var(--font-size-min) * var(--rem)),
@@ -198,7 +207,7 @@
     letter-spacing: var(--letter-sg-sm);
     writing-mode: vertical-rl;
     position: absolute;
-    inset-inline-start: -1%;
+    inset-inline-start: 1%;
     inset-block-end: clamp(
       calc(var(--inset-space-block-end-min) * var(--rem)),
       calc(var(--inset-space-block-end-min) * var(--ratio-vw-min)),
@@ -207,9 +216,9 @@
   }
   &__detail-button {
     --inset-space-inline-start-max: 351;
-    --inset-space-inline-start-min: 245;
+    --inset-space-inline-start-min: 242;
     --inset-space-block-start-max: 306;
-    --inset-space-block-start-min: 168;
+    --inset-space-block-start-min: 172;
     --element-size-max: 55;
     --element-size-min: 42;
     inline-size: clamp(

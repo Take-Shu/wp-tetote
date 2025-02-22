@@ -1,6 +1,8 @@
-/* p-lower-message
---------------------------- */
+/* ------------------------------------------------------
+// About-us page
+*/
 .p-lower-message {
+  /* Representative message. */
   --inside-space-block-start-max: 125;
   display: grid;
   justify-items: center;
@@ -74,13 +76,7 @@
     }
   }
   &__detail-title {
-    --font-size-max: 32;
-    --font-size-min: 26;
-    font-size: clamp(
-      calc(var(--font-size-min) * var(--rem)),
-      calc(var(--font-size-max) * var(--ratio-dvi-max)),
-      calc(var(--font-size-max) * var(--rem))
-    );
+    font-size: clamp(1.5rem, calc(1.324rem + 0.751vw), 2rem); /* min: 24px, max: 32px */;
     font-weight: var(--ft-wt-bold);
     inline-size: max-content;
     position: absolute;

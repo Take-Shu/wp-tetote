@@ -1,7 +1,6 @@
-@use "./../foundation/function" as *;
-
-/* header
---------------------------- */
+/* ------------------------------------------------------
+// Header
+*/
 .l-header {
   --header-height-max: 118;
   --header-height-min: 56;
@@ -22,8 +21,12 @@
   );
   z-index: var(--z-index-header);
   &__container {
+    --spacing-gutter-max: 30;
     --spacing-gutter: calc(12 * var(--ratio-dvi-min)); 
-    padding-inline: var(--spacing-gutter);
+    padding-inline: min(
+      var(--spacing-gutter),
+      calc(var(--spacing-gutter-max) * var(--rem))
+    );
     margin-inline: auto;
     display: grid;
     grid-template-columns: auto 1fr;
@@ -111,6 +114,7 @@
 }
 
 .l-header.fade {
+  /* 追従切り替えのアニメーション */
   position: fixed;
   inset-block-start: 0;
   inset-inline-start: 0;
@@ -119,12 +123,6 @@
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
-
-
-// .l-header.fade.is-scrollLock {
-//   overflow: auto;
-//   scrollbar-gutter: stable;
-// }
 
 @keyframes fadeIn {
   from {
@@ -135,16 +133,22 @@
   }
 }
 
-
-/* lower-header
---------------------------- */
-.l-lower-header {
+.l-header:has(.l-header__menu-button.lower) {
+  /* Change background color of lower page header. */
   background-color: var(--color-white-1);
-  // margin-block-end: revert;
-  & .l-header__menu-button {
-    color: var(--color-black);
-  }
+}
+
+.l-header__menu-button.lower {
+  /* Change background colour of the menu button in the header of the lower page. */
+  color: var(--color-black);
   & .l-header__menu-bar {
     background-color: var(--color-black);
   }
+}
+
+.l-header.fixed {
+  /* Change position style on single page (excluding custom post) and entry and entry-thank page. */
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
 }

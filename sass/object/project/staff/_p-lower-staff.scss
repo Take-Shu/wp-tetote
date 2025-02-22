@@ -1,9 +1,10 @@
-/* p-lower-staff
---------------------------- */
+/* ------------------------------------------------------
+// Staffページ
+*/
 .p-lower-staff {
   --container-size: 986;
   --padding-block-start-max: 130;
-  --padding-block-end-max: 139;
+  --padding-block-end-max: 134;
   inline-size: min(
     calc(var(--container-size) * var(--rem)),
     calc(100% - var(--spacing-gutter) * 2)
@@ -22,7 +23,7 @@
   &__list {
     --item-size-max: 300;
     --column-gap-max: 43;
-    --row-gap-max: 48;
+    --row-gap-max: 43;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(
         min(

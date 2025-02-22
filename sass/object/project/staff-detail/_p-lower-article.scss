@@ -1,6 +1,8 @@
-/* p-lower-article
---------------------------- */
+/* ------------------------------------------------------
+// Staff detailページ
+*/
 .p-lower-staff-detail {
+  /* staff profile */
   &__article {
     --padding-block-max: 43;
     background-color: var(--color-white-2);
@@ -38,14 +40,13 @@
     }
   }
   &__title {
-    --row-gap: 18;
+    --row-gap: 9;
+    --margin-block-start-max: 26;
     display: grid;
-    row-gap: clamp(
-      var(--spacing-2),
-      calc(var(--row-gap) * var(--ratio-dvi-max)),
-      calc(var(--row-gap) * var(--rem))
-    );
+    row-gap: calc(var(--row-gap) * var(--rem));
+    margin-block-start: calc(var(--margin-block-start-max) * var(--rem));
     @container lower-article (max-width: 699px) {
+      --margin-block-start: 0;
       --row-gap: 16;
       order: 2;
       margin-block-start: var(--spacing-2);
@@ -53,7 +54,7 @@
     }
   }
   &__title_large {
-    --font-size-max: var(--fz-xl-1);
+    --font-size-max: var(--fz-xl-2);
     --font-size-min: var(--fz-lg-3);
     --padding-inline-max: 10;
     font-size: clamp(
@@ -90,8 +91,6 @@
   &__occupation {
     --font-size-max: var(--fz-sm-3);
     --font-size-min: var(--fz-sm-2);
-    --margin-block-start-max: 30;
-    --margin-block-start-min: 24;
     font-size: clamp(
       calc(var(--font-size-min) * var(--rem)),
       calc(var(--font-size-max) * var(--ratio-dvi-max)),
@@ -99,17 +98,13 @@
     );
     color: var(--color-main);
     font-weight: var(--ft-wt-bold);
-    margin-block-start: clamp(
-      calc(var(--margin-block-start-min) * var(--rem)),
-      calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
-      calc(var(--margin-block-start-max) * var(--rem))
-    );
+    margin-block-start: var(--spacing-3);
     @container lower-article (max-width: 699px) {
       order: 3;
     }
   }
   &__name-date-wrap {
-    margin-block-start: calc(12 * var(--rem) + var(--leading-trim));
+    margin-block-start: calc(7 * var(--rem) + var(--leading-trim));
     @container lower-article (max-width: 699px) {
       order: 4;
     }
@@ -123,7 +118,6 @@
       calc(var(--font-size-max) * var(--rem))
     );
     font-weight: var(--ft-wt-bold);
-    // margin-block: calc(12 * var(--rem));
     display: inline-block;
   }
   &__date {
@@ -150,7 +144,7 @@
       order: 6;
     }
   }
-  &__img {
+  &__contents img {
     --img-width-max: 286;
     aspect-ratio: var(--img-width-max) / 368;
     max-inline-size: calc(var(--img-width-max) * var(--rem));

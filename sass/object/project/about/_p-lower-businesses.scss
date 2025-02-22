@@ -1,6 +1,8 @@
-/* p-lower-businesses
---------------------------- */
+/* ------------------------------------------------------
+// About-usページ
+*/
 .p-lower-businesses {
+  /* 事業紹介 */
   --padding-block-start-max: 111;
   --padding-block-start-min: 32;
   inline-size: min(
@@ -85,8 +87,9 @@
     }
   }
   &__card-content {
-    --row-gap-max: 30;
+    --row-gap-max: 33;
     --row-gap-min: 16;
+    --padding-block-max: 22;
     display: grid;
     grid-template-rows: auto 1fr;
     order: 2;
@@ -96,8 +99,11 @@
       calc(var(--row-gap-max) * var(--rem))
     );
     align-self: center;
+    block-size: 100%;
     padding-inline-start: 0;
+    padding-block: calc(var(--padding-block-max) * var(--rem));
     @container lower-businesses (max-width: 699px) {
+      
       padding: 0;
     }
   }
@@ -111,6 +117,7 @@
     );
     color: var(--color-main);
     font-weight: var(--ft-wt-bold);
+    margin-block: var(--leading-trim);
   }
   &__card-img {
     --img-size-max: 457;

@@ -35,11 +35,11 @@ const swiperEmployee = new Swiper(".p-employee__slide", {
     prevEl: ".p-employee__slide-button_prev",
   },
   breakpoints: {
-    768: {
+    769: {
       speed: 600,
       slidesPerView: 3.62,
       spaceBetween: 43,
-      autoplay: false,
+      // autoplay: false,
     },
   },
 });

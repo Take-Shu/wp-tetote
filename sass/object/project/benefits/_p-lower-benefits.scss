@@ -1,5 +1,6 @@
-/* BENEFITS-page
---------------------------- */
+/* ------------------------------------------------------
+// Benefits page
+*/
 .p-lower-benefits {
   --padding-block-start-max: 146;
   --padding-block-start-min: var(--spacing-5);
@@ -25,7 +26,7 @@
 
 .p-lower-benefits-systems {
   &__table {
-    --margin-block-start-max: 113;
+    --margin-block-start-max: 112;
     --margin-block-start-min: var(--spacing-5);
     margin-block-start: clamp(
       var(--margin-block-start-min),
@@ -65,7 +66,7 @@
         calc(var(--column-gap-max) * var(--ratio-dvi-max)),
         calc(var(--column-gap-max) * var(--rem))
       );
-      border-bottom: dotted 1px var(--color-black);
+      border-bottom: dashed 1px var(--color-black);
     }
     th {
       font-weight: var(--ft-wt-bold);
@@ -146,14 +147,14 @@
       calc(var(--margin-block-start-max) * var(--ratio-dvi-max)),
       calc(var(--margin-block-start-max) * var(--rem))
     );
-  }
-  &__img {
-    --inline-size-max: 980;
-    --block-size-max: 560;
-    inline-size: min(
-      calc(var(--inline-size-max)  * var(--rem)),
-      100%
-    );
-    aspect-ratio: var(--inline-size-max) / var(--block-size-max);
+    & img {
+      --inline-size-max: 980;
+      --block-size-max: 560;
+      inline-size: min(
+        calc(var(--inline-size-max)  * var(--rem)),
+        100%
+      );
+      aspect-ratio: var(--inline-size-max) / var(--block-size-max);
+    }
   }
 }

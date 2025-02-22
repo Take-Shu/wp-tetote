@@ -1,17 +1,16 @@
-/* button
------------------------------------- */
-/* view-more
------------------------------------- */
+/* ------------------------------------------------------
+// Component
+*/
 .c-button__view-more {
+  /* Button view-more */
   --element-size-inline-max: 355;
   --element-size-inline-min: 277;
   --element-size-block-max: 80;
   --element-size-block-min: 62;
-  --inside-space-inline-max: 20;
-  --inside-space-inline-min: 17;
+  --padding-inline-max: 27;
+  --padding-inline-min: 21;
   font-family: var(--ft-fml-2);
   font-size: clamp(1rem, calc(0.912rem + 0.376vw), 1.25rem);
-  line-height: normal;
   display: inline grid;
   grid-template-columns: 1fr auto 1fr;
   column-gap: calc(8 * var(--rem));
@@ -27,20 +26,36 @@
     calc(var(--element-size-block-max) * var(--rem))
   );
   padding-inline: clamp(
-    calc(var(--inside-space-inline-min) * var(--rem)),
-    calc(var(--inside-space-inline-min) * var(--ratio-dvi-min)),
-    calc(var(--inside-space-inline-max) * var(--rem))
+    calc(var(--padding-inline-min) * var(--rem)),
+    calc(var(--padding-inline-min) * var(--ratio-dvi-min)),
+    calc(var(--padding-inline-max) * var(--rem))
   );
   border: solid 1px var(--color-black);
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
   &::after {
+    --icon-size-max: 15;
+    --icon-size-min: 11;
+    --icon-border-size-max: 4;
+    --icon-border-size-min: 2;
     content: "";
     justify-self: end;
-    inline-size: calc(7 * var(--rem));
+    inline-size: clamp(
+      calc(var(--icon-size-min) * var(--rem)),
+      calc(var(--icon-size-min) * var(--ratio-dvi-min)),
+      calc(var(--icon-size-max) * var(--rem))
+    );
     aspect-ratio: 1;
-    border-block-start: 2px solid var(--color-black);
-    border-inline-end: 2px solid var(--color-black);
+    border-block-start: clamp(
+      calc(var(--icon-border-size-min) * var(--rem)),
+      calc(var(--icon-border-size-min) * var(--ratio-dvi-max)),
+      calc(var(--icon-border-size-max) * var(--rem))
+    ) solid var(--color-black);
+    border-inline-end: clamp(
+      calc(var(--icon-border-size-min) * var(--rem)),
+      calc(var(--icon-border-size-min) * var(--ratio-dvi-max)),
+      calc(var(--icon-border-size-max) * var(--rem))
+    ) solid var(--color-black);
     transform: rotate(45deg);
     transition: border 0.3s;
   }
@@ -48,21 +63,27 @@
     content: "";
   }
   @media (any-hover: hover) {
-    &:hover {
+    &:any-link:hover {
       color: var(--color-white-1);
       background-color: var(--color-black);
       &::after {
-        border-block-start: 2px solid var(--color-white-1);
-        border-inline-end: 2px solid var(--color-white-1);
+        border-block-start: clamp(
+          calc(var(--icon-border-size-min) * var(--rem)),
+          calc(var(--icon-border-size-min) * var(--ratio-dvi-max)),
+          calc(var(--icon-border-size-max) * var(--rem))
+        ) solid var(--color-white-1);
+        border-inline-end: clamp(
+          calc(var(--icon-border-size-min) * var(--rem)),
+          calc(var(--icon-border-size-min) * var(--ratio-dvi-max)),
+          calc(var(--icon-border-size-max) * var(--rem))
+        ) solid var(--color-white-1);
       }
     }
   }
 }
 
-
-/* circle
------------------------------------- */
 .c-button__circle {
+   /* Button circle */
   --circle-button-width: 58;
   display: inline grid;
   grid-template-columns: auto auto;
@@ -100,10 +121,8 @@
   }
 }
 
-
-/* circle-right
------------------------------------- */
 .c-button__circle-right {
+  /* Button circle-right */
   scale: -1 1;
   @media (any-hover: hover) {
     &:hover {
@@ -112,10 +131,8 @@
   }
 }
 
-
-/* circle-black
------------------------------------- */
 .c-button__circle_black {
+  /* Button circle-black */
   background-color: var(--color-black);
   &::after {
     background-color: var(--color-white-1);
@@ -126,22 +143,17 @@
   }
 }
 
-
-/* circle-sm
------------------------------------- */
 .c-button__circle_sm {
+  /* Button circle-sm */
   --circle-button-width: 42;
   inline-size: calc(var(--circle-button-width) * var(--rem));
 }
 
-
-/* entry
------------------------------------- */
 .c-button__entry {
-  --inside-space-block-max: 27;
-  --inside-space-block-min: 20;
-  --inside-space-inline-max: 27;
-  --inside-space-inline-min: 19;
+  /* Button entry */
+  --padding-block-max: 24;
+  --padding-block-min: 15;
+  --padding-inline: 26;
   font-family: var(--ft-fml-2);
   font-size: clamp(0.875rem, calc(0.831rem + 0.188vw), 1rem);
   color: var(--color-black);
@@ -151,15 +163,11 @@
   align-items: center;
   transition: background-color 0.3s, color 0.3s;
   padding-block: clamp(
-    calc(var(--inside-space-block-min) * var(--rem)),
-    calc(var(--inside-space-block-min) * var(--ratio-dvi-min)),
-    calc(var(--inside-space-block-max) * var(--rem))
+    calc(var(--padding-block-min) * var(--rem)),
+    calc(var(--padding-block-min) * var(--ratio-dvi-min)),
+    calc(var(--padding-block-max) * var(--rem))
   );
-  padding-inline: clamp(
-    calc(var(--inside-space-inline-min) * var(--rem)),
-    calc(var(--inside-space-inline-min) * var(--ratio-dvi-min)),
-    calc(var(--inside-space-inline-max) * var(--rem))
-  );
+  padding-inline: calc(var(--padding-inline) * var(--rem));
   background-color: var(--color-sub);
   &::after {
     content: "";
@@ -175,7 +183,7 @@
     content: "";
   }
   @media (any-hover: hover) {
-    &:hover {
+    &:any-link:hover {
       color: var(--color-white-1);
       background-color: var(--color-black);
       &::after {
@@ -186,10 +194,8 @@
   }
 }
 
-
-/* 募集事項　・　ENTRY
------------------------------------- */
 .c-cta__button {
+  /* Button 募集事項 entry共通 */
   font-size: calc(var(--fz-sm-3) * var(--rem));
   color: var(--color-white-1);
   display: inline-block;
@@ -199,12 +205,13 @@
 }
 
 .c-cta__button_recruiting {
+  /* Button 募集事項 */
   background-color: var(--color-black);
   transition: background-color 0.3s,
   color 0.3s,
   border 0.3s;
   @media (any-hover: hover) {
-    &:hover {
+    &:any-link:hover {
       color: var(--color-black);
       background-color: var(--color-white-1);
       border: solid 1px var(--color-black);
@@ -213,20 +220,19 @@
 }
 
 .c-cta__button_entry {
+  /* Button CTA */
   font-family: var(--ft-fml-2);
   background-color: var(--color-sub);
   transition: background-color 0.3s;
   @media (any-hover: hover) {
-    &:hover {
+    &:any-link:hover {
       background-color: var(--color-main);
     } 
   }
 }
 
-
-/* oblong-button
------------------------------------- */
 .c-oblong-button {
+  /* Oblong button */
   --font-size-max: var(--fz-lg-1);
   --font-size-min: var(--fz-md);
   --padding-max: 18;
@@ -251,9 +257,11 @@
     &:hover {
       color: var(--color-white-1);
       background-color: var(--color-black);
-      & :where(span) {
-        background-color: var(--color-white-1);
+      & :where(.c-oblong-button-arrow) {
         &::before, &::after {
+          background-color: var(--color-white-1);
+        }
+        .c-oblong-button-bar {
           background-color: var(--color-white-1);
         }
       }
@@ -261,34 +269,65 @@
   }
 }
 
-.c-oblong-button :where(span) {
-  margin-inline-start: 1em;
-  margin-inline-end: -1em;
-  display: inline-block;
-  block-size: 1em;
-  inline-size: 2px;
-  background-color: var(--color-black);
+.c-oblong-button-arrow {
+  /* Oblong button arrow */
+  display: inline grid;
+  justify-items: center;
+  inline-size: 1em;
+  aspect-ratio: 1;
   position: relative;
   transition: background-color 0.3s;
+  margin-inline-start: 0.5em;
+  margin-inline-end: calc((1em + 0.5em) * -1);
+  background-color: transparent;
   &::before, &::after {
     content: "";
+    position: absolute;
     display: inline-block;
-    inline-size: 0.5em;
-    block-size: 2px;
+    block-size: 0.5em;
+    inline-size: 2px;
     background-color: var(--color-black);
     border-radius: 0.1em;
-    position: absolute;
-    inset-block-end: 0;
+    align-self: end;
     transition: background-color 0.3s;
   }
   &::before {
     rotate: 45deg;
-    inset-inline-end: 0;
-    translate: 5% -100%;
+    translate: 140% 25%;
   }
   &::after {
     rotate: -45deg;
-    inset-inline-start: 0;
-    translate: -5% -100%;
+    translate: -140% 25%;
+  }
+  .c-oblong-button-bar {
+    // margin-inline-start: 1em;
+    // margin-inline-end: -1em;
+    display: inline-block;
+    block-size: 1em;
+    inline-size: 2px;
+    background-color: var(--color-black);
+    // position: relative;
+    transition: background-color 0.3s;
+    // &::before, &::after {
+    //   content: "";
+    //   display: inline-block;
+    //   inline-size: 0.5em;
+    //   block-size: 2px;
+    //   background-color: var(--color-black);
+    //   border-radius: 0.1em;
+    //   position: absolute;
+    //   // inset-block-end: 0;
+    //   transition: background-color 0.3s;
+    // }
+    // &::before {
+    //   rotate: 45deg;
+    //   inset-inline-end: 0;
+    //   translate: 5% -100%;
+    // }
+    // &::after {
+    //   rotate: -45deg;
+    //   inset-inline-start: 0;
+    //   translate: -5% -100%;
+    // }
   }
 }

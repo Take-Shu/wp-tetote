@@ -11,8 +11,9 @@ const nodeOps = {
 };
 
 
-/* drawer
-/* -------------------------------- */
+/* ------------------------------------------------------
+// Drawer
+*/
 const ModalOpenButtons = nodeOps.qsAll(".js-modal-open-button");
 const ModalCloseButtons = nodeOps.qsAll(".js-modal-close-button");
 let currentModal = null;
@@ -73,6 +74,9 @@ ModalCloseButtons.forEach((closeButton) => {
 
 /* drawer表示切り替え(pcとsp)
 /* -------------------------------- */
+/* ------------------------------------------------------
+// Drawer表示切り替え(Pc　| Sp)
+*/
 const drawerOpenButton = nodeOps.qs(".l-header__menu-button");
 const BREAKPOINT = 1052;
 
@@ -95,8 +99,9 @@ window.addEventListener("resize", () => {
 });
 
 
-/* ヘッダーの表示切り替え
-/* -------------------------------- */
+/* ------------------------------------------------------
+// Headerの追従切り替え
+*/
 const fvSection = nodeOps.qs(".p-fv");
 const header = nodeOps.qs(".js-header");
 const menuButton = nodeOps.qs(".js-modal-open-button");
@@ -111,16 +116,13 @@ const fvObserver = new IntersectionObserver(
         header.style.backgroundColor = "var(--color-white-1)";
         menuButton.style.color = "var(--color-black)";
         menuIconBar.style.backgroundColor = "var(--color-black)";
-        logoImage.setAttribute("src", "/assets/img/commonness/logo_black.svg");
+        logoImage.setAttribute("src", logoImage.dataset.blackLogo);
       } else {
         header.classList.remove("fade");
         header.style.backgroundColor = "";
         menuButton.style.color = "";
         menuIconBar.style.backgroundColor = "";
-        logoImage.setAttribute(
-          "src",
-          "/assets/img/commonness/logo_white_sp.svg"
-        );
+        logoImage.setAttribute("src", logoImage.dataset.whiteLogo);
       }
     });
   },
@@ -131,3 +133,21 @@ const fvObserver = new IntersectionObserver(
 );
 
 fvObserver.observe(fvSection);
+
+
+// /* ------------------------------------------------------
+// // Navigation underline.
+// */
+// const underline = nodeOps.getById("js-underline");
+// const navigationItems = nodeOps.qsAll(".l-footer__nav-item");
+
+// navigationItems.forEach(item => {
+//   item.addEventListener('mouseenter', function() {
+//     underline.style.inlineSize = `${this.offsetWidth}px`;
+//     underline.style.insetInlineStart = `${this.offsetLeft}px`;
+//   });
+
+//   item.addEventListener('mouseleave', function() {
+//     underline.style.inlineSize = '0';
+//   });
+// });

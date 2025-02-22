@@ -1,7 +1,6 @@
-@use "./../foundation/function" as *;
-
-/* footer
---------------------------- */
+/* ------------------------------------------------------
+// Footer
+*/
 .l-footer {
   container: footer / inline-size;
   @media (min-width: 1157px) {
@@ -27,7 +26,7 @@
     max-inline-size: calc(956 * var(--rem));
     margin-inline: auto;
     @container footer (min-width: 1052px) {
-      --inside-space-block-start: 198;
+      --inside-space-block-start: 205;
       display: grid;
       grid-template-columns: auto 1fr;
       gap: calc(108 * var(--rem));
@@ -63,6 +62,22 @@
   }
   &__nav-item {
     margin-block: var(--leading-trim);
+    position: relative;
+    &::before {
+      position: absolute;
+      inset-block-end: 0;
+      inset-inline-start: 0;
+      content: "";
+      inline-size: 100%;
+      block-size: 2px;
+      background-color: transparent;
+      transition: background-color 0.3s ease;
+    }
+    @media (any-hover: hover) {
+      &:hover::before {
+      background-color: oklch(from var(--color-main) calc(l - 0.2) c h);
+      }
+    }
   }
   &__sns {
     --outside-space-block-start-max: 61;
@@ -85,6 +100,31 @@
   }
   &__sns-item {
     display: grid;
+  }
+  &__sns-item a {
+    position: relative;
+    z-index: var(--z-index-base);
+    &::after {
+      --size: calc(48 * var(--rem));
+      position: absolute;
+      z-index: var(--z-index-negative-layer);
+      content: "";
+      inline-size: var(--size);
+      aspect-ratio: 1;
+      background-color: oklch(90% 0 0deg);
+      border-radius: 4px;
+      inset-inline-start: 50%;
+      inset-block-start: 50%;
+      translate: -50% -50%;
+      transition: opacity 0.3s ease;
+      opacity: 0;
+      cursor: pointer;
+    }
+    @media (any-hover: hover) {
+      &:hover::after {
+        opacity: 1;
+      }
+    }
   }
   &__sns-icon {
     inline-size: calc(24 * var(--rem));
@@ -113,8 +153,9 @@
     font-family: var(--ft-fml-2);
     font-size: calc(var(--fz-sm-2) * var(--rem));
     color: var(--color-grey-1);
-    @container footer (min-width: 105px) {
+    @container footer (min-width: 1052px) {
       align-self: end;
+      justify-self: start;
     }
   }
 }

@@ -1,5 +1,6 @@
-/* CAREER
---------------------------- */
+/* ------------------------------------------------------
+// Career page
+*/
 .p-lower-career {
   --padding-block-start-max: 146;
   --padding-block-start-min: var(--spacing-5);
@@ -87,7 +88,7 @@
     --font-size-min: var(--fz-lg-1);
     --padding-block-max: 12;
     --padding-inline-max: 21;
-    --margin-block-start-max: 37;
+    --margin-block-start-max: 44;
     font-size: clamp(
       calc(var(--font-size-min) * var(--rem)),
       calc(var(--font-size-max) * var(--ratio-dvi-max)),
@@ -103,7 +104,7 @@
   }
   &__description:not(.p-lower-career-training__description + .p-lower-career-training__description) {
     --font-size-max: var(--fz-base);
-    --margin-block-start-max: 50;
+    --margin-block-start-max: 55;
     margin-block-start: calc(var(--margin-block-start-max) * 1em / var(--font-size-max));
   }
 }

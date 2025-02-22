@@ -1,6 +1,8 @@
-/* staff
---------------------------- */
+/* ------------------------------------------------------
+// Component
+*/
 .c-staff {
+  /* Staff */
   &__article {
     display: contents;
   }
@@ -12,7 +14,13 @@
   }
   &__link {
     display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
     row-gap: calc(30 * var(--rem));
+    &:hover :where(img) {
+      scale: var(--is-hover-true, 1.1);
+      transition: scale 0.3s var(--ease-out-expo);
+    }
   }
   &__name {
     --margin-block-start-max: -20;
@@ -23,13 +31,15 @@
     margin-block-end: var(--leading-trim);
   }
   &__data {
+    --gap-max: 13;
+    --gap-min: 10;
     order: 2;
     font-weight: var(--ft-wt-bold);
     font-size: calc(var(--fz-base) * var(--rem));
     display: flex;
     flex-wrap: wrap;
     justify-items: start;
-    gap: calc(9 * var(--rem));
+    gap: clamp(10px, -0.2817vw + 14.0563px, 13px);
   }
   &__date {
     flex-shrink: 1;
@@ -42,21 +52,18 @@
   &__message {
     --font-size-max: var(--fz-lg-1);
     --font-size-min: var(--fz-base);
-    --padding-block: calc(((1lh - 1em) / 2) / 2);
+    --gap-max: 6;
+    display: grid;
+    gap: calc(var(--gap-max) * var(--rem));
     font-weight: var(--ft-wt-bold);
-    font-size: clamp(
-      calc(var(--font-size-min) * var(--rem)),
-      calc(var(--font-size-max) * var(--ratio-dvi-max)),
-      calc(var(--font-size-max) * var(--rem))
-    );
+    font-size: calc(var(--font-size-max) * var(--rem));
     position: absolute;
-    bottom: -6%;
-    z-index: var(--z-index-base);
+    bottom: -4%;
+    z-index: var(--z-index-1);
     &  span {
       background-color: var(--color-sub);
       padding-inline: calc(7 * var(--rem));
       box-decoration-break: clone;
-      padding-block: var(--padding-block);
     }
     & div + div {
       margin-block-start: calc(6 * var(--rem) + var(--padding-block));
@@ -65,12 +72,13 @@
   &__img-wrap {
     overflow: hidden;
     border-radius: 30px;
+    display: grid;
   }
-  &__img {
+  &__img-wrap img {
     --img-width-max: 300;
     --img-height-max: 379;
     order: 1;
-    inline-size: calc(var(--img-width-max) * var(--rem));
+    max-inline-size: calc(var(--img-width-max) * var(--rem));
     aspect-ratio: var(--img-width-max) / var(--img-height-max);
   }
 }

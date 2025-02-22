@@ -1,8 +1,8 @@
-@use "./../../foundation/function" as *;
-
-/* c-location
---------------------------- */
+/* ------------------------------------------------------
+// Component
+*/
 .c-lower-location {
+  /* Location */
   inline-size: stretch;
   padding-block: calc(17 * var(--rem));
   background-color: var(--color-white-3);
@@ -20,5 +20,23 @@
     display: inline-block;
     padding-inline: calc(5 * var(--rem));
     font-size: calc(12 * var(--rem));
+  }
+  & a {
+    position: relative;
+    &::before {
+      position: absolute;
+      inset-block-end: 0;
+      inset-inline-start: 0;
+      content: "";
+      inline-size: 100%;
+      block-size: 1px;
+      background-color: transparent;
+      transition: background-color 0.3s ease;
+    }
+    @media (any-hover: hover) {
+      &:hover::before {
+      background-color: oklch(from var(--color-main) calc(l - 0.2) c h);
+      }
+    }
   }
 }
