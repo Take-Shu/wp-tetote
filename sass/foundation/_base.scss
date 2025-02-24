@@ -120,3 +120,8 @@ img {
   // max-inline-size: 100%;
   object-fit: cover;
 }
+
+.grecaptcha-badge {
+  /* reCAPTCHAバッチ */
+  z-index: var(--z-index-top-layer);
+}

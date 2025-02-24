@@ -33,8 +33,8 @@
         </div>
         <div class="l-header__contents">
           <div class="l-header__cta">
-            <a href="/details" class="l-header__recruiting-link c-cta__button c-cta__button_recruiting">募集要項</a>
-            <a href="/entry" class="l-header__entry-link c-cta__button c-cta__button_entry">ENTRY</a>
+            <a href="<?php echo esc_url(home_url()); ?>/details" class="l-header__recruiting-link c-cta__button c-cta__button_recruiting">募集要項</a>
+            <a href="<?php echo esc_url(home_url()); ?>/entry" class="l-header__entry-link c-cta__button c-cta__button_entry">ENTRY</a>
           </div>
           <?php if (is_front_page()): ?>
             <button type="button" class="l-header__menu-button js-modal-open-button" data-modal-open="drawer"

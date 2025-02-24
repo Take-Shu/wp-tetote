@@ -135,19 +135,27 @@ const fvObserver = new IntersectionObserver(
 fvObserver.observe(fvSection);
 
 
-// /* ------------------------------------------------------
-// // Navigation underline.
-// */
-// const underline = nodeOps.getById("js-underline");
-// const navigationItems = nodeOps.qsAll(".l-footer__nav-item");
+/* ------------------------------------------------------
+// 360px未満のViewport固定
+*/
+!(function () {
+  const viewport = nodeOps.qs('meta[name="viewport"]');
+  function switchViewport() {
+    const value = 
+      window.outerWidth > 360
+        ? "width=device-width,initial-scale=1"
+        : "width=360";
+    if (viewport.getAttribute('content') !== value) {
+      viewport.setAttribute('content', value);
+    }
+  }
+  let resizeTimer;
+  addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      switchViewport()
+    }, 100);
+  }, false);
 
-// navigationItems.forEach(item => {
-//   item.addEventListener('mouseenter', function() {
-//     underline.style.inlineSize = `${this.offsetWidth}px`;
-//     underline.style.insetInlineStart = `${this.offsetLeft}px`;
-//   });
-
-//   item.addEventListener('mouseleave', function() {
-//     underline.style.inlineSize = '0';
-//   });
-// });
+  switchViewport();
+})();

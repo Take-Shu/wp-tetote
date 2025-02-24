@@ -11,7 +11,7 @@ const nodeOps = {
 };
 
 /* ------------------------------------------------------
-// drawer
+// Drawer
 */
 const ModalOpenButtons = nodeOps.qsAll(".js-modal-open-button");
 const ModalCloseButtons = nodeOps.qsAll(".js-modal-close-button");
@@ -70,8 +70,9 @@ ModalCloseButtons.forEach((closeButton) => {
   closeButton.addEventListener("click", handleModalClose);
 });
 
+
 /* ------------------------------------------------------
-// drawer表示切り替え(pcとsp)
+// Drawer表示切り替え(pcとsp)
 */
 const drawerOpenButton = nodeOps.qs(".l-header__menu-button");
 const BREAKPOINT = 1052;
@@ -94,8 +95,9 @@ window.addEventListener("resize", () => {
   }, 100);
 });
 
+
 /* ------------------------------------------------------
-// headerの追従切り替え
+// Headerの追従切り替え
 */
 const observerTarget = nodeOps.qs(".js-observer-target");
 const header = nodeOps.qs(".js-header");
@@ -121,7 +123,7 @@ if (observerTarget) {
 }
 
 /* ------------------------------------------------------
-// STAFF　ページ
+// Staff　page
 */
 /* ------------------------------------------------------
 // sidebarのアクティブ表示
@@ -223,8 +225,9 @@ const handleResize = () => {
 window.addEventListener("resize", handleResize);
 handleResize();
 
+
 /* ------------------------------------------------------
-// DETAILS | FAQ ページ 
+// Details | Faq page 
 */
 /* ------------------------------------------------------
 // スムーススクロール
@@ -251,7 +254,7 @@ occupationLinks.forEach((occupationLink) => {
 });
 
 /* ------------------------------------------------------
-// FAQ ページ 
+// Faq page
 */
 /* ------------------------------------------------------
 // アコーディオン
@@ -400,8 +403,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
 /* ------------------------------------------------------
-// ENTRY ページ
+// Entry ページ
 */
 document.addEventListener("DOMContentLoaded", function () {
   // フォームを取得
@@ -413,7 +417,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!submitButton) return;
 
   const formControlWraps = nodeOps.qsAll(".wpcf7-form-control-wrap", form);
-
 
   // 通常の必須項目(テキスト、メール、テキストエリアなど)をチェック
   function checkRequiredFields() {
@@ -427,7 +430,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return isValid;
   }
-
 
   // ラジオボタングループをチェック
   function checkRequiredRadio() {
@@ -447,7 +449,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return isValid;
   }
-
 
   // 個人情報保護のチェック
   function checkRequiredPrivacy() {
@@ -487,3 +488,29 @@ document.addEventListener("DOMContentLoaded", function () {
   // 初期チェック
   updateSubmitButton();
 });
+
+
+/* ------------------------------------------------------
+// 360px未満のViewport固定
+*/
+!(function () {
+  const viewport = nodeOps.qs('meta[name="viewport"]');
+  function switchViewport() {
+    const value = 
+      window.outerWidth > 360
+        ? "width=device-width,initial-scale=1"
+        : "width=360";
+    if (viewport.getAttribute('content') !== value) {
+      viewport.setAttribute('content', value);
+    }
+  }
+  let resizeTimer;
+  addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      switchViewport()
+    }, 100);
+  }, false);
+
+  switchViewport();
+})();
