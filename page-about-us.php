@@ -12,14 +12,7 @@
       </div>
     </div>
 
-    <div class="c-lower-location">
-      <div class="c-lower-location__container">
-        <div class="breadcrumb">
-          <span><a href="/">TOP</a></span>
-          <span><a href="/about-us" aria-current="location">ABOUT US</a></span>
-        </div>
-      </div>
-    </div>
+    <?php get_template_part('parts', 'location'); ?>
 
     <section class="p-lower-important">
       <h2 class="p-lower-important__title c-lower-section-title">私達が大切にしていること</h2>

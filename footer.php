@@ -52,7 +52,7 @@
     <div class="p-drawer__logo">
       <a href="<?php echo esc_url(home_url()); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/logo_black.svg" width="151" height="40" loading="lazy" alt="採用特設サイト | 株式会社TETOTE" class="p-drawer__logo-img"></a>
     </div>
-    <button class="p-drawer__close-button js-modal-close-button" aria-labelledby="drawer-close-button" aria-haspopup="false">
+    <button type="button" class="p-drawer__close-button js-modal-close-button" aria-labelledby="drawer-close-button" aria-haspopup="false">
       <span id="drawer-close-button" style="display: none;">メニューを閉じる</span>
     </button>
   </div>
@@ -115,7 +115,7 @@
       <a href="<?php echo esc_url(home_url()); ?>/entry"
         class="p-drawer__entry-link p-drawer-pc__entry-link c-cta__button c-cta__button_entry" aria-label="エントリーフォームへ">ENTRY</a>
     </div>
-    <button class="p-drawer__close-button p-drawer-pc__close-button js-modal-close-button"
+    <button type="button" class="p-drawer__close-button p-drawer-pc__close-button js-modal-close-button"
       aria-labelledby="drawer-close-button" aria-haspopup="false">
       <span id="drawer-close-button" style="display: none;">メニューを閉じる</span>
     </button>

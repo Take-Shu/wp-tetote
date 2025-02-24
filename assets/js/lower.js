@@ -52,10 +52,10 @@ const handleModalClose = () => {
   );
 };
 
-// モーダルを閉じる(Escapeキーが押下された時)
+モーダルを閉じる(Escapeキーが押下された時)
 const handleModalCloseKeydown = (e) => {
-  e.preventDefault();
   if (e.key === "Escape") {
+    e.preventDefault();
     handleModalClose();
   }
 };
@@ -146,7 +146,7 @@ const handleResize = () => {
     if (isVisible) {
       // サイドバーの項目をクリックした時の処理
       sidebarItems.forEach((item) => {
-        item.addEventListener("click", accordionHandleClick);
+        item.addEventListener("click", handleClick);
       });
 
       // 最初のセクションタイトル用の設定(articleセクションが監視対象)
@@ -366,7 +366,7 @@ const accordionHandleClick = (e, details, panel, options, detailsName) => {
   e.preventDefault();
 
   // アニメーション中であれば早期リターン
-  if (isAnimating) return;
+  if (isAnimating || !details) return;
 
   toggleAccordion(details, panel, options, detailsName, !details.open);
 
